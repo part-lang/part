@@ -4,22 +4,33 @@ Build with Zephir
 
 ### Example Hello World
 ```php
-write 'Hello world'
+print 'Hello world'
 ```
+Output : Hello World
 
 ### Example Variable
 
 ```php
 var text = 'Hello World'
-write main.text
+print string.text
 ```
+Output : Hello World
+
+### Example variable with strlen
+```php
+var text = 'Hello World'
+print strlen.text
+```
+Output : 11
 
 ### Example mathematic
 ```php
-write 1+1
+print 1+1
 ```
+Output : 2
 
 ### Example import static file
 ```php
 import 'hello.html'
 ```
+
