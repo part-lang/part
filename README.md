@@ -1,5 +1,6 @@
 ### Plang
 Based on Zend Engine 2/3
+Build with Zephir
 
 ### Example Hello World
 ```php
