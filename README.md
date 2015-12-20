@@ -23,6 +23,18 @@ print strlen.text
 ```
 Output : 11
 
+### Example IF
+
+```php
+var text = 'Hello World'
+if(strlen.text >= "5")
+print "Higher"
+else
+print "Low"
+end
+```
+Output : Higher
+
 ### Example mathematic
 ```php
 print 1+1
