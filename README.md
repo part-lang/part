@@ -11,14 +11,14 @@ Output : Hello World
 ### Example Variable
 
 ```php
-var text = 'Hello World'
+$text = 'Hello World'
 print string.text
 ```
 Output : Hello World
 
 ### Example variable with strlen
 ```php
-var text = 'Hello World'
+$text = 'Hello World'
 print strlen.text
 ```
 Output : 11
@@ -26,7 +26,7 @@ Output : 11
 ### Example IF
 
 ```php
-var text = 'Hello World'
+$text = 'Hello World'
 if(strlen.text >= "5")
 print "Higher"
 else
@@ -45,4 +45,24 @@ Output : 2
 ```php
 import 'hello.html'
 ```
+### Example function, import
+```php
+import 'header.html';
+$text = "Welcome";
+main(string.text);
+import 'footer.html';
 
+func main($hello)
+print string.hello;
+end
+```
+### Example for
+```php
+$cars = array("Volvo", "BMW", "Toyota");
+$arrlength = count($cars);
+
+for($x = 0; $x < $arrlength; $x++)
+    print string.cars[$x];
+    print "<br>";
+end
+```
