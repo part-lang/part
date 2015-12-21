@@ -6,21 +6,21 @@ Build with Zephir
 Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
 
 ### Example Hello World
-```php
+```ruby
 print 'Hello world'
 ```
 Output : Hello World
 
 ### Example Variable
 
-```php
+```ruby
 var text = 'Hello World'
 print var.text
 ```
 Output : Hello World
 
 ### Example variable with strlen
-```php
+```ruby
 var text = 'Hello World'
 print strlen.text
 ```
@@ -28,7 +28,7 @@ Output : 11
 
 ### Example IF
 
-```php
+```ruby
 var text = "Hello World"
 if var.text >= "5"
 print "Higher"
@@ -39,14 +39,14 @@ end
 Output : Higher
 
 ### Example mathematic
-```php
+```ruby
 print 1+1
 ```
 Output : 2
 
 ### Example fibonacci with function & for
 
-```php
+```ruby
 fibonacci("0", "1")
 
 def fibonacci(var x , var y)
@@ -78,7 +78,7 @@ Output :
 144
 
 ### Example Class
-```php
+```ruby
 class Hello
     public say = 'Null'
     def talk(var text)
@@ -93,11 +93,11 @@ print var.hello->say
 Output : Hello World
 
 ### Example import static file
-```php
+```ruby
 import 'hello.html'
 ```
 ### Example function, import
-```php
+```ruby
 import 'header.html'
 var text = "Welcome"
 main(var.text)
@@ -108,7 +108,7 @@ print var.hello
 end
 ```
 ### Example for
-```php
+```ruby
 var cars = array("Volvo", "BMW", "Toyota")
 var arrlength = count(var.cars)
 
@@ -117,3 +117,20 @@ for(var x = 0; var.x < var arrlength; var x++)
     print "<br>"
 end
 ```
+
+### Example http.get() , http.post(), http.request()
+```ruby
+print http.get("text")
+```
+GET : index.p?text=Hello World
+OUTPUT : Hello World
+
+```ruby
+print http.post("text")
+
+print '<form method="post">'
+print '<input type="text" name="text" value="Hello World">'
+print </form>'
+```
+POST : text: Hello World
+OUTPUT : Hello World
