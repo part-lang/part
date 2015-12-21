@@ -49,7 +49,7 @@ Output : 2
 ```php
 fibonacci("0", "1")
 
-func fibonacci(var x , var y)
+def fibonacci(var x , var y)
 var x = var x
 var y = var y
 
@@ -103,7 +103,7 @@ var text = "Welcome"
 main(var.text)
 import 'footer.html'
 
-func main(var hello)
+def main(var hello)
 print var.hello
 end
 ```

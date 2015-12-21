@@ -44,7 +44,7 @@ class Plang {
     let plang = preg_replace("/for\((.*)\)/", "for($1){", plang); // for()
     let plang = preg_replace("/foreach\((.*)\)/", "foreach($1){", plang); // foreach()
     let plang = preg_replace("/(.*)\((.*)\)/", ";$1($2)", plang); // func name()
-    let plang = preg_replace("/func (.*)/", ";function $1{", plang); // func name()
+    let plang = preg_replace("/def (.*)/", "function $1{", plang); // def name()
     let plang = preg_replace("/else/", "}else{", plang); // else
     let plang = preg_replace("/end/", "}", plang); // end
     let plang = preg_replace("/class (.*)/", "class $1 {", plang); // class

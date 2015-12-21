@@ -286,9 +286,9 @@ PHP_METHOD(Plang_Main_Plang, main_engine) {
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(plang, _17$$5);
 		ZEPHIR_INIT_NVAR(_7$$5);
-		ZVAL_STRING(_7$$5, "/func (.*)/", ZEPHIR_TEMP_PARAM_COPY);
+		ZVAL_STRING(_7$$5, "/def (.*)/", ZEPHIR_TEMP_PARAM_COPY);
 		ZEPHIR_INIT_NVAR(_16$$5);
-		ZVAL_STRING(_16$$5, ";function $1{", ZEPHIR_TEMP_PARAM_COPY);
+		ZVAL_STRING(_16$$5, "function $1{", ZEPHIR_TEMP_PARAM_COPY);
 		ZEPHIR_CALL_FUNCTION(&_17$$5, "preg_replace", &_18, 5, _7$$5, _16$$5, plang);
 		zephir_check_temp_parameter(_7$$5);
 		zephir_check_temp_parameter(_16$$5);
