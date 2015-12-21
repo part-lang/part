@@ -44,7 +44,7 @@ print 1+1
 ```
 Output : 2
 
-### Example fibonacci with function
+### Example fibonacci with function & for
 
 ```php
 fibonacci("0", "1")
@@ -76,6 +76,21 @@ Output :
 55
 89
 144
+
+### Example Class
+```php
+class Hello
+    public say = 'Null'
+    def talk(var text)
+    this->say = var.text
+    end
+end
+
+var hello = new Hello()
+print var.hello->talk("Hello World")
+print var.hello->say
+```
+Output : Hello World
 
 ### Example import static file
 ```php

@@ -47,6 +47,10 @@ class Plang {
     let plang = preg_replace("/func (.*)/", ";function $1{", plang); // func name()
     let plang = preg_replace("/else/", "}else{", plang); // else
     let plang = preg_replace("/end/", "}", plang); // end
+    let plang = preg_replace("/class (.*)/", "class $1 {", plang); // class
+    let plang = preg_replace("/def (.*)/", "function $1{", plang); // def name()
+    let plang = preg_replace("/public (.*) = (.*)/", "public $$1 = $2", plang); // public name = hello
+    let plang = preg_replace("/this->(.*)/", "$this->$1;", plang); // public name = hello
     eval(plang);
 	}else{
 	let plang = file_get_contents(location, true);
