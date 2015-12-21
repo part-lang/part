@@ -1,6 +1,9 @@
 ### Plang
 Based on Zend Engine 2/3
+
 Build with Zephir
+
+Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
 
 ### Example Hello World
 ```php
@@ -11,14 +14,14 @@ Output : Hello World
 ### Example Variable
 
 ```php
-$text = 'Hello World'
-print string.text
+var text = 'Hello World'
+print var.text
 ```
 Output : Hello World
 
 ### Example variable with strlen
 ```php
-$text = 'Hello World'
+var text = 'Hello World'
 print strlen.text
 ```
 Output : 11
@@ -26,8 +29,8 @@ Output : 11
 ### Example IF
 
 ```php
-$text = 'Hello World'
-if(strlen.text >= "5")
+var text = "Hello World"
+if var.text >= "5"
 print "Higher"
 else
 print "Low"
@@ -41,28 +44,61 @@ print 1+1
 ```
 Output : 2
 
+### Example fibonacci with function
+
+```php
+fibonacci("0", "1")
+
+func fibonacci(var x , var y)
+var x = var x
+var y = var y
+
+    for(var i = 0; var i <= 10; var i++)
+        var z = var x + var y
+        print var.z
+        print '<br/>'
+        var x = var y    
+        var y = var z     
+    end
+
+end
+```
+
+Output :
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+
 ### Example import static file
 ```php
 import 'hello.html'
 ```
 ### Example function, import
 ```php
-import 'header.html';
-$text = "Welcome";
-main(string.text);
-import 'footer.html';
+import 'header.html'
+var text = "Welcome"
+main(var.text)
+import 'footer.html'
 
-func main($hello)
-print string.hello;
+func main(var hello)
+print var.hello
 end
 ```
 ### Example for
 ```php
-$cars = array("Volvo", "BMW", "Toyota");
-$arrlength = count($cars);
+var cars = array("Volvo", "BMW", "Toyota")
+var arrlength = count(var.cars)
 
-for($x = 0; $x < $arrlength; $x++)
-    print string.cars[$x];
-    print "<br>";
+for(var x = 0; var.x < var arrlength; var x++)
+    print var.cars[var.x]
+    print "<br>"
 end
 ```
