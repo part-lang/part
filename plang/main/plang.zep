@@ -24,6 +24,9 @@ class Plang {
     let plang = str_replace("os.user()", "exec('whoami');", plang);
     let plang = str_replace("os.type()", "exec('uname -o');", plang);
     let plang = str_replace("time.now()", "date('H:i:s');", plang);
+    let plang = str_replace("|", ";", plang);
+    let plang = str_replace("plang:", "<?php", plang);
+    let plang = str_replace("html:", "?>", plang);
     let plang = preg_replace("/http.get\((.*)\)/", "$_GET[$1];", plang); // http.get()
     let plang = preg_replace("/http.request\((.*)\)/", "$_REQUEST[$1];", plang); // http.request()
     let plang = preg_replace("/http.post\((.*)\)/", "$_POST[$1];", plang); // http.post()
@@ -31,7 +34,6 @@ class Plang {
     let plang = preg_replace("/import '(.*)'/", "include('$1');", plang); // import 'file'
     let plang = preg_replace("/var (.*) = (.*)/", "$$1 = $2;", plang); // $var = "text"
     let plang = preg_replace("/var (.*)/", "$$1", plang); // var text
-    let plang = preg_replace("/plus (.*)/", "$$1 ++", plang); // var text
     let plang = preg_replace("/strlen.(.*)/", "strlen($$1)", plang); // strlen.variable
     let plang = preg_replace("/string.(.*)/", "$$1", plang); // string.variable
     let plang = preg_replace("/var.(.*)/", "$$1", plang); // var.variable
@@ -51,6 +53,7 @@ class Plang {
     let plang = preg_replace("/def (.*)/", "function $1{", plang); // def name()
     let plang = preg_replace("/public (.*) = (.*)/", "public $$1 = $2", plang); // public name = hello
     let plang = preg_replace("/this->(.*)/", "$this->$1;", plang); // public name = hello
+    let plang = preg_replace("/%(.*)%/", "<?php echo $1;?>", plang); // public name = hello
     eval(plang);
 	}else{
 	let plang = file_get_contents(location, true);

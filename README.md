@@ -26,6 +26,18 @@ print strlen.text
 ```
 Output : 11
 
+### Example plang + html
+```ruby
+var title = 'Hello title'
+var content = 'Hello world'
+
+html:
+<title>%title%</title>
+<body>
+<p>%content%</p>
+</body>
+```
+
 ### Example IF
 
 ```ruby
@@ -50,10 +62,8 @@ Output : 2
 fibonacci("0", "1")
 
 def fibonacci(var x , var y)
-var x = var x
-var y = var y
 
-    for(var i = 0; var i <= 10; var i++)
+    for(var i = 0 | var i <= 10 | var i++)
         var z = var x + var y
         print var.z
         print '<br/>'
@@ -112,7 +122,7 @@ end
 var cars = array("Volvo", "BMW", "Toyota")
 var arrlength = count(var.cars)
 
-for(var x = 0; var.x < var arrlength; var x++)
+for(var x = 0 | var.x < var arrlength | var x++)
     print var.cars[var.x]
     print "<br>"
 end
@@ -123,6 +133,7 @@ end
 print http.get("text")
 ```
 GET : index.p?text=Hello World
+
 OUTPUT : Hello World
 
 ```ruby
@@ -133,4 +144,5 @@ print '<input type="text" name="text" value="Hello World">'
 print '</form>'
 ```
 POST : text: Hello World
+
 OUTPUT : Hello World
