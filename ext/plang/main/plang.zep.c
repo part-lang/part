@@ -13,6 +13,7 @@
 
 #include "kernel/main.h"
 #include "kernel/memory.h"
+#include "kernel/array.h"
 #include "kernel/fcall.h"
 #include "kernel/operators.h"
 #include "kernel/string.h"
@@ -32,14 +33,13 @@ ZEPHIR_INIT_CLASS(Plang_Main_Plang) {
 PHP_METHOD(Plang_Main_Plang, main_engine) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *location = NULL, *main = NULL, *extension = NULL, _0, *_1$$5, *_2$$6;
+	zval *_GET, *main = NULL, *extension = NULL, *location = NULL, _0, *_1$$5, *_2$$6;
 
 	ZEPHIR_MM_GROW();
-	zephir_fetch_params(1, 1, 0, &location);
+	zephir_get_global(&_GET, SS("_GET") TSRMLS_CC);
 
-	ZEPHIR_SEPARATE_PARAM(location);
-
-
+	ZEPHIR_OBS_VAR(location);
+	zephir_array_fetch_string(&location, _GET, SL("_url"), PH_NOISY, "plang/main/plang.zep", 9 TSRMLS_CC);
 	ZEPHIR_INIT_VAR(main);
 	object_init_ex(main, plang_main_plang_ce);
 	if (zephir_has_constructor(main TSRMLS_CC)) {
@@ -265,6 +265,15 @@ PHP_METHOD(Plang_Main_Plang, engine) {
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _16);
 	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/while\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_15);
+	ZVAL_STRING(_15, "while($1){", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 6, _0, _15, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_15);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _16);
+	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/if\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_15);
 	ZVAL_STRING(_15, "if($1){", ZEPHIR_TEMP_PARAM_COPY);
@@ -391,7 +400,7 @@ PHP_METHOD(Plang_Main_Plang, engine) {
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _16);
 	ZEPHIR_INIT_NVAR(_0);
-	zephir_eval_php(plang, _0, "/home/ubuntu/workspace/plang/plang/main/plang.zep:63" TSRMLS_CC);
+	zephir_eval_php(plang, _0, "/home/ubuntu/workspace/plang/plang/main/plang.zep:66" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }

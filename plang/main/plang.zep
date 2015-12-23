@@ -2,9 +2,11 @@ namespace Plang\Main;
  
 class Plang {
  
-	public static function main_engine(location) {
+	public static function main_engine() {
 	var main;
 	var extension;
+	var location;
+	let location = $_GET["_url"];
 	let main = new Plang();
 	// Setting index
 	if(location == ""){
@@ -34,21 +36,22 @@ class Plang {
     let plang = preg_replace("/http.get\((.*)\)/", "$_GET[$1];", plang); // http.get()
     let plang = preg_replace("/http.request\((.*)\)/", "$_REQUEST[$1];", plang); // http.request()
     let plang = preg_replace("/http.post\((.*)\)/", "$_POST[$1];", plang); // http.post()
-    let plang = preg_replace("/cmd\((.*)\)/", "exec($1);", plang); // cmd($func)
+    let plang = preg_replace("/cmd\((.*)\)/", "exec($1);", plang); // cmd(func)
     let plang = preg_replace("/import '(.*)'/", "include('$1');", plang); // import 'file'
-    let plang = preg_replace("/var (.*) = (.*)/", "$$1 = $2;", plang); // $var = "text"
+    let plang = preg_replace("/var (.*) = (.*)/", "$$1 = $2;", plang); // var = "text"
     let plang = preg_replace("/var (.*)/", "$$1", plang); // var text
     let plang = preg_replace("/strlen.(.*)/", "strlen($$1)", plang); // strlen.variable
     let plang = preg_replace("/string.(.*)/", "$$1", plang); // string.variable
     let plang = preg_replace("/var.(.*)/", "$$1", plang); // var.variable
     let plang = preg_replace("/htmlescape.(.*)/", "htmlspecialchars($$1)", plang); // htmlescape.variable
-    let plang = preg_replace("/write (.*)/", ";echo $1;", plang); // print text
+    let plang = preg_replace("/write (.*)/", ";echo $1;", plang); // write text
     let plang = preg_replace("/print (.*)/", ";echo $1;", plang); // print text
     let plang = preg_replace("/return (.*)/", ";return $1;", plang); // return text
-    let plang = preg_replace("/if\((.*)\)/", "if($1){", plang); // if var.text == blalala
+    let plang = preg_replace("/while\((.*)\)/", "while($1){", plang); // while(statement)
+    let plang = preg_replace("/if\((.*)\)/", "if($1){", plang); // if(var.text == blalala)
     let plang = preg_replace("/elseif (.*)/", "} else if($1){", plang); // elseif
-    let plang = preg_replace("/for\((.*)\)/", "for($1){", plang); // for()
-    let plang = preg_replace("/foreach\((.*)\)/", "foreach($1){", plang); // foreach()
+    let plang = preg_replace("/for\((.*)\)/", "for($1){", plang); // for(statement)
+    let plang = preg_replace("/foreach\((.*)\)/", "foreach($1){", plang); // foreach(statement)
     let plang = preg_replace("/call (.*)\((.*)\)/", "$1($2);", plang); // func name()
     let plang = preg_replace("/(.*)\((.*)\)/", "$1($2)", plang); // func name()
     let plang = preg_replace("/def (.*)/", "function $1 {", plang); // def name()

@@ -1,0 +1,1 @@
+print http.get("text")
