@@ -4,22 +4,27 @@ class Plang {
  
 	public static function main_engine(location) {
 	var plang;
+	var main;
+	var extension;
+	let main = new Plang();
 	// Setting index
 	if(location == ""){
 	let location = "index.p";
 	}
-	// 404 not found
-	if(!file_exists(location)){
-	header("HTTP/1.1 404 Not Found");
-    header("Date: ".date("D, d M Y h:i:s T"));
-    header("Content-Type: text/html; charset=iso-8859-1");
-    header("X-Powered-By: P language");
-    echo "404 Not Found";
-	die();
+    let extension = pathinfo(location, PATHINFO_EXTENSION);
+    main->notfound(location); // 404 not found
+	if(extension == "p"){
+    main->engine(location);
+	}elseif(extension == "html"){
+	main->content(location, "text/html");
+	}else{
+    main->content(location, "text/plain");
+	}
 	}
 	
-	if(pathinfo(location, PATHINFO_EXTENSION) == "p"){
-    let plang = file_get_contents(location, true);
+	public static function engine(location) {
+	var plang;
+	let plang = file_get_contents(location, true);
     let plang = str_replace("os.kernel()", "exec('uname -r');", plang);
     let plang = str_replace("os.user()", "exec('whoami');", plang);
     let plang = str_replace("os.type()", "exec('uname -o');", plang);
@@ -55,9 +60,23 @@ class Plang {
     let plang = preg_replace("/this->(.*)/", "$this->$1;", plang); // public name = hello
     let plang = preg_replace("/%(.*)%/", "<?php echo $1;?>", plang); // public name = hello
     eval(plang);
-	}else{
+	}
+	
+	public static function content(location, type_header) {
+	var plang;
+	header("Content-Type: ".type_header."; charset=iso-8859-1");
 	let plang = file_get_contents(location, true);
 	echo plang;
+	}
+	
+	public static function notfound(location) {
+	if(!file_exists(location)){
+	header("HTTP/1.1 404 Not Found");
+    header("Date: ".date("D, d M Y h:i:s T"));
+    header("Content-Type: text/html; charset=iso-8859-1");
+    header("X-Powered-By: P language");
+    echo "404 Not Found";
+	die();
 	}
 	}
  
