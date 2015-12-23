@@ -1,7 +1,5 @@
 ### Plang
-Based on Zend Engine 2/3
-
-Build with Zephir
+Based on Zend Engine
 
 Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
 
@@ -127,6 +125,15 @@ for(var x = 0 | var.x < var arrlength | var x++)
     print "<br>"
 end
 ```
+
+### Example while
+```ruby
+var i = 1
+while(var i <= 10)
+    print var.i++
+end
+```
+Output: 123456789
 
 ### Example http.get() , http.post(), http.request()
 ```ruby

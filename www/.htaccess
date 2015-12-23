@@ -1,0 +1,7 @@
+<IfModule mime_module>
+Addhandler application/x-httpd-php .pp
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^((?s).*)$ main.pp?_url=$1 [QSA,L]
+</IfModule>
