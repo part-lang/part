@@ -42,7 +42,7 @@ html:
 
 ```ruby
 var text = "Hello World"
-if var.text >= "5"
+if(var.text >= "5")
 print "Higher"
 else
 print "Low"
@@ -59,7 +59,7 @@ Output : 2
 ### Example fibonacci with function & for
 
 ```ruby
-fibonacci("0", "1")
+call fibonacci("0", "1")
 
 def fibonacci(var x , var y)
 
@@ -110,7 +110,7 @@ import 'hello.html'
 ```ruby
 import 'header.html'
 var text = "Welcome"
-main(var.text)
+call main(var.text)
 import 'footer.html'
 
 def main(var hello)
