@@ -1,3 +1,3 @@
-#text = http.get("text")
+@text = http.get("text")
 
-print #text
+print @text

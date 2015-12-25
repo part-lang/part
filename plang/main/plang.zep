@@ -77,9 +77,6 @@ class Plang {
 	}
 	
 	private static function print(plang){
-	let plang = preg_replace("/strlen.(.*)/", "strlen($$1)", plang); // strlen.variable
-    let plang = preg_replace("/string.(.*)/", "$$1", plang); // string.variable
-    let plang = preg_replace("/htmlescape.(.*)/", "htmlspecialchars($$1)", plang); // htmlescape.variable
     let plang = preg_replace("/write (.*)/", ";echo $1;", plang); // write text
     let plang = preg_replace("/print (.*)/", ";echo $1;", plang); // print text
     let plang = preg_replace("/return (.*)/", ";return $1;", plang); // return text
@@ -94,26 +91,26 @@ class Plang {
 	}
 	
 	private static function variable(plang) {
-	let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #text
-    let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #text
-    let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #text
-    let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #text
-    let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #text
-    let plang = preg_replace("/#(.*) = (.*)/", "$$1 = $2;", plang); // #= "text"
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // var text
-	let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
-    let plang = preg_replace("/#(.*)/", "$$1", plang); // #variable
+	let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
+    let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
+    let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
+    let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
+    let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
+    let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // var text
+	let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
+    let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
     return plang;
     } 
 }

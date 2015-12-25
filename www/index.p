@@ -1,8 +1,7 @@
-import 'html/header.html'
-#text = "Welcome"
-call main(#text)
-import 'html/footer.html'
+@text = "Welcome"
+call main(@text)
+print strlen(@text)
 
-def main(#hello)
-print #hello
+def main(@hello)
+print @hello
 end
