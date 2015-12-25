@@ -24,7 +24,7 @@ print strlen(@text)
 ```
 Output : 11
 
-### Example variable with strlen
+### Exampl constant
 ```ruby
 const text = 'Hello World'
 print text
