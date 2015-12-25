@@ -4,28 +4,28 @@ Based on Zend Engine
 Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
 
 ### Example Hello World
-```java
+```ruby
 print 'Hello world'
 ```
 Output : Hello World
 
 ### Example Variable
 
-```java
+```ruby
 @text = 'Hello World'
 print @text
 ```
 Output : Hello World
 
 ### Example variable with strlen
-```java
+```ruby
 @text = 'Hello World'
 print strlen(@text)
 ```
 Output : 11
 
 ### Example plang + html
-```java
+```ruby
 @title = 'Hello title'
 @content = 'Hello world'
 
@@ -38,7 +38,7 @@ html:
 
 ### Example IF
 
-```java
+```ruby
 @text = "Hello World"
 if(@text >= "5")
 print "Higher"
@@ -49,14 +49,14 @@ end
 Output : Higher
 
 ### Example mathematic
-```java
+```ruby
 print 1+1
 ```
 Output : 2
 
 ### Example fibonacci with function & for
 
-```java
+```ruby
 call fibonacci(0, 1)
 
 def fibonacci(@x , @y)
@@ -86,7 +86,7 @@ Output :
 144
 
 ### Example Class
-```java
+```ruby
 class Hello
     public say = 'Null'
     def talk(@text)
@@ -101,11 +101,11 @@ print @hello->say
 Output : Hello World
 
 ### Example import static file
-```java
+```ruby
 import 'hello.html'
 ```
 ### Example function, import
-```java
+```ruby
 import 'header.html'
 @text = "Welcome"
 call main(@text)
@@ -116,7 +116,7 @@ print @hello
 end
 ```
 ### Example for
-```java
+```ruby
 @cars = array("Volvo", "BMW", "Toyota")
 @arrlength = count(@cars)
 
@@ -127,7 +127,7 @@ end
 ```
 
 ### Example while
-```java
+```ruby
 @i = 1
 while(@i <= 10)
     print @i++
@@ -136,14 +136,14 @@ end
 Output: 123456789
 
 ### Example http.get() , http.post(), http.request()
-```java
+```ruby
 print http.get("text")
 ```
 GET : index.p?text=Hello World
 
 OUTPUT : Hello World
 
-```java
+```ruby
 print http.post("text")
 
 print '<form method="post">'
