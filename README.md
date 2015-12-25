@@ -12,22 +12,22 @@ Output : Hello World
 ### Example Variable
 
 ```ruby
-var text = 'Hello World'
-print var.text
+#text = 'Hello World'
+print #text
 ```
 Output : Hello World
 
 ### Example variable with strlen
 ```ruby
-var text = 'Hello World'
+#text = 'Hello World'
 print strlen.text
 ```
 Output : 11
 
 ### Example plang + html
 ```ruby
-var title = 'Hello title'
-var content = 'Hello world'
+#title = 'Hello title'
+#content = 'Hello world'
 
 html:
 <title>%title%</title>
@@ -39,8 +39,8 @@ html:
 ### Example IF
 
 ```ruby
-var text = "Hello World"
-if(var.text >= "5")
+#text = "Hello World"
+if(#text >= "5")
 print "Higher"
 else
 print "Low"
@@ -59,14 +59,14 @@ Output : 2
 ```ruby
 call fibonacci("0", "1")
 
-def fibonacci(var x , var y)
+def fibonacci(#x , #y)
 
-    for(var i = 0 | var i <= 10 | var i++)
-        var z = var x + var y
-        print var.z
+    for(#i = 0 | #i <= 10 | #i++)
+        #z = #x + #y
+        print #z
         print '<br/>'
-        var x = var y    
-        var y = var z     
+        #x = #y    
+        #y = #z     
     end
 
 end
@@ -89,14 +89,14 @@ Output :
 ```ruby
 class Hello
     public say = 'Null'
-    def talk(var text)
-    this->say = var.text
+    def talk(#text)
+    this->say = #text
     end
 end
 
-var hello = new Hello()
-print var.hello->talk("Hello World")
-print var.hello->say
+#hello = new Hello()
+print #hello->talk("Hello World")
+print #hello->say
 ```
 Output : Hello World
 
@@ -107,30 +107,30 @@ import 'hello.html'
 ### Example function, import
 ```ruby
 import 'header.html'
-var text = "Welcome"
-call main(var.text)
+#text = "Welcome"
+call main(#text)
 import 'footer.html'
 
-def main(var hello)
-print var.hello
+def main(#hello)
+print #hello
 end
 ```
 ### Example for
 ```ruby
-var cars = array("Volvo", "BMW", "Toyota")
-var arrlength = count(var.cars)
+#cars = array("Volvo", "BMW", "Toyota")
+#arrlength = count(#cars)
 
-for(var x = 0 | var.x < var arrlength | var x++)
-    print var.cars[var.x]
+for(#x = 0 | #x < #arrlength | #x++)
+    print #cars[#x]
     print "<br>"
 end
 ```
 
 ### Example while
 ```ruby
-var i = 1
-while(var i <= 10)
-    print var.i++
+#i = 1
+while(#i <= 10)
+    print #i++
 end
 ```
 Output: 123456789

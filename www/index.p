@@ -1,8 +1,8 @@
 import 'html/header.html'
-var text = "Welcome"
-call main(string.text)
+#text = "Welcome"
+call main(#text)
 import 'html/footer.html'
 
-def main(var hello)
-print htmlescape.hello
+def main(#hello)
+print #hello
 end

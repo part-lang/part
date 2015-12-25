@@ -1,13 +1,13 @@
-call fibonacci("0", "1")
+call fibonacci(0, 1)
 
-def fibonacci(var x , var y)
+def fibonacci(#x , #y)
 
-    for(var i = 0 | var i <= 10 | var i++)
-        var z = var x + var y
-        print var.z
+    for(#i = 0 | #i <= 10 | #i++)
+        #z = #x + #y
+        print #z
         print '<br/>'
-        var x = var y    
-        var y = var z     
+        #x = #y    
+        #y = #z
     end
 
 end

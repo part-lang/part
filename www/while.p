@@ -1,4 +1,4 @@
-var i = 1
-while(var i <= 10)
-    print var.i++
+#i = 1
+while(#i <= 10)
+    print #i++
 end
