@@ -11,6 +11,11 @@ if (PHP_PLANG != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/plang/main", "plang.zep.c", "plang");
+  ADD_SOURCES(configure_module_dirname + "/plang/function", "main.zep.c", "plang");
+	ADD_SOURCES(configure_module_dirname + "/plang/lib", "main.zep.c", "plang");
+	ADD_SOURCES(configure_module_dirname + "/plang/page", "main.zep.c", "plang");
+	ADD_SOURCES(configure_module_dirname + "/plang", "plang.zep.c", "plang");
+	ADD_SOURCES(configure_module_dirname + "/plang/statement", "main.zep.c", "plang");
+	ADD_SOURCES(configure_module_dirname + "/plang/text", "main.zep.c", "plang");
   ADD_FLAG("CFLAGS_PLANG", "/D ZEPHIR_RELEASE");
 }

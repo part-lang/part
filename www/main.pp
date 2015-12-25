@@ -1,3 +1,3 @@
 <?php
-use Plang\Main\Plang;
+use Plang\Plang;
 Plang::main_engine();

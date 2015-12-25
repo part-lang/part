@@ -24,6 +24,13 @@ print strlen(@text)
 ```
 Output : 11
 
+### Example variable with strlen
+```ruby
+const text = 'Hello World'
+print text
+```
+Output : Hello World
+
 ### Example plang + html
 ```ruby
 @title = 'Hello title'

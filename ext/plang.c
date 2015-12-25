@@ -27,7 +27,12 @@
 
 
 
-zend_class_entry *plang_main_plang_ce;
+zend_class_entry *plang_function_main_ce;
+zend_class_entry *plang_lib_main_ce;
+zend_class_entry *plang_page_main_ce;
+zend_class_entry *plang_plang_ce;
+zend_class_entry *plang_statement_main_ce;
+zend_class_entry *plang_text_main_ce;
 
 ZEND_DECLARE_MODULE_GLOBALS(plang)
 
@@ -53,7 +58,12 @@ static PHP_MINIT_FUNCTION(plang)
 	setlocale(LC_ALL, "C");
 #endif
 	REGISTER_INI_ENTRIES();
-	ZEPHIR_INIT(Plang_Main_Plang);
+	ZEPHIR_INIT(Plang_Function_Main);
+	ZEPHIR_INIT(Plang_Lib_Main);
+	ZEPHIR_INIT(Plang_Page_Main);
+	ZEPHIR_INIT(Plang_Plang);
+	ZEPHIR_INIT(Plang_Statement_Main);
+	ZEPHIR_INIT(Plang_Text_Main);
 
 #if PHP_VERSION_ID < 50500
 	setlocale(LC_ALL, old_lc_all);

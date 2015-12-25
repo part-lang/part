@@ -4,6 +4,11 @@
 #ifndef ZEPHIR_CLASS_ENTRIES_H
 #define ZEPHIR_CLASS_ENTRIES_H
 
-#include "plang/main/plang.zep.h"
+#include "plang/function/main.zep.h"
+#include "plang/lib/main.zep.h"
+#include "plang/page/main.zep.h"
+#include "plang/plang.zep.h"
+#include "plang/statement/main.zep.h"
+#include "plang/text/main.zep.h"
 
 #endif

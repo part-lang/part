@@ -7,6 +7,7 @@ PHP_METHOD(Plang_Main_Plang, main_engine);
 PHP_METHOD(Plang_Main_Plang, engine);
 PHP_METHOD(Plang_Main_Plang, content);
 PHP_METHOD(Plang_Main_Plang, notfound);
+PHP_METHOD(Plang_Main_Plang, switchs);
 PHP_METHOD(Plang_Main_Plang, print);
 PHP_METHOD(Plang_Main_Plang, http);
 PHP_METHOD(Plang_Main_Plang, variable);
@@ -22,6 +23,10 @@ ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_plang_main_plang_notfound, 0, 0, 1)
 	ZEND_ARG_INFO(0, location)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_plang_main_plang_switchs, 0, 0, 1)
+	ZEND_ARG_INFO(0, plang)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_plang_main_plang_print, 0, 0, 1)
@@ -41,6 +46,7 @@ ZEPHIR_INIT_FUNCS(plang_main_plang_method_entry) {
 	PHP_ME(Plang_Main_Plang, engine, arginfo_plang_main_plang_engine, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Plang_Main_Plang, content, arginfo_plang_main_plang_content, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Plang_Main_Plang, notfound, arginfo_plang_main_plang_notfound, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+	PHP_ME(Plang_Main_Plang, switchs, arginfo_plang_main_plang_switchs, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Plang_Main_Plang, print, arginfo_plang_main_plang_print, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Plang_Main_Plang, http, arginfo_plang_main_plang_http, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Plang_Main_Plang, variable, arginfo_plang_main_plang_variable, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)

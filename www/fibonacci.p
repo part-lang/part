@@ -7,7 +7,7 @@ def fibonacci(@x , @y)
         print @z
         print '<br/>'
         @x = @y    
-        @y = @z
+        @y = @z     
     end
 
 end
