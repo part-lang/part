@@ -318,7 +318,7 @@ PHP_METHOD(Plang_Text_Main, variable) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/const (.*) = (.*)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "define('$1', $2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "const $1 = $2;", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);

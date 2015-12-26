@@ -5,12 +5,12 @@ class Main {
     /**
 	 * Import usage:
 	 *<code>
-	 *      import 'file.html'
+	 *      import Library\Func
 	 *</code>
 	 */
 	 
 	public function import(plang) {
-	let plang = preg_replace("/import '(.*)'/", "include('$1');", plang); // import 'file'
+	let plang = preg_replace("/import (.*)/", "use $1;", plang);
     return plang;
 	}
 
@@ -20,13 +20,50 @@ class Main {
 	 *      http.get("url")
 	 *      http.post("post")
 	 *      http.request("req")
+	 *		http.host()
+	 *		http.referer()
+	 *		http.user_agent()
+	 *		http.method()
+	 *		http.header()
+	 *		http.ip()
+	 *		http.port()
 	 *</code>
 	 */
 	 
 	public function http(plang) {
+	let plang = str_replace("http.host()", "$_SERVER['HTTP_HOST'];", plang);
+	let plang = str_replace("http.referer()", "$_SERVER['HTTP_REFERER'];", plang);
+	let plang = str_replace("http.user_agent()", "$_SERVER['HTTP_USER_AGENT'];", plang);
+	let plang = str_replace("http.method()", "$_SERVER['REQUEST_METHOD'];", plang);
+	let plang = str_replace("http.header()", "$_SERVER['HTTP_ACCEPT'];", plang);
+	let plang = str_replace("http.ip()", "$_SERVER['REMOTE_ADDR'];", plang);
+	let plang = str_replace("http.port()", "$_SERVER['REMOTE_PORT'];", plang);
 	let plang = preg_replace("/http.get\((.*)\)/", "$_GET[$1];", plang);
     let plang = preg_replace("/http.request\((.*)\)/", "$_REQUEST[$1];", plang);
     let plang = preg_replace("/http.post\((.*)\)/", "$_POST[$1];", plang);
+    return plang;
+	}
+	
+	/**
+	 * Server usage:
+	 *<code>
+	 *      server.self()
+	 *      server.domain()
+	 *      server.ip()
+	 *		server.webserver()
+	 *		server.protocol()
+	 *		server.admin()
+	 *</code>
+	 */
+	 
+	public function server(plang) {
+	let plang = str_replace("server.self()", "$_SERVER['PHP_SELF'];", plang);
+	let plang = str_replace("server.domain()", "$_SERVER['SERVER_NAME'];", plang);
+	let plang = str_replace("server.ip()", "$_SERVER['SERVER_ADDR'];", plang);
+	let plang = str_replace("server.port()", "$_SERVER['SERVER_PORT'];", plang);
+	let plang = str_replace("server.webserver()", "$_SERVER['SERVER_SOFTWARE'];", plang);
+	let plang = str_replace("server.protocol()", "$_SERVER['SERVER_PROTOCOL'];", plang);
+	let plang = str_replace("server.admin()", "$_SERVER['SERVER_ADMIN'];", plang);
     return plang;
 	}
 	

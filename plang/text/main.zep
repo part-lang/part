@@ -56,7 +56,7 @@ class Main {
     let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
     let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
     let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
-    let plang = preg_replace("/const (.*) = (.*)/", "define('$1', $2);", plang); // @variable
+    let plang = preg_replace("/const (.*) = (.*)/", "const $1 = $2;", plang); // @variable
     return plang;
     } 
 }

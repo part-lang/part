@@ -31,6 +31,7 @@ class Plang {
         let plang = library->os(plang);
         let plang = library->import(plang);
         let plang = library->http(plang);
+        let plang = library->server(plang);
         let plang = library->commands(plang);
         let plang = text->variable(plang);
         let plang = text->write(plang);
