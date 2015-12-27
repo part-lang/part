@@ -21,6 +21,12 @@ class File {
 	return date(format, filemtime(location));
 	}
 	
+	public static function copy(string! location, string! newlocation) {
+	if (!copy(location, newlocation)) {
+    	echo "failed to copy...\n";
+	}
+	}
+	
 	public static function size(string! location, format = false) {
 	if(format == true){
 	    var size, base;

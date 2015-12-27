@@ -62,7 +62,8 @@ PHP_METHOD(Part_Lib_Main, import) {
  *      file.read(location)
  *		file.size(location)
  *		file.ext(location)
- *		file.write(location)
+ *		file.create(location, content)
+ *		file.copy(location, newlocation)
  *		file.time(format, location)
  *</code>
  */
@@ -109,6 +110,15 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZVAL_STRING(_0, "/file.create\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
 	ZVAL_STRING(_1, "Part\\Lib\\File::create($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_1);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/file.copy\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_1);
+	ZVAL_STRING(_1, "Part\\Lib\\File::copy($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);

@@ -167,6 +167,46 @@ PHP_METHOD(Part_Lib_File, time) {
 
 }
 
+PHP_METHOD(Part_Lib_File, copy) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *location_param = NULL, *newlocation_param = NULL, *_0 = NULL;
+	zval *location = NULL, *newlocation = NULL;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 2, 0, &location_param, &newlocation_param);
+
+	if (unlikely(Z_TYPE_P(location_param) != IS_STRING && Z_TYPE_P(location_param) != IS_NULL)) {
+		zephir_throw_exception_string(spl_ce_InvalidArgumentException, SL("Parameter 'location' must be a string") TSRMLS_CC);
+		RETURN_MM_NULL();
+	}
+	if (likely(Z_TYPE_P(location_param) == IS_STRING)) {
+		zephir_get_strval(location, location_param);
+	} else {
+		ZEPHIR_INIT_VAR(location);
+		ZVAL_EMPTY_STRING(location);
+	}
+	if (unlikely(Z_TYPE_P(newlocation_param) != IS_STRING && Z_TYPE_P(newlocation_param) != IS_NULL)) {
+		zephir_throw_exception_string(spl_ce_InvalidArgumentException, SL("Parameter 'newlocation' must be a string") TSRMLS_CC);
+		RETURN_MM_NULL();
+	}
+	if (likely(Z_TYPE_P(newlocation_param) == IS_STRING)) {
+		zephir_get_strval(newlocation, newlocation_param);
+	} else {
+		ZEPHIR_INIT_VAR(newlocation);
+		ZVAL_EMPTY_STRING(newlocation);
+	}
+
+
+	ZEPHIR_CALL_FUNCTION(&_0, "copy", NULL, 6, location, newlocation);
+	zephir_check_call_status();
+	if (!zephir_is_true(_0)) {
+		php_printf("%s", "failed to copy...\n");
+	}
+	ZEPHIR_MM_RESTORE();
+
+}
+
 PHP_METHOD(Part_Lib_File, size) {
 
 	zval *type$$3 = NULL;
@@ -211,11 +251,11 @@ PHP_METHOD(Part_Lib_File, size) {
 		ZEPHIR_INIT_NVAR(_0$$3);
 		ZVAL_STRING(_0$$3, " TB", 1);
 		zephir_array_fast_append(type$$3, _0$$3);
-		ZEPHIR_CALL_FUNCTION(&size$$3, "filesize", &_1, 6, location);
+		ZEPHIR_CALL_FUNCTION(&size$$3, "filesize", &_1, 7, location);
 		zephir_check_call_status();
 		ZEPHIR_SINIT_VAR(_2$$3);
 		ZVAL_LONG(&_2$$3, 1024);
-		ZEPHIR_CALL_FUNCTION(&base$$3, "log", NULL, 7, size$$3, &_2$$3);
+		ZEPHIR_CALL_FUNCTION(&base$$3, "log", NULL, 8, size$$3, &_2$$3);
 		zephir_check_call_status();
 		if (ZEPHIR_GT_LONG(base$$3, 0)) {
 			ZEPHIR_INIT_VAR(_3$$4);
@@ -228,14 +268,14 @@ PHP_METHOD(Part_Lib_File, size) {
 			ZEPHIR_SINIT_VAR(_7$$4);
 			ZVAL_LONG(&_7$$4, 2);
 			zephir_round(_3$$4, _4$$4, &_7$$4, NULL TSRMLS_CC);
-			zephir_array_fetch(&_8$$4, type$$3, base$$3, PH_NOISY | PH_READONLY, "part/lib/file.zep", 32 TSRMLS_CC);
+			zephir_array_fetch(&_8$$4, type$$3, base$$3, PH_NOISY | PH_READONLY, "part/lib/file.zep", 38 TSRMLS_CC);
 			ZEPHIR_CONCAT_VV(return_value, _3$$4, _8$$4);
 			RETURN_MM();
 		} else {
 			RETURN_MM_STRING("0 bytes", 1);
 		}
 	} else {
-		ZEPHIR_RETURN_CALL_FUNCTION("filesize", &_1, 6, location);
+		ZEPHIR_RETURN_CALL_FUNCTION("filesize", &_1, 7, location);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
