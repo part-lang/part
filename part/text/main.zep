@@ -1,10 +1,17 @@
 namespace Part\Text;
 
 class Main {
+     /**
+	 * HTML Template
+	 */
+	
+    private static function html(plang){
+    let plang = preg_replace("/%(.*)%/", "<?php echo $1;?>", plang); // public name = hello
+	return plang;
+	}
     /**
 	 * Symbol
 	 */
-	
 	private static function symbol(plang){
     let plang = str_replace("|", ";", plang);
     let plang = str_replace("part:", "<?php", plang);

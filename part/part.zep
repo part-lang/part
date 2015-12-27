@@ -50,6 +50,7 @@ class Part {
         let plang = text->variable(plang);
         let plang = text->write(plang);
         let plang = text->symbol(plang);
+        let plang = text->html(plang);
         let plang = functions->def_function(plang);
         let plang = functions->class_function(plang);
         let plang = functions->call_function(plang);
@@ -57,7 +58,6 @@ class Part {
         let plang = statement->while_statement(plang);
         let plang = statement->if_statement(plang);
         let plang = statement->for_statement(plang);
-        let plang = preg_replace("/%(.*)%/", "<?php echo $1;?>", plang); // public name = hello
         eval(plang);
 	}
 

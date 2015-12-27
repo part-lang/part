@@ -12,6 +12,10 @@ class Main {
     private static function def_function(plang) {
     let plang = preg_replace("/def (.*)/", "function $1 {", plang);
     let plang = preg_replace("/def (.*)\((.*)\)/", "function $1($2) {", plang);
+    let plang = preg_replace("/public def (.*)\((.*)\)/", "public function $1($2) {", plang);
+    let plang = preg_replace("/private def (.*)\((.*)\)/", "private function $1($2) {", plang);
+    let plang = preg_replace("/public static def (.*)\((.*)\)/", "public static function $1($2) {", plang);
+    let plang = preg_replace("/private static def (.*)\((.*)\)/", "private static function $1($2) {", plang);
     return plang;
     }
     
