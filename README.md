@@ -1,4 +1,4 @@
-### Pash
+### Part language
 Based on Zend Engine
 
 Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
