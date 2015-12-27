@@ -5,6 +5,7 @@
 #define ZEPHIR_CLASS_ENTRIES_H
 
 #include "part/function/main.zep.h"
+#include "part/lib/file.zep.h"
 #include "part/lib/main.zep.h"
 #include "part/page/main.zep.h"
 #include "part/part.zep.h"
