@@ -44,7 +44,7 @@ PHP_METHOD(Part_Page_Main, notfound) {
 	if (!((zephir_file_exists(location TSRMLS_CC) == SUCCESS))) {
 		ZEPHIR_SINIT_VAR(_0$$3);
 		ZVAL_STRING(&_0$$3, "HTTP/1.1 404 Not Found", 0);
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 9, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 11, &_0$$3);
 		zephir_check_call_status();
 		ZEPHIR_SINIT_NVAR(_0$$3);
 		ZVAL_STRING(&_0$$3, "D, d M Y h:i:s T", 0);
@@ -52,15 +52,15 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(_3$$3);
 		ZEPHIR_CONCAT_SV(_3$$3, "Date: ", _2$$3);
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 9, _3$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 11, _3$$3);
 		zephir_check_call_status();
 		ZEPHIR_SINIT_NVAR(_0$$3);
 		ZVAL_STRING(&_0$$3, "Content-Type: text/html; charset=iso-8859-1", 0);
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 9, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 11, &_0$$3);
 		zephir_check_call_status();
 		ZEPHIR_SINIT_NVAR(_0$$3);
 		ZVAL_STRING(&_0$$3, "X-Powered-By: P language", 0);
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 9, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 11, &_0$$3);
 		zephir_check_call_status();
 		php_printf("%s", "404 Not Found");
 		ZEPHIR_MM_RESTORE();
@@ -85,7 +85,7 @@ PHP_METHOD(Part_Page_Main, content) {
 
 	ZEPHIR_INIT_VAR(_0);
 	ZEPHIR_CONCAT_SVS(_0, "Content-Type: ", type_header, "; charset=iso-8859-1");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 9, _0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 11, _0);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(&plang, "file_get_contents", NULL, 3, location, ZEPHIR_GLOBAL(global_true));
 	zephir_check_call_status();

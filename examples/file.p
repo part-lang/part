@@ -18,3 +18,9 @@ print file.ext("hello.txt")
 
 // Get time file created from hello.txt
 print file.time("d M Y","hello.txt")
+
+// Rename file hello_world.txt to hello.js
+file.rename("hello_world.txt","hello.js")
+
+// Delete file hello.js
+file.delete("hello.js")

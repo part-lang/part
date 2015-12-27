@@ -33,6 +33,8 @@ class Main {
 	let plang = preg_replace("/file.create\((.*),(.*)\)/", "Part\Lib\File::create($1,$2);", plang);
 	let plang = preg_replace("/file.copy\((.*),(.*)\)/", "Part\Lib\File::copy($1,$2);", plang);
 	let plang = preg_replace("/file.time\((.*),(.*)\)/", "Part\Lib\File::time($1,$2);", plang);
+	let plang = preg_replace("/file.rename\((.*),(.*)\)/", "Part\Lib\File::rename($1,$2);", plang);
+	let plang = preg_replace("/file.delete\((.*)\)/", "Part\Lib\File::delete($1);", plang);
     return plang;
 	}
 

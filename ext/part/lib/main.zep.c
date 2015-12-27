@@ -133,6 +133,24 @@ PHP_METHOD(Part_Lib_Main, file) {
 	zephir_check_temp_parameter(_1);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/file.rename\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_1);
+	ZVAL_STRING(_1, "Part\\Lib\\File::rename($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_1);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/file.delete\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_1);
+	ZVAL_STRING(_1, "Part\\Lib\\File::delete($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_1);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 

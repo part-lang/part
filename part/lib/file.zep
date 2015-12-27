@@ -27,6 +27,18 @@ class File {
 	}
 	}
 	
+	public static function rename(string! location, string! newname) {
+	if (!rename(location, newname)) {
+    	echo "failed to rename...\n";
+	}
+	}
+	
+	public static function delete(string! location) {
+	if (!unlink(location)) {
+    	echo "failed to delete...\n";
+	}
+	}
+	
 	public static function size(string! location, format = false) {
 	if(format == true){
 	    var size, base;
