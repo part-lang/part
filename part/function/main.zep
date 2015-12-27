@@ -9,7 +9,7 @@ class Main {
 	 *      end
 	 *</code>
 	 */
-    public function def_function(plang) {
+    private static function def_function(plang) {
     let plang = preg_replace("/def (.*)/", "function $1 {", plang);
     let plang = preg_replace("/def (.*)\((.*)\)/", "function $1($2) {", plang);
     return plang;
@@ -27,7 +27,7 @@ class Main {
 	 *      end
 	 *</code>
 	 */
-    public function class_function(plang) {
+    private static function class_function(plang) {
     let plang = preg_replace("/class (.*)/", "class $1 {", plang);
     let plang = preg_replace("/public (.*) = (.*)/", "public $$1 = $2;", plang);
     let plang = preg_replace("/this->(.*)/", "$this->$1;", plang);
@@ -40,7 +40,7 @@ class Main {
 	 *  call name()
 	 *</code>
 	 */
-    public function call_function(plang) {
+    private static function call_function(plang) {
     let plang = preg_replace("/call (.*)\((.*)\)/", "$1($2);", plang); // func name()
     return plang;
     }

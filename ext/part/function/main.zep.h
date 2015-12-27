@@ -20,8 +20,8 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_part_function_main_call_function, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(part_function_main_method_entry) {
-	PHP_ME(Part_Function_Main, def_function, arginfo_part_function_main_def_function, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Function_Main, class_function, arginfo_part_function_main_class_function, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Function_Main, call_function, arginfo_part_function_main_call_function, ZEND_ACC_PUBLIC)
+	PHP_ME(Part_Function_Main, def_function, arginfo_part_function_main_def_function, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Function_Main, class_function, arginfo_part_function_main_class_function, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Function_Main, call_function, arginfo_part_function_main_call_function, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_FE_END
 };

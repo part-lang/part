@@ -35,7 +35,7 @@ class Part {
         }
 	}
 	
-	public static function engine(location) {
+	private static function engine(location) {
 	    var plang, statement, text, functions, library;
 	    let statement = new \Part\Statement\Main();
 	    let text = new \Part\Text\Main();

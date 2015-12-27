@@ -30,10 +30,10 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_part_lib_main_commands, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(part_lib_main_method_entry) {
-	PHP_ME(Part_Lib_Main, import, arginfo_part_lib_main_import, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Lib_Main, http, arginfo_part_lib_main_http, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Lib_Main, server, arginfo_part_lib_main_server, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Lib_Main, os, arginfo_part_lib_main_os, ZEND_ACC_PUBLIC)
-	PHP_ME(Part_Lib_Main, commands, arginfo_part_lib_main_commands, ZEND_ACC_PUBLIC)
+	PHP_ME(Part_Lib_Main, import, arginfo_part_lib_main_import, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Main, http, arginfo_part_lib_main_http, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Main, server, arginfo_part_lib_main_server, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Main, os, arginfo_part_lib_main_os, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Main, commands, arginfo_part_lib_main_commands, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_FE_END
 };

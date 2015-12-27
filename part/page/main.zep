@@ -4,7 +4,7 @@ class Main {
     /**
 	 * 404 Not found:
 	 */
-    public function notfound(location) {
+    private static function notfound(location) {
 	    if(!file_exists(location)){
 	        header("HTTP/1.1 404 Not Found");
             header("Date: ".date("D, d M Y h:i:s T"));
@@ -18,7 +18,7 @@ class Main {
 	/**
 	 * Set content:
 	 */
-	public function content(location, type_header) {
+	private static function content(location, type_header) {
 	    var plang;
 	    header("Content-Type: ".type_header."; charset=iso-8859-1");
 	    let plang = file_get_contents(location, true);

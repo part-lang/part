@@ -5,7 +5,7 @@ class Main {
 	 * Symbol
 	 */
 	
-	public function symbol(plang){
+	private static function symbol(plang){
     let plang = str_replace("|", ";", plang);
     let plang = str_replace("part:", "<?php", plang);
     let plang = str_replace("html:", "?>", plang);
@@ -21,7 +21,7 @@ class Main {
 	 *</code>
 	 */
 	
-	public function write(plang){
+	private static function write(plang){
     let plang = preg_replace("/write (.*)/", ";echo $1;", plang);
     let plang = preg_replace("/print (.*)/", ";echo $1;", plang);
     let plang = preg_replace("/return (.*)/", ";return $1;", plang);
@@ -35,7 +35,7 @@ class Main {
 	 *      print @hello
 	 *</code>
 	 */
-	public function variable(plang) {
+	private static function variable(plang) {
     let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"
     let plang = preg_replace("/@(.*)/", "$$1", plang); // @text
     let plang = preg_replace("/@(.*) = (.*)/", "$$1 = $2;", plang); // @= "text"

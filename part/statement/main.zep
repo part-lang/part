@@ -13,7 +13,7 @@ class Main {
 	 *      end
 	 *</code>
 	 */
-    public function switch_statement(plang){
+    private static function switch_statement(plang){
 	let plang = preg_replace("/switch(.*)/", "switch $1 {", plang);
     let plang = preg_replace("/case(.*)/", "case $1:", plang);
 	let plang = preg_replace("/break/", "break;", plang);
@@ -28,7 +28,7 @@ class Main {
 	 *      end
 	 *</code>
 	 */
-    public function while_statement(plang){
+    private static function while_statement(plang){
 	let plang = preg_replace("/while(.*)/", "while $1 {", plang);
 	return plang;
 	}
@@ -41,7 +41,7 @@ class Main {
 	 *      end
 	 *</code>
 	 */
-    public function if_statement(plang){
+    private static function if_statement(plang){
 	let plang = preg_replace("/if(.*)/", "if $1 {", plang);
     let plang = preg_replace("/elseif(.*)/", "} elseif $1 {", plang);
     let plang = preg_replace("/else/", "}else{", plang);
@@ -61,7 +61,7 @@ class Main {
 	 *		end
 	 *</code>
 	 */
-    public function for_statement(plang){
+    private static function for_statement(plang){
 	let plang = preg_replace("/for\((.*)\)/", "for($1){", plang);
 	let plang = preg_replace("/for \((.*)\)/", "for($1){", plang);
     let plang = preg_replace("/foreach(.*)/", "foreach $1 {", plang);

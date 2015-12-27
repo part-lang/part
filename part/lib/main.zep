@@ -9,7 +9,7 @@ class Main {
 	 *</code>
 	 */
 	 
-	public function import(plang) {
+	private static function import(plang) {
 	let plang = preg_replace("/import (.*)/", "use $1;", plang);
     return plang;
 	}
@@ -30,7 +30,7 @@ class Main {
 	 *</code>
 	 */
 	 
-	public function http(plang) {
+	private static function http(plang) {
 	let plang = str_replace("http.host()", "$_SERVER['HTTP_HOST'];", plang);
 	let plang = str_replace("http.referer()", "$_SERVER['HTTP_REFERER'];", plang);
 	let plang = str_replace("http.user_agent()", "$_SERVER['HTTP_USER_AGENT'];", plang);
@@ -56,7 +56,7 @@ class Main {
 	 *</code>
 	 */
 	 
-	public function server(plang) {
+	private static function server(plang) {
 	let plang = str_replace("server.self()", "$_SERVER['PHP_SELF'];", plang);
 	let plang = str_replace("server.domain()", "$_SERVER['SERVER_NAME'];", plang);
 	let plang = str_replace("server.ip()", "$_SERVER['SERVER_ADDR'];", plang);
@@ -76,7 +76,7 @@ class Main {
 	 *</code>
 	 */
 	 
-	public function os(plang) {
+	private static function os(plang) {
 	let plang = str_replace("os.kernel()", "exec('uname -r');", plang);
     let plang = str_replace("os.user()", "exec('whoami');", plang);
     let plang = str_replace("os.type()", "exec('uname -o');", plang);
@@ -92,7 +92,7 @@ class Main {
 	 *</code>
 	 */
 	 
-	public function commands(plang) {
+	private static function commands(plang) {
 	let plang = preg_replace("/cmd\((.*)\)/", "exec($1);", plang);
 	let plang = preg_replace("/system\((.*)\)/", "exec($1);", plang);
 	let plang = preg_replace("/exec\((.*)\)/", "exec($1);", plang);
