@@ -1,21 +1,21 @@
-ARG_ENABLE("plang", "enable plang", "no");
+ARG_ENABLE("part", "enable part", "no");
 
-if (PHP_PLANG != "no") {
-  EXTENSION("plang", "plang.c", null, "-I"+configure_module_dirname);
-  ADD_SOURCES(configure_module_dirname + "/kernel", "main.c memory.c exception.c hash.c debug.c backtrace.c object.c array.c string.c fcall.c require.c file.c operators.c math.c concat.c variables.c filter.c iterator.c exit.c time.c", "plang");
-  ADD_SOURCES(configure_module_dirname + "/kernel/extended", "array.c fcall.c", "plang");
+if (PHP_PART != "no") {
+  EXTENSION("part", "part.c", null, "-I"+configure_module_dirname);
+  ADD_SOURCES(configure_module_dirname + "/kernel", "main.c memory.c exception.c hash.c debug.c backtrace.c object.c array.c string.c fcall.c require.c file.c operators.c math.c concat.c variables.c filter.c iterator.c exit.c time.c", "part");
+  ADD_SOURCES(configure_module_dirname + "/kernel/extended", "array.c fcall.c", "part");
   /* PCRE is always included on WIN32 */
   AC_DEFINE("ZEPHIR_USE_PHP_PCRE", 1, "Whether PHP pcre extension is present at compile time");
   if (PHP_JSON != "no") {
-    ADD_EXTENSION_DEP("plang", "json");
+    ADD_EXTENSION_DEP("part", "json");
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/plang/function", "main.zep.c", "plang");
-	ADD_SOURCES(configure_module_dirname + "/plang/lib", "main.zep.c", "plang");
-	ADD_SOURCES(configure_module_dirname + "/plang/page", "main.zep.c", "plang");
-	ADD_SOURCES(configure_module_dirname + "/plang", "plang.zep.c", "plang");
-	ADD_SOURCES(configure_module_dirname + "/plang/statement", "main.zep.c", "plang");
-	ADD_SOURCES(configure_module_dirname + "/plang/text", "main.zep.c", "plang");
-  ADD_FLAG("CFLAGS_PLANG", "/D ZEPHIR_RELEASE");
+  ADD_SOURCES(configure_module_dirname + "/part/function", "main.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part/lib", "main.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part/page", "main.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part", "part.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part/statement", "main.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part/text", "main.zep.c", "part");
+  ADD_FLAG("CFLAGS_PART", "/D ZEPHIR_RELEASE");
 }

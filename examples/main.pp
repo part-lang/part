@@ -1,3 +1,3 @@
 <?php
-use Plang\Plang;
-Plang::main_engine();
+use Part\Part;
+Part::main_engine();

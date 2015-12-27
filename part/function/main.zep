@@ -1,4 +1,4 @@
-namespace Plang\Function;
+namespace Part\Function;
 
 class Main {
     /**

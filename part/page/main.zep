@@ -1,4 +1,4 @@
-namespace Plang\Page;
+namespace Part\Page;
 
 class Main {
     /**

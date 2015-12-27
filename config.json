@@ -52,8 +52,8 @@
         "check-invalid-reads": false,
         "internal-call-transformation": false
     },
-    "namespace": "plang",
-    "name": "plang",
+    "namespace": "part",
+    "name": "part",
     "description": "",
     "author": "",
     "version": "0.0.1",

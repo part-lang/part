@@ -1,4 +1,4 @@
-namespace Plang\Statement;
+namespace Part\Statement;
 
 class Main {
 	/**

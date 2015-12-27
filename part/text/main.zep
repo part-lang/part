@@ -1,4 +1,4 @@
-namespace Plang\Text;
+namespace Part\Text;
 
 class Main {
     /**
@@ -7,7 +7,7 @@ class Main {
 	
 	public function symbol(plang){
     let plang = str_replace("|", ";", plang);
-    let plang = str_replace("plang:", "<?php", plang);
+    let plang = str_replace("part:", "<?php", plang);
     let plang = str_replace("html:", "?>", plang);
 	return plang;
 	}

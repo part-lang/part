@@ -1,12 +1,12 @@
-namespace Plang;
+namespace Part;
 
-class Plang {
+class Part {
  
 	public static function main_engine() {
 	    var main, engine, extension, location;
 	    let location = $_GET["_url"];
-	    let main = new \Plang\Page\Main();
-	    let engine = new Plang();
+	    let main = new \Part\Page\Main();
+	    let engine = new Part();
 	    if(location == ""){
 	        let location = "index.p";
 	    }
@@ -37,10 +37,10 @@ class Plang {
 	
 	public static function engine(location) {
 	    var plang, statement, text, functions, library;
-	    let statement = new \Plang\Statement\Main();
-	    let text = new \Plang\Text\Main();
-	    let functions = new \Plang\Function\Main();
-	    let library = new \Plang\Lib\Main();
+	    let statement = new \Part\Statement\Main();
+	    let text = new \Part\Text\Main();
+	    let functions = new \Part\Function\Main();
+	    let library = new \Part\Lib\Main();
 	    let plang = file_get_contents(location, true);
         let plang = library->os(plang);
         let plang = library->import(plang);

@@ -1,4 +1,4 @@
-namespace Plang\Lib;
+namespace Part\Lib;
 
 class Main {
 
