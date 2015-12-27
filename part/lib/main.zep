@@ -13,6 +13,25 @@ class Main {
 	let plang = preg_replace("/import (.*)/", "use $1;", plang);
     return plang;
 	}
+	
+	/**
+	 * File usage:
+	 *<code>
+	 *      file.read(location)
+	 *		file.size(location)
+	 *		file.ext(location)
+	 *		file.write(location)
+	 *</code>
+	 */
+	 
+	private static function file(plang) {
+	let plang = preg_replace("/file.read\((.*)\)/", "file_get_contents($1,true);", plang);
+	let plang = preg_replace("/file.size\((.*)\)/", "filesize($1);", plang);
+	let plang = preg_replace("/file.ext\((.*)\)/", "pathinfo($1, PATHINFO_EXTENSION);", plang);
+	let plang = preg_replace("/file.create\((.*),(.*)\)/", "$file = fopen($1,'w'); fwrite($file, $2); fclose($file);", plang);
+	
+    return plang;
+	}
 
     /**
 	 * HTTP usage:

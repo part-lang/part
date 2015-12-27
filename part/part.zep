@@ -47,6 +47,7 @@ class Part {
         let plang = library->http(plang);
         let plang = library->server(plang);
         let plang = library->commands(plang);
+        let plang = library->file(plang);
         let plang = text->variable(plang);
         let plang = text->write(plang);
         let plang = text->symbol(plang);
