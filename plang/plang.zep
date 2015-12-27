@@ -12,13 +12,27 @@ class Plang {
 	    }
         let extension = pathinfo(location, PATHINFO_EXTENSION);
         main->notfound(location);
-	    if(extension == "p"){
+        
+        switch (extension) {
+            case "p":
             engine->engine(location);
-	    }elseif(extension == "html"){
-	        main->content(location, "text/html");
-	    }else{
+            break;
+            
+            case "html":
+            main->content(location, "text/html");
+            break;
+            
+            case "css":
+            main->content(location, "text/css");
+            break;
+            
+            case "js":
+            main->content(location, "application/javascript");
+            break;
+            
+            default:
             main->content(location, "text/plain");
-	    }
+        }
 	}
 	
 	public static function engine(location) {

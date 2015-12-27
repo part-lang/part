@@ -29,7 +29,7 @@ ZEPHIR_INIT_CLASS(Plang_Plang) {
 PHP_METHOD(Plang_Plang, main_engine) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *_GET, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, _0, *_1$$5, *_2$$6;
+	zval *_GET, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, _0, *_1$$5, *_2$$6, *_3$$7, *_4$$8;
 
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_GET, SS("_GET") TSRMLS_CC);
@@ -58,22 +58,43 @@ PHP_METHOD(Plang_Plang, main_engine) {
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, main, "notfound", NULL, 6, location);
 	zephir_check_call_status();
-	if (ZEPHIR_IS_STRING(extension, "p")) {
-		ZEPHIR_CALL_METHOD(NULL, engine, "engine", NULL, 7, location);
+	do {
+		if (ZEPHIR_IS_STRING(extension, "p")) {
+			ZEPHIR_CALL_METHOD(NULL, engine, "engine", NULL, 7, location);
+			zephir_check_call_status();
+			break;
+		}
+		if (ZEPHIR_IS_STRING(extension, "html")) {
+			ZEPHIR_INIT_VAR(_1$$5);
+			ZVAL_STRING(_1$$5, "text/html", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _1$$5);
+			zephir_check_temp_parameter(_1$$5);
+			zephir_check_call_status();
+			break;
+		}
+		if (ZEPHIR_IS_STRING(extension, "css")) {
+			ZEPHIR_INIT_VAR(_2$$6);
+			ZVAL_STRING(_2$$6, "text/css", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _2$$6);
+			zephir_check_temp_parameter(_2$$6);
+			zephir_check_call_status();
+			break;
+		}
+		if (ZEPHIR_IS_STRING(extension, "js")) {
+			ZEPHIR_INIT_VAR(_3$$7);
+			ZVAL_STRING(_3$$7, "application/javascript", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _3$$7);
+			zephir_check_temp_parameter(_3$$7);
+			zephir_check_call_status();
+			break;
+		}
+		ZEPHIR_INIT_VAR(_4$$8);
+		ZVAL_STRING(_4$$8, "text/plain", ZEPHIR_TEMP_PARAM_COPY);
+		ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _4$$8);
+		zephir_check_temp_parameter(_4$$8);
 		zephir_check_call_status();
-	} else if (ZEPHIR_IS_STRING(extension, "html")) {
-		ZEPHIR_INIT_VAR(_1$$5);
-		ZVAL_STRING(_1$$5, "text/html", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _1$$5);
-		zephir_check_temp_parameter(_1$$5);
-		zephir_check_call_status();
-	} else {
-		ZEPHIR_INIT_VAR(_2$$6);
-		ZVAL_STRING(_2$$6, "text/plain", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 8, location, _2$$6);
-		zephir_check_temp_parameter(_2$$6);
-		zephir_check_call_status();
-	}
+	} while(0);
+
 	ZEPHIR_MM_RESTORE();
 
 }
@@ -169,7 +190,7 @@ PHP_METHOD(Plang_Plang, engine) {
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
 	ZEPHIR_INIT_NVAR(_1);
-	zephir_eval_php(plang, _1, "/home/ubuntu/workspace/plang/plang/plang.zep:47" TSRMLS_CC);
+	zephir_eval_php(plang, _1, "/home/ubuntu/workspace/plang/plang/plang.zep:61" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }
