@@ -9,6 +9,7 @@ cd zephir
 ./install -c
 
 cd ..
+zephir fullclean
 zephir build
 
 sudo touch /etc/php/7.0/cli/conf.d/part.ini
