@@ -6,6 +6,7 @@
 
 #include "part/function/main.zep.h"
 #include "part/lib/compile.zep.h"
+#include "part/lib/curl.zep.h"
 #include "part/lib/file.zep.h"
 #include "part/lib/main.zep.h"
 #include "part/page/main.zep.h"

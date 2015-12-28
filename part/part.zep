@@ -52,7 +52,9 @@ class Part {
         let plang = library->server(plang);
         let plang = library->commands(plang);
         let plang = library->file(plang);
-        let plang = library->compiler(plang);
+        let plang = library->mysql(plang);
+        let plang = library->mysqli(plang);
+        let plang = library->curl(plang);
         let plang = text->variable(plang);
         let plang = text->write(plang);
         let plang = text->symbol(plang);

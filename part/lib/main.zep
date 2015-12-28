@@ -3,17 +3,43 @@ namespace Part\Lib;
 class Main {
 
 	/**
-	 * Compiler usage:
+	 * MySQL usage:
 	 *<code>
-	 *      import Library\Func
+	 *      mysql.connect()
 	 *</code>
 	 */
 	 
-	private static function compiler(plang) {
-	let plang = str_replace("compile:", "ob_start();", plang);
-	let plang = str_replace("compile_end:", "$compile_to_html = ob_get_contents(); Part\Lib\File::create('compile.txt',$compile_to_html); ob_end_flush();", plang);
+	private static function mysql(plang) {
+	let plang = str_replace("mysql.", "mysql_", plang);
     return plang;
 	}
+
+	/**
+	 * MySQLI usage:
+	 *<code>
+	 *      mysqli.connect()
+	 *</code>
+	 */
+	 
+	private static function mysqli(plang) {
+	let plang = str_replace("mysqli.", "mysqli_", plang);
+    return plang;
+	}
+	
+	/**
+	 * Curl usage:
+	 *<code>
+	 *      curl.get(url, parameter, user_agent)
+	 *		curl.post(url, parameter, user_agent)
+	 *</code>
+	 */
+	 
+	private static function curl(plang) {
+	let plang = preg_replace("/curl.get\((.*)\)/", "Part\Lib\Curl::get($1);", plang);
+	let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl::post($1);", plang);
+    return plang;
+	}
+	
     /**
 	 * Import usage:
 	 *<code>

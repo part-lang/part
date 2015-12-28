@@ -11,6 +11,7 @@ if test "$PHP_PART" = "yes"; then
 	AC_DEFINE(HAVE_PART, 1, [Whether you have Part])
 	part_sources="part.c kernel/main.c kernel/memory.c kernel/exception.c kernel/hash.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/extended/array.c kernel/string.c kernel/fcall.c kernel/extended/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c part/function/main.zep.c
 	part/lib/compile.zep.c
+	part/lib/curl.zep.c
 	part/lib/file.zep.c
 	part/lib/main.zep.c
 	part/page/main.zep.c

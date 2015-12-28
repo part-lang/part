@@ -26,14 +26,14 @@ ZEPHIR_INIT_CLASS(Part_Lib_Main) {
 }
 
 /**
- * Compiler usage:
+ * MySQL usage:
  *<code>
- *      import Library\Func
+ *      mysql.connect()
  *</code>
  */
-PHP_METHOD(Part_Lib_Main, compiler) {
+PHP_METHOD(Part_Lib_Main, mysql) {
 
-	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4;
+	zval *plang = NULL, *_0, _1, _2;
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -43,18 +43,81 @@ PHP_METHOD(Part_Lib_Main, compiler) {
 
 	ZEPHIR_INIT_VAR(_0);
 	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "compile:", 0);
+	ZVAL_STRING(&_1, "mysql.", 0);
 	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "ob_start();", 0);
+	ZVAL_STRING(&_2, "mysql_", 0);
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_3);
-	ZVAL_STRING(&_3, "compile_end:", 0);
-	ZEPHIR_SINIT_VAR(_4);
-	ZVAL_STRING(&_4, "$compile_to_html = ob_get_contents(); Part\\Lib\\File::create('compile.txt',$compile_to_html); ob_end_flush();", 0);
-	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
+ * MySQLI usage:
+ *<code>
+ *      mysqli.connect()
+ *</code>
+ */
+PHP_METHOD(Part_Lib_Main, mysqli) {
+
+	zval *plang = NULL, *_0, _1, _2;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(_0);
+	ZEPHIR_SINIT_VAR(_1);
+	ZVAL_STRING(&_1, "mysqli.", 0);
+	ZEPHIR_SINIT_VAR(_2);
+	ZVAL_STRING(&_2, "mysqli_", 0);
+	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
 	ZEPHIR_CPY_WRT(plang, _0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
+ * Curl usage:
+ *<code>
+ *      curl.get(url, parameter, user_agent)
+ *		curl.post(url, parameter, user_agent)
+ *</code>
+ */
+PHP_METHOD(Part_Lib_Main, curl) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_3 = NULL;
+	zval *plang = NULL, *_0 = NULL, *_1 = NULL, *_2 = NULL;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(_0);
+	ZVAL_STRING(_0, "/curl.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_VAR(_1);
+	ZVAL_STRING(_1, "Part\\Lib\\Curl::get($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_1);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/curl.post\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_1);
+	ZVAL_STRING(_1, "Part\\Lib\\Curl::post($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_1);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 

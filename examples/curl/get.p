@@ -1,0 +1,1 @@
+print curl.get("https://p-lang-riswanda.c9users.io/get.p","?text=Hello+World")
