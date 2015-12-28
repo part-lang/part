@@ -13,8 +13,8 @@
 
 #include "kernel/main.h"
 #include "kernel/memory.h"
-#include "kernel/fcall.h"
 #include "kernel/string.h"
+#include "kernel/fcall.h"
 
 
 ZEPHIR_INIT_CLASS(Part_Lib_Main) {
@@ -22,6 +22,41 @@ ZEPHIR_INIT_CLASS(Part_Lib_Main) {
 	ZEPHIR_REGISTER_CLASS(Part\\Lib, Main, part, lib_main, part_lib_main_method_entry, 0);
 
 	return SUCCESS;
+
+}
+
+/**
+ * Compiler usage:
+ *<code>
+ *      import Library\Func
+ *</code>
+ */
+PHP_METHOD(Part_Lib_Main, compiler) {
+
+	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(_0);
+	ZEPHIR_SINIT_VAR(_1);
+	ZVAL_STRING(&_1, "compile:", 0);
+	ZEPHIR_SINIT_VAR(_2);
+	ZVAL_STRING(&_2, "ob_start();", 0);
+	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
+	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_INIT_NVAR(_0);
+	ZEPHIR_SINIT_VAR(_3);
+	ZVAL_STRING(&_3, "compile_end:", 0);
+	ZEPHIR_SINIT_VAR(_4);
+	ZVAL_STRING(&_4, "$compile_to_html = ob_get_contents(); Part\\Lib\\File::create('compile.txt',$compile_to_html); ob_end_flush();", 0);
+	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
+	ZEPHIR_CPY_WRT(plang, _0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
 
 }
 

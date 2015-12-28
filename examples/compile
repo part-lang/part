@@ -1,0 +1,3 @@
+<?php
+use Part\Lib\Compile;
+Compile::compile_engine($argv[1]);

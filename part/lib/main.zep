@@ -2,6 +2,18 @@ namespace Part\Lib;
 
 class Main {
 
+	/**
+	 * Compiler usage:
+	 *<code>
+	 *      import Library\Func
+	 *</code>
+	 */
+	 
+	private static function compiler(plang) {
+	let plang = str_replace("compile:", "ob_start();", plang);
+	let plang = str_replace("compile_end:", "$compile_to_html = ob_get_contents(); Part\Lib\File::create('compile.txt',$compile_to_html); ob_end_flush();", plang);
+    return plang;
+	}
     /**
 	 * Import usage:
 	 *<code>

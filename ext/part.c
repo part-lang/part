@@ -28,6 +28,7 @@
 
 
 zend_class_entry *part_function_main_ce;
+zend_class_entry *part_lib_compile_ce;
 zend_class_entry *part_lib_file_ce;
 zend_class_entry *part_lib_main_ce;
 zend_class_entry *part_page_main_ce;
@@ -60,6 +61,7 @@ static PHP_MINIT_FUNCTION(part)
 #endif
 	REGISTER_INI_ENTRIES();
 	ZEPHIR_INIT(Part_Function_Main);
+	ZEPHIR_INIT(Part_Lib_Compile);
 	ZEPHIR_INIT(Part_Lib_File);
 	ZEPHIR_INIT(Part_Lib_Main);
 	ZEPHIR_INIT(Part_Page_Main);

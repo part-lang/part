@@ -15,7 +15,11 @@ class Part {
         
         switch (extension) {
             case "p":
+            if(!file_exists("static/".location.".so")){
             engine->engine(location);
+            }else{
+            main->content("static/".location.".so", "text/html");
+            }
             break;
             
             case "html":
@@ -48,6 +52,7 @@ class Part {
         let plang = library->server(plang);
         let plang = library->commands(plang);
         let plang = library->file(plang);
+        let plang = library->compiler(plang);
         let plang = text->variable(plang);
         let plang = text->write(plang);
         let plang = text->symbol(plang);
@@ -60,6 +65,7 @@ class Part {
         let plang = statement->if_statement(plang);
         let plang = statement->for_statement(plang);
         eval(plang);
+        
 	}
 
 }
