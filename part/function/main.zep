@@ -34,7 +34,10 @@ class Main {
     private static function class_function(plang) {
     let plang = preg_replace("/class (.*)/", "class $1 {", plang);
     let plang = preg_replace("/public (.*) = (.*)/", "public $$1 = $2;", plang);
-    let plang = preg_replace("/this->(.*)/", "$this->$1;", plang);
+    let plang = preg_replace("/private (.*) = (.*)/", "private $$1 = $2;", plang);
+    let plang = preg_replace("/protected (.*) = (.*)/", "protected $$1 = $2;", plang);
+    let plang = preg_replace("/@this->(.*)/", "$this->$1;", plang);
+    let plang = preg_replace("/namespace (.*)/", "namespace $1;", plang); // @variable
     return plang;
     }
     

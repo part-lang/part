@@ -1,7 +1,7 @@
-class Hello
+class Hello 
     public say = 'Null'
     def talk(@text)
-    this->say = @text
+    @this->say = @text
     end
 end
 
