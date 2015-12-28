@@ -1,4 +1,10 @@
 #!/bin/bash
+sudo apt-get install -y git gcc make re2c php5 php5-json php5-dev libpcre3-dev
+
+git clone https://github.com/phalcon/zephir
+
+./zephir/install -c
+
 sudo touch /etc/php5/cli/conf.d/part.ini
 sudo sh -c "echo 'extension=part.so' >> /etc/php5/cli/conf.d/part.ini"
 
