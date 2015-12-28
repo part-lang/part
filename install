@@ -6,6 +6,9 @@ git clone https://github.com/phalcon/zephir
 cd zephir
 ./install -c
 
+cd ..
+zephir build
+
 sudo touch /etc/php5/cli/conf.d/part.ini
 sudo sh -c "echo 'extension=part.so' >> /etc/php5/cli/conf.d/part.ini"
 
