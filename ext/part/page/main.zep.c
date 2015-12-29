@@ -17,6 +17,7 @@
 #include "kernel/fcall.h"
 #include "kernel/concat.h"
 #include "kernel/exit.h"
+#include "kernel/array.h"
 
 
 ZEPHIR_INIT_CLASS(Part_Page_Main) {
@@ -91,6 +92,29 @@ PHP_METHOD(Part_Page_Main, content) {
 	zephir_check_call_status();
 	zend_print_zval(plang, 0);
 	ZEPHIR_MM_RESTORE();
+
+}
+
+/**
+ * Get config file:
+ */
+PHP_METHOD(Part_Page_Main, config) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *section, *config, *setting = NULL, _0, *_1, *_2;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 2, 0, &section, &config);
+
+
+
+	ZEPHIR_SINIT_VAR(_0);
+	ZVAL_STRING(&_0, "part.ini", 0);
+	ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 23, &_0, ZEPHIR_GLOBAL(global_true));
+	zephir_check_call_status();
+	zephir_array_fetch(&_1, setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 33 TSRMLS_CC);
+	zephir_array_fetch(&_2, _1, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 33 TSRMLS_CC);
+	RETURN_CTOR(_2);
 
 }
 

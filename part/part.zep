@@ -8,8 +8,13 @@ class Part {
         let main = new \Part\Page\Main();
         let engine = new Part();
         if(location == ""){
+            if(main->config("config","index") == ""){
                 let location = "index.p";
+            }else{
+                let location = main->config("config","index");
+            }
         }
+        
         let extension = pathinfo(location, PATHINFO_EXTENSION);
         main->notfound(location);
         
@@ -20,6 +25,14 @@ class Part {
                 }else{
                 main->content("static/".location.".so", "text/html");
             }
+            break;
+            
+            case "pp":
+            die();
+            break;
+            
+            case "ini":
+            die();
             break;
             
             case "html":

@@ -24,4 +24,12 @@ class Main {
 		    let plang = file_get_contents(location, true);
 		    echo plang;
 		}
+		/**
+		 * Get config file:
+		 */
+		private static function config(section, config) {
+			var setting;
+		    let setting = parse_ini_file("part.ini",true);
+		    return setting[section][config];
+		}
 }
