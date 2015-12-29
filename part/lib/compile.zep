@@ -4,7 +4,7 @@ class Compile {
         public static function compile_engine(location){
         var compiler, result, files;
         let compiler = new \Part\Part;
-        let files = new \Part\Lib\File();
+        let files = new \Part\Lib\File\File();
         ob_start();
         compiler->engine(location);
         let result = ob_get_contents();

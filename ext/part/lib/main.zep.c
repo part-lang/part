@@ -197,6 +197,63 @@ PHP_METHOD(Part_Lib_Main, load) {
 }
 
 /**
+ * Session usage:
+ *<code>
+ *		session.start()
+ *      session.save(key,value)
+ *		session.get(key)
+ *</code>
+ */
+PHP_METHOD(Part_Lib_Main, session) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_7 = NULL;
+	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4, *_5 = NULL, *_6 = NULL;
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(_0);
+	ZEPHIR_SINIT_VAR(_1);
+	ZVAL_STRING(&_1, "session.start()", 0);
+	ZEPHIR_SINIT_VAR(_2);
+	ZVAL_STRING(&_2, "session_start();", 0);
+	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
+	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_INIT_NVAR(_0);
+	ZEPHIR_SINIT_VAR(_3);
+	ZVAL_STRING(&_3, "session.clear()", 0);
+	ZEPHIR_SINIT_VAR(_4);
+	ZVAL_STRING(&_4, "session_destroy();", 0);
+	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
+	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/session.save\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_VAR(_5);
+	ZVAL_STRING(_5, "$_SESSION[$1] = $2;", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, _0, _5, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_5);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _6);
+	ZEPHIR_INIT_NVAR(_0);
+	ZVAL_STRING(_0, "/session.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_INIT_NVAR(_5);
+	ZVAL_STRING(_5, "$_SESSION[$1]", ZEPHIR_TEMP_PARAM_COPY);
+	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, _0, _5, plang);
+	zephir_check_temp_parameter(_0);
+	zephir_check_temp_parameter(_5);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _6);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
  * File usage:
  *<code>
  *      file.read(location)

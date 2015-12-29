@@ -66,6 +66,23 @@ class Main {
 		return plang;
 		}
 		
+		/**
+		 * Session usage:
+		 *<code>
+		 *		session.start()
+		 *      session.save(key,value)
+		 *		session.get(key)
+		 *</code>
+		 */
+		 
+		private static function session(plang) {
+		let plang = str_replace("session.start()", "session_start();", plang);
+		let plang = str_replace("session.clear()", "session_destroy();", plang);
+		let plang = preg_replace("/session.save\((.*),(.*)\)/", "$_SESSION[$1] = $2;", plang);
+		let plang = preg_replace("/session.get\((.*)\)/", "$_SESSION[$1]", plang);
+		return plang;
+		}
+		
 		
 		/**
 		 * File usage:

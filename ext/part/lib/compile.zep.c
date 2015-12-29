@@ -42,7 +42,7 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_VAR(files);
-	object_init_ex(files, zephir_get_internal_ce(SS("part\\lib\\file") TSRMLS_CC));
+	object_init_ex(files, part_lib_file_file_ce);
 	if (zephir_has_constructor(files TSRMLS_CC)) {
 		ZEPHIR_CALL_METHOD(NULL, files, "__construct", NULL, 0);
 		zephir_check_call_status();
@@ -61,9 +61,9 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_2);
 	ZEPHIR_CONCAT_SVS(_2, "static/", location, ".so");
-	ZEPHIR_CALL_METHOD(NULL, files, "create", NULL, 0, _2, result);
+	ZEPHIR_CALL_METHOD(NULL, files, "create", NULL, 6, _2, result);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 6);
+	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 7);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_3);
 	ZEPHIR_CONCAT_SVS(_3, " Compile ", location, " to static files success");
