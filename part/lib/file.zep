@@ -5,9 +5,9 @@ class File {
 		public static function create(string! location, string! content) {
 		var file, dir;
 		let dir = dirname($_GET["_url"]);
-	    let file = fopen(dir."/".location,"w");
-	    fwrite(file, content);
-	    fclose(file);
+		let file = fopen(dir."/".location,"w");
+		fwrite(file, content);
+		fclose(file);
 		}
 		
 		public static function read(string! location) {
@@ -32,7 +32,7 @@ class File {
 		var dir;
 		let dir = dirname($_GET["_url"]);
 		if (!copy(dir."/".location, dir."/".newlocation)) {
-	    	echo "failed to copy...\n";
+			echo "failed to copy...\n";
 		}
 		}
 		
@@ -40,7 +40,7 @@ class File {
 		var dir;
 		let dir = dirname($_GET["_url"]);
 		if (!rename(dir."/".location, dir."/".newname)) {
-	    	echo "failed to rename...\n";
+			echo "failed to rename...\n";
 		}
 		}
 		
@@ -48,7 +48,7 @@ class File {
 		var dir;
 		let dir = dirname($_GET["_url"]);
 		if (!unlink(dir."/".location)) {
-	    	echo "failed to delete...\n";
+			echo "failed to delete...\n";
 		}
 		}
 		
@@ -58,16 +58,16 @@ class File {
 		if(format == true){
 		    array type;
 		    let type = [" bytes", " KB", " MB", " GB", " TB"];
-	    	let size = filesize(dir."/".location);
+			let size = filesize(dir."/".location);
 		    let base = log(size, 1024);
-	            if(base > 0){
-	                return round(pow(1024, base - floor(base)), 2) . type[base];
-	                }else{
-	                return "0 bytes";
-	            }
-	        }else{
-	        return filesize(dir."/".location);
-	    }
+		        if(base > 0){
+		            return round(pow(1024, base - floor(base)), 2) . type[base];
+		            }else{
+		            return "0 bytes";
+		        }
+		    }else{
+		    return filesize(dir."/".location);
+		}
 		
 		}
 }
