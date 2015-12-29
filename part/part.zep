@@ -9,9 +9,9 @@ class Part {
         let engine = new Part();
         if(location == ""){
                 let location = "index.p";
-	    }
-            let extension = pathinfo(location, PATHINFO_EXTENSION);
-            main->notfound(location);
+        }
+        let extension = pathinfo(location, PATHINFO_EXTENSION);
+        main->notfound(location);
         
         switch (extension) {
             case "p":
