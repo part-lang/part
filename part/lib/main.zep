@@ -35,8 +35,8 @@ class Main {
 		 */
 		 
 		private static function curl(plang) {
-		let plang = preg_replace("/curl.get\((.*)\)/", "Part\Lib\Curl::get($1);", plang);
-		let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl::post($1);", plang);
+		let plang = preg_replace("/curl.get\((.*)\)/", "Part\Lib\Curl\Curl::get($1);", plang);
+		let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl\Curl::post($1);", plang);
 		return plang;
 		}
 		
@@ -61,8 +61,8 @@ class Main {
 		 */
 		 
 		private static function load(plang) {
-		let plang = preg_replace("/load (.*)/", "Part\Lib\Load::load_view($1);", plang);
-		let plang = preg_replace("/require (.*)/", "Part\Lib\Load::load_view($1);", plang);
+		let plang = preg_replace("/load (.*)/", "Part\Lib\Load\Load::load_view($1);", plang);
+		let plang = preg_replace("/require (.*)/", "Part\Lib\Load\Load::load_view($1);", plang);
 		return plang;
 		}
 		
@@ -80,15 +80,15 @@ class Main {
 		 */
 		 
 		private static function file(plang) {
-		let plang = preg_replace("/file.read\((.*)\)/", "Part\Lib\File::read($1);", plang);
-		let plang = preg_replace("/file.load\((.*)\)/", "Part\Lib\File::read($1);", plang);
-		let plang = preg_replace("/file.size\((.*)\)/", "Part\Lib\File::size($1);", plang);
-		let plang = preg_replace("/file.ext\((.*)\)/", "Part\Lib\File::extension($1);", plang);
-		let plang = preg_replace("/file.create\((.*),(.*)\)/", "Part\Lib\File::create($1,$2);", plang);
-		let plang = preg_replace("/file.copy\((.*),(.*)\)/", "Part\Lib\File::copy($1,$2);", plang);
-		let plang = preg_replace("/file.time\((.*),(.*)\)/", "Part\Lib\File::time($1,$2);", plang);
-		let plang = preg_replace("/file.rename\((.*),(.*)\)/", "Part\Lib\File::rename($1,$2);", plang);
-		let plang = preg_replace("/file.delete\((.*)\)/", "Part\Lib\File::delete($1);", plang);
+		let plang = preg_replace("/file.read\((.*)\)/", "Part\Lib\File\File::read($1);", plang);
+		let plang = preg_replace("/file.load\((.*)\)/", "Part\Lib\File\File::read($1);", plang);
+		let plang = preg_replace("/file.size\((.*)\)/", "Part\Lib\File\File::size($1);", plang);
+		let plang = preg_replace("/file.ext\((.*)\)/", "Part\Lib\File\File::extension($1);", plang);
+		let plang = preg_replace("/file.create\((.*),(.*)\)/", "Part\Lib\File\File::create($1,$2);", plang);
+		let plang = preg_replace("/file.copy\((.*),(.*)\)/", "Part\Lib\File\File::copy($1,$2);", plang);
+		let plang = preg_replace("/file.time\((.*),(.*)\)/", "Part\Lib\File\File::time($1,$2);", plang);
+		let plang = preg_replace("/file.rename\((.*),(.*)\)/", "Part\Lib\File\File::rename($1,$2);", plang);
+		let plang = preg_replace("/file.delete\((.*)\)/", "Part\Lib\File\File::delete($1);", plang);
 		return plang;
 		}
 		

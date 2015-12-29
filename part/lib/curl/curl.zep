@@ -1,4 +1,4 @@
-namespace Part\Lib;
+namespace Part\Lib\Curl;
 
 class Curl {
  

@@ -1,4 +1,4 @@
-namespace Part\Lib;
+namespace Part\Lib\Load;
 
 class Load {
         public static function load_view(location) {

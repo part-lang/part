@@ -103,7 +103,7 @@ PHP_METHOD(Part_Lib_Main, curl) {
 	ZEPHIR_INIT_VAR(_0);
 	ZVAL_STRING(_0, "/curl.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Curl::get($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\Curl\\Curl::get($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -112,7 +112,7 @@ PHP_METHOD(Part_Lib_Main, curl) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/curl.post\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Curl::post($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\Curl\\Curl::post($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -176,7 +176,7 @@ PHP_METHOD(Part_Lib_Main, load) {
 	ZEPHIR_INIT_VAR(_0);
 	ZVAL_STRING(_0, "/load (.*)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\Load\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -185,7 +185,7 @@ PHP_METHOD(Part_Lib_Main, load) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/require (.*)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\Load\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -222,7 +222,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_VAR(_0);
 	ZVAL_STRING(_0, "/file.read\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -231,7 +231,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.load\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -240,7 +240,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.size\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::size($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::size($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -249,7 +249,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.ext\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::extension($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::extension($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -258,7 +258,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.create\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::create($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::create($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -267,7 +267,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.copy\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::copy($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::copy($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -276,7 +276,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.time\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::time($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::time($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -285,7 +285,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.rename\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::rename($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::rename($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
@@ -294,7 +294,7 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_INIT_NVAR(_0);
 	ZVAL_STRING(_0, "/file.delete\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File::delete($1);", ZEPHIR_TEMP_PARAM_COPY);
+	ZVAL_STRING(_1, "Part\\Lib\\File\\File::delete($1);", ZEPHIR_TEMP_PARAM_COPY);
 	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
 	zephir_check_temp_parameter(_0);
 	zephir_check_temp_parameter(_1);
