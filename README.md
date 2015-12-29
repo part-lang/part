@@ -107,16 +107,16 @@ print @hello->say
 ```
 Output : Hello World
 
-### Example import static file
+### Example load static file
 ```ruby
-import 'hello.html'
+load 'hello.html'
 ```
-### Example function, import
+### Example function, load
 ```ruby
-import 'header.html'
+load 'header.html'
 @text = "Welcome"
 call main(@text)
-import 'footer.html'
+load 'footer.html'
 
 def main(@hello)
 print @hello
