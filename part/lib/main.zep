@@ -39,7 +39,7 @@ class Main {
 	let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl::post($1);", plang);
     return plang;
 	}
-	
+
     /**
 	 * Import usage:
 	 *<code>
@@ -51,6 +51,21 @@ class Main {
 	let plang = preg_replace("/import (.*)/", "use $1;", plang);
     return plang;
 	}
+	
+	 /**
+	 * Load usage:
+	 *<code>
+	 *      load "file.p"
+	 *		require "file.p"
+	 *</code>
+	 */
+	 
+	private static function load(plang) {
+	let plang = preg_replace("/load (.*)/", "Part\Lib\Load::load_view($1);", plang);
+	let plang = preg_replace("/require (.*)/", "Part\Lib\Load::load_view($1);", plang);
+    return plang;
+	}
+	
 	
 	/**
 	 * File usage:
@@ -66,6 +81,7 @@ class Main {
 	 
 	private static function file(plang) {
 	let plang = preg_replace("/file.read\((.*)\)/", "Part\Lib\File::read($1);", plang);
+	let plang = preg_replace("/file.load\((.*)\)/", "Part\Lib\File::read($1);", plang);
 	let plang = preg_replace("/file.size\((.*)\)/", "Part\Lib\File::size($1);", plang);
 	let plang = preg_replace("/file.ext\((.*)\)/", "Part\Lib\File::extension($1);", plang);
 	let plang = preg_replace("/file.create\((.*),(.*)\)/", "Part\Lib\File::create($1,$2);", plang);

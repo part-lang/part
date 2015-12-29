@@ -13,6 +13,7 @@ if test "$PHP_PART" = "yes"; then
 	part/lib/compile.zep.c
 	part/lib/curl.zep.c
 	part/lib/file.zep.c
+	part/lib/load.zep.c
 	part/lib/main.zep.c
 	part/page/main.zep.c
 	part/part.zep.c

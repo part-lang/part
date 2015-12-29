@@ -55,6 +55,7 @@ class Part {
         let plang = library->mysql(plang);
         let plang = library->mysqli(plang);
         let plang = library->curl(plang);
+        let plang = library->load(plang);
         let plang = text->variable(plang);
         let plang = text->write(plang);
         let plang = text->symbol(plang);
