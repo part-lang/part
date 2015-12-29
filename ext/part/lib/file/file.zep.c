@@ -64,13 +64,13 @@ PHP_METHOD(Part_Lib_File_File, create) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 7 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
 	ZEPHIR_SINIT_VAR(_2);
 	ZVAL_STRING(&_2, "w", 0);
-	ZEPHIR_CALL_FUNCTION(&file, "fopen", NULL, 13, _1, &_2);
+	ZEPHIR_CALL_FUNCTION(&file, "fopen", NULL, 8, _1, &_2);
 	zephir_check_call_status();
 	zephir_fwrite(NULL, file, content TSRMLS_CC);
 	zephir_fclose(file TSRMLS_CC);
@@ -101,7 +101,7 @@ PHP_METHOD(Part_Lib_File_File, read) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 15 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
@@ -134,7 +134,7 @@ PHP_METHOD(Part_Lib_File_File, extension) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 21 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
@@ -179,7 +179,7 @@ PHP_METHOD(Part_Lib_File_File, time) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 27 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_INIT_VAR(_2);
@@ -224,7 +224,7 @@ PHP_METHOD(Part_Lib_File_File, copy) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 33 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
@@ -272,7 +272,7 @@ PHP_METHOD(Part_Lib_File_File, rename) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 41 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
@@ -310,7 +310,7 @@ PHP_METHOD(Part_Lib_File_File, delete) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 49 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(_1);
 	ZEPHIR_CONCAT_VSV(_1, dir, "/", location);
@@ -351,7 +351,7 @@ PHP_METHOD(Part_Lib_File_File, size) {
 
 
 	zephir_array_fetch_string(&_0, _GET, SL("_url"), PH_NOISY | PH_READONLY, "part/lib/file/file.zep", 57 TSRMLS_CC);
-	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 12, _0);
+	ZEPHIR_CALL_FUNCTION(&dir, "dirname", NULL, 13, _0);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_TRUE(format)) {
 		ZEPHIR_INIT_VAR(type$$3);

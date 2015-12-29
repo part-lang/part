@@ -83,13 +83,13 @@ PHP_METHOD(Part_Part, main_engine) {
 	do {
 		if (ZEPHIR_IS_STRING(extension, "p")) {
 			ZEPHIR_INIT_VAR(_6$$6);
-			ZEPHIR_CONCAT_SVS(_6$$6, "static/", location, ".so");
+			ZEPHIR_CONCAT_SVS(_6$$6, "static/", location, ".static");
 			if (!((zephir_file_exists(_6$$6 TSRMLS_CC) == SUCCESS))) {
 				ZEPHIR_CALL_METHOD(NULL, engine, "engine", NULL, 3, location);
 				zephir_check_call_status();
 			} else {
 				ZEPHIR_INIT_VAR(_7$$8);
-				ZEPHIR_CONCAT_SVS(_7$$8, "static/", location, ".so");
+				ZEPHIR_CONCAT_SVS(_7$$8, "static/", location, ".static");
 				ZEPHIR_INIT_VAR(_8$$8);
 				ZVAL_STRING(_8$$8, "text/html", ZEPHIR_TEMP_PARAM_COPY);
 				ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, _7$$8, _8$$8);

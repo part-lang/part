@@ -20,10 +20,10 @@ class Part {
         
         switch (extension) {
             case "p":
-            if(!file_exists("static/".location.".so")){
+            if(!file_exists("static/".location.".static")){
                 engine->engine(location);
                 }else{
-                main->content("static/".location.".so", "text/html");
+                main->content("static/".location.".static", "text/html");
             }
             break;
             
