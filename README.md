@@ -1,162 +1,46 @@
 ### Part language
-Based on Zend Engine
+Sebuah bahasa pemrograman yang difokuskan dalam pengembangan website. Part menggunakan syntax yang simpel, mudah dibaca dan mudah dipelajari.
 
-Sebuah bahasa yang difokuskan dalam web development. Plang menggunakan syntax yang mudah dibaca dan mudah dipelajari
+### Examples
+Untuk contoh-contoh kode, bisa dilihat di https://github.com/part-lang/part/tree/master/examples
 
-### Example Hello World
-```ruby
-print 'Hello world'
-```
-Output : Hello World
+### Instalation
+Coming soon
 
-### Example Variable
 
-```ruby
-@text = 'Hello World'
-print @text
-```
-Output : Hello World
-
-### Example variable with strlen
-```ruby
-@text = 'Hello World'
-print strlen(@text)
-```
-Output : 11
-
-### Exampl constant
-```ruby
-const text = 'Hello World'
-print text
-```
-Output : Hello World
-
-### Example plang + html
-```ruby
-@title = 'Hello title'
-@content = 'Hello world'
-
-html:
-<title>%title%</title>
-<body>
-<p>%content%</p>
-</body>
+### Getting started
+Run server
+```bash
+./server
 ```
 
-### Example IF
-
-```ruby
-@text = "Hello World"
-if(@text >= "5")
-print "Higher"
-else
-print "Low"
-end
-```
-Output : Higher
-
-### Example mathematic
-```ruby
-print 1+1
-```
-Output : 2
-
-### Example fibonacci with function & for
-
-```ruby
-call fibonacci(0, 1)
-
-def fibonacci(@x , @y)
-
-    for(@i = 0 | @i <= 10 | @i++)
-        @z = @x + @y
-        print @z
-        print '<br/>'
-        @x = @y    
-        @y = @z     
-    end
-
-end
+Compile file to static
+```bash
+cd examples
+part compile index.p
 ```
 
-Output :
-1
-2
-3
-5
-8
-13
-21
-34
-55
-89
-144
+### License
 
-### Example Class
-```ruby
-class Hello
-    public say = 'Null'
-    def talk(@text)
-    this->say = @text
-    end
-end
+The MIT License (MIT)
 
-@hello = new Hello()
-print @hello->talk("Hello World")
-print @hello->say
-```
-Output : Hello World
+Copyright (c) 2015 Part language
 
-### Example load static file
-```ruby
-load 'hello.html'
-```
-### Example function, load
-```ruby
-load 'header.html'
-@text = "Welcome"
-call main(@text)
-load 'footer.html'
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-def main(@hello)
-print @hello
-end
-```
-### Example for
-```ruby
-@cars = array("Volvo", "BMW", "Toyota")
-@arrlength = count(@cars)
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-for(@x = 0 | @x < @arrlength | @x++)
-    print @cars[@x]
-    print "<br>"
-end
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-### Example while
-```ruby
-@i = 1
-while(@i <= 10)
-    print @i++
-end
-```
-Output: 123456789
-
-### Example http.get() , http.post(), http.request()
-```ruby
-print http.get("text")
-```
-GET : index.p?text=Hello World
-
-OUTPUT : Hello World
-
-```ruby
-print http.post("text")
-
-print '<form method="post">'
-print '<input type="text" name="text" value="Hello World">'
-print '</form>'
-```
-POST : text: Hello World
-
-OUTPUT : Hello World
