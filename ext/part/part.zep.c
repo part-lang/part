@@ -12,8 +12,9 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
-#include "kernel/memory.h"
+#include "kernel/string.h"
 #include "kernel/array.h"
+#include "kernel/memory.h"
 #include "kernel/fcall.h"
 #include "kernel/operators.h"
 #include "kernel/file.h"
@@ -32,13 +33,16 @@ ZEPHIR_INIT_CLASS(Part_Part) {
 PHP_METHOD(Part_Part, main_engine) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *_GET, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, _5, *_0$$3 = NULL, *_1$$3, *_2$$3, *_3$$5, *_4$$5, *_6$$6, *_7$$8, *_8$$8, *_9$$11, *_10$$12, *_11$$13, *_12$$14;
+	zval *_SERVER, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, *_0, _1, _7, *_2$$3 = NULL, *_3$$3, *_4$$3, *_5$$5, *_6$$5, *_8$$6, *_9$$8, *_10$$8, *_11$$11, *_12$$12, *_13$$13, *_14$$14;
 
 	ZEPHIR_MM_GROW();
-	zephir_get_global(&_GET, SS("_GET") TSRMLS_CC);
+	zephir_get_global(&_SERVER, SS("_SERVER") TSRMLS_CC);
 
-	ZEPHIR_OBS_VAR(location);
-	zephir_array_fetch_string(&location, _GET, SL("_url"), PH_NOISY, "part/part.zep", 7 TSRMLS_CC);
+	zephir_array_fetch_string(&_0, _SERVER, SL("REQUEST_URI"), PH_NOISY | PH_READONLY, "part/part.zep", 7 TSRMLS_CC);
+	ZEPHIR_SINIT_VAR(_1);
+	ZVAL_STRING(&_1, "/", 0);
+	ZEPHIR_INIT_VAR(location);
+	zephir_fast_trim(location, _0, &_1, ZEPHIR_TRIM_BOTH TSRMLS_CC);
 	ZEPHIR_INIT_VAR(main);
 	object_init_ex(main, part_page_main_ce);
 	if (zephir_has_constructor(main TSRMLS_CC)) {
@@ -52,48 +56,48 @@ PHP_METHOD(Part_Part, main_engine) {
 		zephir_check_call_status();
 	}
 	if (ZEPHIR_IS_STRING(location, "")) {
-		ZEPHIR_INIT_VAR(_1$$3);
-		ZVAL_STRING(_1$$3, "config", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_INIT_VAR(_2$$3);
-		ZVAL_STRING(_2$$3, "index", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_CALL_METHOD(&_0$$3, main, "config", NULL, 24, _1$$3, _2$$3);
-		zephir_check_temp_parameter(_1$$3);
-		zephir_check_temp_parameter(_2$$3);
+		ZEPHIR_INIT_VAR(_3$$3);
+		ZVAL_STRING(_3$$3, "config", ZEPHIR_TEMP_PARAM_COPY);
+		ZEPHIR_INIT_VAR(_4$$3);
+		ZVAL_STRING(_4$$3, "index", ZEPHIR_TEMP_PARAM_COPY);
+		ZEPHIR_CALL_METHOD(&_2$$3, main, "config", NULL, 24, _3$$3, _4$$3);
+		zephir_check_temp_parameter(_3$$3);
+		zephir_check_temp_parameter(_4$$3);
 		zephir_check_call_status();
-		if (ZEPHIR_IS_STRING(_0$$3, "")) {
+		if (ZEPHIR_IS_STRING(_2$$3, "")) {
 			ZEPHIR_INIT_NVAR(location);
 			ZVAL_STRING(location, "index.p", 1);
 		} else {
-			ZEPHIR_INIT_VAR(_3$$5);
-			ZVAL_STRING(_3$$5, "config", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_INIT_VAR(_4$$5);
-			ZVAL_STRING(_4$$5, "index", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_CALL_METHOD(&location, main, "config", NULL, 24, _3$$5, _4$$5);
-			zephir_check_temp_parameter(_3$$5);
-			zephir_check_temp_parameter(_4$$5);
+			ZEPHIR_INIT_VAR(_5$$5);
+			ZVAL_STRING(_5$$5, "config", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_INIT_VAR(_6$$5);
+			ZVAL_STRING(_6$$5, "index", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(&location, main, "config", NULL, 24, _5$$5, _6$$5);
+			zephir_check_temp_parameter(_5$$5);
+			zephir_check_temp_parameter(_6$$5);
 			zephir_check_call_status();
 		}
 	}
-	ZEPHIR_SINIT_VAR(_5);
-	ZVAL_LONG(&_5, 4);
-	ZEPHIR_CALL_FUNCTION(&extension, "pathinfo", NULL, 15, location, &_5);
+	ZEPHIR_SINIT_VAR(_7);
+	ZVAL_LONG(&_7, 4);
+	ZEPHIR_CALL_FUNCTION(&extension, "pathinfo", NULL, 15, location, &_7);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, main, "notfound", NULL, 25, location);
 	zephir_check_call_status();
 	do {
 		if (ZEPHIR_IS_STRING(extension, "p")) {
-			ZEPHIR_INIT_VAR(_6$$6);
-			ZEPHIR_CONCAT_SVS(_6$$6, "static/", location, ".static");
-			if (!((zephir_file_exists(_6$$6 TSRMLS_CC) == SUCCESS))) {
+			ZEPHIR_INIT_VAR(_8$$6);
+			ZEPHIR_CONCAT_SVS(_8$$6, "static/", location, ".static");
+			if (!((zephir_file_exists(_8$$6 TSRMLS_CC) == SUCCESS))) {
 				ZEPHIR_CALL_METHOD(NULL, engine, "engine", NULL, 3, location);
 				zephir_check_call_status();
 			} else {
-				ZEPHIR_INIT_VAR(_7$$8);
-				ZEPHIR_CONCAT_SVS(_7$$8, "static/", location, ".static");
-				ZEPHIR_INIT_VAR(_8$$8);
-				ZVAL_STRING(_8$$8, "text/html", ZEPHIR_TEMP_PARAM_COPY);
-				ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, _7$$8, _8$$8);
-				zephir_check_temp_parameter(_8$$8);
+				ZEPHIR_INIT_VAR(_9$$8);
+				ZEPHIR_CONCAT_SVS(_9$$8, "static/", location, ".static");
+				ZEPHIR_INIT_VAR(_10$$8);
+				ZVAL_STRING(_10$$8, "text/html", ZEPHIR_TEMP_PARAM_COPY);
+				ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, _9$$8, _10$$8);
+				zephir_check_temp_parameter(_10$$8);
 				zephir_check_call_status();
 			}
 			break;
@@ -109,33 +113,33 @@ PHP_METHOD(Part_Part, main_engine) {
 			break;
 		}
 		if (ZEPHIR_IS_STRING(extension, "html")) {
-			ZEPHIR_INIT_VAR(_9$$11);
-			ZVAL_STRING(_9$$11, "text/html", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _9$$11);
-			zephir_check_temp_parameter(_9$$11);
+			ZEPHIR_INIT_VAR(_11$$11);
+			ZVAL_STRING(_11$$11, "text/html", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _11$$11);
+			zephir_check_temp_parameter(_11$$11);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(extension, "css")) {
-			ZEPHIR_INIT_VAR(_10$$12);
-			ZVAL_STRING(_10$$12, "text/css", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _10$$12);
-			zephir_check_temp_parameter(_10$$12);
+			ZEPHIR_INIT_VAR(_12$$12);
+			ZVAL_STRING(_12$$12, "text/css", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _12$$12);
+			zephir_check_temp_parameter(_12$$12);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(extension, "js")) {
-			ZEPHIR_INIT_VAR(_11$$13);
-			ZVAL_STRING(_11$$13, "application/javascript", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _11$$13);
-			zephir_check_temp_parameter(_11$$13);
+			ZEPHIR_INIT_VAR(_13$$13);
+			ZVAL_STRING(_13$$13, "application/javascript", ZEPHIR_TEMP_PARAM_COPY);
+			ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _13$$13);
+			zephir_check_temp_parameter(_13$$13);
 			zephir_check_call_status();
 			break;
 		}
-		ZEPHIR_INIT_VAR(_12$$14);
-		ZVAL_STRING(_12$$14, "text/plain", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _12$$14);
-		zephir_check_temp_parameter(_12$$14);
+		ZEPHIR_INIT_VAR(_14$$14);
+		ZVAL_STRING(_14$$14, "text/plain", ZEPHIR_TEMP_PARAM_COPY);
+		ZEPHIR_CALL_METHOD(NULL, main, "content", NULL, 26, location, _14$$14);
+		zephir_check_temp_parameter(_14$$14);
 		zephir_check_call_status();
 	} while(0);
 
