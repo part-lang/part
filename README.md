@@ -5,8 +5,13 @@ Sebuah bahasa pemrograman yang difokuskan dalam pengembangan website. Part mengg
 Untuk contoh-contoh kode, bisa dilihat di https://github.com/part-lang/part/tree/master/examples
 
 ### Instalation
-Coming soon
-
+```bash
+git clone https://github.com/part-lang/part.git
+cd part
+chmod 777 *
+./install
+./server
+```
 
 ### Getting started
 Run server
