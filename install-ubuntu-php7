@@ -22,4 +22,5 @@ sudo touch /etc/php/7.0/fpm/conf.d/part.ini
 sudo sh -c "echo 'extension=part.so' >> /etc/php/7.0/fpm/conf.d/part.ini"
 
 cp /usr/bin/php /usr/bin/part
+chmod +x /usr/bin/part
 echo "Install completed, restart your webserver"
