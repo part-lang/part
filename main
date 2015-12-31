@@ -1,0 +1,22 @@
+#!/bin/bash
+while getopts ":s:c:" optname
+  do
+    case "$optname" in
+      "s")
+        php -S 0.0.0.0:$OPTARG /etc/part/bin/part-server.pp
+        ;;
+      "c")
+        php compile $OPTARG
+        ;;
+      "?")
+        echo "Unknown option $OPTARG"
+        ;;
+      ":")
+        echo "No argument value for option $OPTARG"
+        ;;
+      *)
+      # Should not occur
+        echo "Unknown error while processing options"
+        ;;
+    esac
+  done
