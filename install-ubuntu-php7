@@ -27,6 +27,6 @@ sudo mkdir /etc/part/bin
 sudo cp bin/part-server.pp /etc/part/bin/part-server.pp
 sudo cp main /usr/bin/part
 
-chmod +x /usr/bin/part
+sudo chmod +x /usr/bin/part
 
 echo "Install completed, restart your webserver"
