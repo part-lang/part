@@ -4,25 +4,24 @@ Sebuah bahasa pemrograman yang difokuskan dalam pengembangan website. Part mengg
 ### Examples
 Untuk contoh-contoh kode, bisa dilihat di https://github.com/part-lang/part/tree/master/examples
 
-### Instalation
+### Installation
 ```bash
 git clone https://github.com/part-lang/part.git
 cd part
-chmod 777 *
+chmod +x install
 ./install
-./server
 ```
 
 ### Getting started
 Run server
 ```bash
-./server
+part -s 8080
 ```
 
-Compile file to static
+Compile single file to static
 ```bash
 cd examples
-part compile index.p
+part -c index.p
 ```
 
 ### License
@@ -48,4 +47,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
