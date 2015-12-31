@@ -21,7 +21,5 @@ sudo sh -c "echo 'extension=part.so' >> /etc/php/7.0/apache2/conf.d/part.ini"
 sudo touch /etc/php/7.0/fpm/conf.d/part.ini
 sudo sh -c "echo 'extension=part.so' >> /etc/php/7.0/fpm/conf.d/part.ini"
 
-sudo sh -c "echo 'alias part=""php""' >> ~/.bash_aliases"
-
-source ~/.bash_aliases
+cp /usr/bin/php /usr/bin/part
 echo "Install completed, restart your webserver"
