@@ -1,3 +1,0 @@
-#!/bin/bash
-cd examples
-part -S 0.0.0.0:8000 ../bin/part-server.pp
