@@ -21,7 +21,7 @@ part -s 8080
 
 Output:
 ```bash
-Listening on http://0.0.0.0:80
+Listening on http://0.0.0.0:8080
 Document root is /home/devilscream/part/examples
 Press Ctrl-C to quit.
 ```
