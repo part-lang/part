@@ -63,7 +63,7 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		ZEPHIR_SINIT_VAR(_1$$3);
 		ZVAL_STRING(&_1$$3, "static", 0);
 		ZEPHIR_SINIT_VAR(_2$$3);
-		ZVAL_LONG(&_2$$3, 0700);
+		ZVAL_LONG(&_2$$3, 0777);
 		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 5, &_1$$3, &_2$$3);
 		zephir_check_call_status();
 	}
