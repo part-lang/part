@@ -12,7 +12,7 @@ class Main {
 		        header("Date: ".date("D, d M Y h:i:s T"));
 		        header("Content-Type: text/html; charset=iso-8859-1");
 		        header("X-Powered-By: P language");
-		        if(main->config("config","404") == ""){
+		        if(main->config("config","404") == null){
 		        	echo file_get_contents("/etc/part/page/404.html", true);
 		        }else{
 			       	echo file_get_contents(main->config("config","404"), true);
@@ -31,7 +31,7 @@ class Main {
 				header("Date: ".date("D, d M Y h:i:s T"));
 				header("Content-Type: text/html; charset=iso-8859-1");
 				header("X-Powered-By: P language");
-				if(main->config("config","403") == ""){
+				if(main->config("config","403") == null){
 				    	echo file_get_contents("/etc/part/page/403.html", true);
 				    }else{
 				       	echo file_get_contents(main->config("config","403"), true);
@@ -52,8 +52,13 @@ class Main {
 		 * Get config file:
 		 */
 		private static function config(section, config) {
-			var setting;
-		    let setting = parse_ini_file("part.ini",true);
-		    return setting[section][config];
+			var setting, location;
+			let location = $_SERVER["DOCUMENT_ROOT"] . "/part.ini";
+			if(file_exists(location)){
+				let setting = parse_ini_file(location,true);
+				return setting[section][config];
+		    }else{
+		    	return null;
+		    }
 		}
 }

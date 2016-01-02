@@ -63,7 +63,7 @@ PHP_METHOD(Part_Part, main_engine) {
 		zephir_check_temp_parameter(_3$$3);
 		zephir_check_temp_parameter(_4$$3);
 		zephir_check_call_status();
-		if (ZEPHIR_IS_STRING(_2$$3, "")) {
+		if (Z_TYPE_P(_2$$3) == IS_NULL) {
 			ZEPHIR_INIT_NVAR(location);
 			ZVAL_STRING(location, "index.p", 1);
 		} else {
