@@ -8,7 +8,7 @@ class Part {
         let main = new \Part\Page\Main();
         let engine = new Part();
         if(location == ""){
-            if(main->config("config","index") == null){
+            if(main->config("config","index") == "none"){
                 let location = "index.p";
             }else{
                 let location = main->config("config","index");

@@ -77,7 +77,7 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		ZEPHIR_CALL_METHOD(&_4$$3, main$$3, "config", NULL, 23, _5$$3, _6$$3);
 		zephir_check_temp_parameter(_5$$3);
 		zephir_check_call_status();
-		if (Z_TYPE_P(_4$$3) == IS_NULL) {
+		if (ZEPHIR_IS_STRING(_4$$3, "none")) {
 			ZEPHIR_SINIT_VAR(_7$$4);
 			ZVAL_STRING(&_7$$4, "/etc/part/page/404.html", 0);
 			ZEPHIR_CALL_FUNCTION(&_8$$4, "file_get_contents", &_9, 14, &_7$$4, ZEPHIR_GLOBAL(global_true));
@@ -146,7 +146,7 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 	ZEPHIR_CALL_METHOD(&_4, main, "config", NULL, 23, _5, _6);
 	zephir_check_temp_parameter(_5);
 	zephir_check_call_status();
-	if (Z_TYPE_P(_4) == IS_NULL) {
+	if (ZEPHIR_IS_STRING(_4, "none")) {
 		ZEPHIR_SINIT_VAR(_7$$3);
 		ZVAL_STRING(&_7$$3, "/etc/part/page/403.html", 0);
 		ZEPHIR_CALL_FUNCTION(&_8$$3, "file_get_contents", &_9, 14, &_7$$3, ZEPHIR_GLOBAL(global_true));
@@ -200,7 +200,7 @@ PHP_METHOD(Part_Page_Main, content) {
 PHP_METHOD(Part_Page_Main, config) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *section, *config, *_SERVER, *setting = NULL, *location = NULL, *_0, *_1$$3, *_2$$3;
+	zval *section, *config, *_SERVER, *setting = NULL, *location = NULL, *_0, *_1$$3, *_2$$4, *_3$$4;
 
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_SERVER, SS("_SERVER") TSRMLS_CC);
@@ -214,11 +214,16 @@ PHP_METHOD(Part_Page_Main, config) {
 	if ((zephir_file_exists(location TSRMLS_CC) == SUCCESS)) {
 		ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 24, location, ZEPHIR_GLOBAL(global_true));
 		zephir_check_call_status();
-		zephir_array_fetch(&_1$$3, setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 59 TSRMLS_CC);
-		zephir_array_fetch(&_2$$3, _1$$3, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 59 TSRMLS_CC);
-		RETURN_CTOR(_2$$3);
+		zephir_array_fetch(&_1$$3, setting, section, PH_READONLY, "part/page/main.zep", 59 TSRMLS_CC);
+		if (zephir_array_isset(_1$$3, config)) {
+			zephir_array_fetch(&_2$$4, setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 60 TSRMLS_CC);
+			zephir_array_fetch(&_3$$4, _2$$4, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 60 TSRMLS_CC);
+			RETURN_CTOR(_3$$4);
+		} else {
+			RETURN_MM_STRING("none", 1);
+		}
 	} else {
-		RETURN_MM_NULL();
+		RETURN_MM_STRING("none", 1);
 	}
 
 }
