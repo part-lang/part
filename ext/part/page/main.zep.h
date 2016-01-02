@@ -4,6 +4,7 @@ extern zend_class_entry *part_page_main_ce;
 ZEPHIR_INIT_CLASS(Part_Page_Main);
 
 PHP_METHOD(Part_Page_Main, notfound);
+PHP_METHOD(Part_Page_Main, forbidden);
 PHP_METHOD(Part_Page_Main, content);
 PHP_METHOD(Part_Page_Main, config);
 
@@ -23,6 +24,7 @@ ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(part_page_main_method_entry) {
 	PHP_ME(Part_Page_Main, notfound, arginfo_part_page_main_notfound, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Page_Main, forbidden, NULL, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Part_Page_Main, content, arginfo_part_page_main_content, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Part_Page_Main, config, arginfo_part_page_main_config, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_FE_END

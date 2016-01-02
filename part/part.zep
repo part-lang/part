@@ -32,11 +32,11 @@ class Part {
             break;
             
             case "pp":
-            die();
+            main->forbidden();
             break;
             
             case "ini":
-            die();
+            main->forbidden();
             break;
             
             case "html":

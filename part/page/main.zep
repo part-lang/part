@@ -10,9 +10,21 @@ class Main {
 		        header("Date: ".date("D, d M Y h:i:s T"));
 		        header("Content-Type: text/html; charset=iso-8859-1");
 		        header("X-Powered-By: P language");
-		        echo "404 Not Found";
+		        echo file_get_contents("/etc/part/page/404.html", true);
 		        die();
 		    }
+		}
+		
+			/**
+		 * 403 Forbidden:
+		 */
+		private static function forbidden() {
+			header("HTTP/1.1 403 Forbidden");
+			header("Date: ".date("D, d M Y h:i:s T"));
+			header("Content-Type: text/html; charset=iso-8859-1");
+			header("X-Powered-By: P language");
+			echo file_get_contents("/etc/part/page/403.html", true);
+			die();
 		}
 		
 		/**

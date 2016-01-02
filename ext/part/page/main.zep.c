@@ -35,7 +35,7 @@ PHP_METHOD(Part_Page_Main, notfound) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_1 = NULL;
-	zval *location, _0$$3 = zval_used_for_init, *_2$$3 = NULL, *_3$$3;
+	zval *location, _0$$3 = zval_used_for_init, *_2$$3 = NULL, *_3$$3, *_4$$3 = NULL;
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &location);
@@ -63,10 +63,56 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		ZVAL_STRING(&_0$$3, "X-Powered-By: P language", 0);
 		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 22, &_0$$3);
 		zephir_check_call_status();
-		php_printf("%s", "404 Not Found");
+		ZEPHIR_SINIT_NVAR(_0$$3);
+		ZVAL_STRING(&_0$$3, "/etc/part/page/404.html", 0);
+		ZEPHIR_CALL_FUNCTION(&_4$$3, "file_get_contents", NULL, 14, &_0$$3, ZEPHIR_GLOBAL(global_true));
+		zephir_check_call_status();
+		zend_print_zval(_4$$3, 0);
 		ZEPHIR_MM_RESTORE();
 		zephir_exit_empty();
 	}
+	ZEPHIR_MM_RESTORE();
+
+}
+
+/**
+ * 403 Forbidden:
+ */
+PHP_METHOD(Part_Page_Main, forbidden) {
+
+	zval _0 = zval_used_for_init, *_2 = NULL, *_3, *_4 = NULL;
+	int ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_1 = NULL;
+
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_SINIT_VAR(_0);
+	ZVAL_STRING(&_0, "HTTP/1.1 403 Forbidden", 0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 22, &_0);
+	zephir_check_call_status();
+	ZEPHIR_SINIT_NVAR(_0);
+	ZVAL_STRING(&_0, "D, d M Y h:i:s T", 0);
+	ZEPHIR_CALL_FUNCTION(&_2, "date", NULL, 16, &_0);
+	zephir_check_call_status();
+	ZEPHIR_INIT_VAR(_3);
+	ZEPHIR_CONCAT_SV(_3, "Date: ", _2);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 22, _3);
+	zephir_check_call_status();
+	ZEPHIR_SINIT_NVAR(_0);
+	ZVAL_STRING(&_0, "Content-Type: text/html; charset=iso-8859-1", 0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 22, &_0);
+	zephir_check_call_status();
+	ZEPHIR_SINIT_NVAR(_0);
+	ZVAL_STRING(&_0, "X-Powered-By: P language", 0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 22, &_0);
+	zephir_check_call_status();
+	ZEPHIR_SINIT_NVAR(_0);
+	ZVAL_STRING(&_0, "/etc/part/page/403.html", 0);
+	ZEPHIR_CALL_FUNCTION(&_4, "file_get_contents", NULL, 14, &_0, ZEPHIR_GLOBAL(global_true));
+	zephir_check_call_status();
+	zend_print_zval(_4, 0);
+	ZEPHIR_MM_RESTORE();
+	zephir_exit_empty();
 	ZEPHIR_MM_RESTORE();
 
 }
@@ -112,8 +158,8 @@ PHP_METHOD(Part_Page_Main, config) {
 	ZVAL_STRING(&_0, "part.ini", 0);
 	ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 23, &_0, ZEPHIR_GLOBAL(global_true));
 	zephir_check_call_status();
-	zephir_array_fetch(&_1, setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 33 TSRMLS_CC);
-	zephir_array_fetch(&_2, _1, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 33 TSRMLS_CC);
+	zephir_array_fetch(&_1, setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 45 TSRMLS_CC);
+	zephir_array_fetch(&_2, _1, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 45 TSRMLS_CC);
 	RETURN_CTOR(_2);
 
 }
