@@ -1,1 +1,1 @@
-print curl.get("https://p-lang-riswanda.c9users.io/get.p","?text=Hello+World")
+print curl.get("http://127.0.0.1/get.p","?text=Hello+World")
