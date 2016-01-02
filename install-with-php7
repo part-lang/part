@@ -1,6 +1,7 @@
 #!/bin/bash
-sudo apt-get install php5
-sudo apt-get install -y git gcc make re2c php5-dev php5-curl php5-mysql php5-json libpcre3-dev
+sudo apt-get install php7.0
+sudo apt-get install php7.0-dev
+sudo apt-get install git gcc make re2c php7.0-dev php7.0-curl php7.0-mysql php7.0-json libpcre3-dev
 
 git clone https://github.com/phalcon/zephir
 
@@ -11,9 +12,9 @@ cd ..
 zephir fullclean
 zephir build
 
-sudo rm /etc/php5/cli/conf.d/part.ini
-sudo touch /etc/php5/cli/conf.d/part.ini
-sudo sh -c "echo 'extension=part.so' >> /etc/php5/cli/conf.d/part.ini"
+sudo rm /etc/php/7.0/cli/conf.d/part.ini
+sudo touch /etc/php/7.0/cli/conf.d/part.ini
+sudo sh -c "echo 'extension=part.so' >> /etc/php/7.0/cli/conf.d/part.ini"
 
 sudo mkdir /etc/part
 sudo mkdir /etc/part/bin
