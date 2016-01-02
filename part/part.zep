@@ -2,9 +2,13 @@ namespace Part;
 
 class Part {
  
-	public static function main_engine() {
+	public static function main_engine(types) {
         var main, engine, extension, location;
-        let location = trim($_SERVER["REQUEST_URI"], "/");
+        if(types == "server") {
+            let location = trim($_SERVER["REQUEST_URI"], "/");
+        }else{
+            let location = $_GET["_url"];
+        }
         let main = new \Part\Page\Main();
         let engine = new Part();
         if(location == ""){
