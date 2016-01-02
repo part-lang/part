@@ -42,10 +42,6 @@ ZEND_BEGIN_MODULE_GLOBALS(part)
 	/* Max recursion control */
 	unsigned int recursive_lock;
 
-	/* Global constants */
-	zval *global_true;
-	zval *global_false;
-	zval *global_null;
 	
 ZEND_END_MODULE_GLOBALS(part)
 
@@ -62,6 +58,7 @@ ZEND_EXTERN_MODULE_GLOBALS(part)
 #endif
 
 #ifdef ZTS
+	void ***tsrm_ls;
 	#define ZEPHIR_VGLOBAL ((zend_part_globals *) (*((void ***) tsrm_ls))[TSRM_UNSHUFFLE_RSRC_ID(part_globals_id)])
 #else
 	#define ZEPHIR_VGLOBAL &(part_globals)

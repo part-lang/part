@@ -118,7 +118,11 @@ static void php_zephir_init_globals(zend_part_globals *part_globals TSRMLS_DC)
 static PHP_RINIT_FUNCTION(part)
 {
 
-	zend_part_globals *part_globals_ptr = ZEPHIR_VGLOBAL;
+	zend_part_globals *part_globals_ptr;
+#ifdef ZTS
+	tsrm_ls = ts_resource(0);
+#endif
+	part_globals_ptr = ZEPHIR_VGLOBAL;
 
 	php_zephir_init_globals(part_globals_ptr TSRMLS_CC);
 	//zephir_init_interned_strings(TSRMLS_C);

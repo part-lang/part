@@ -33,7 +33,18 @@ ZEPHIR_INIT_CLASS(Part_Lib_Main) {
  */
 PHP_METHOD(Part_Lib_Main, mysql) {
 
-	zval *plang = NULL, *_0, _1, _2;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -41,13 +52,13 @@ PHP_METHOD(Part_Lib_Main, mysql) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "mysql.", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "mysql_", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "mysql.");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "mysql_");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -61,7 +72,18 @@ PHP_METHOD(Part_Lib_Main, mysql) {
  */
 PHP_METHOD(Part_Lib_Main, mysqli) {
 
-	zval *plang = NULL, *_0, _1, _2;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -69,13 +91,13 @@ PHP_METHOD(Part_Lib_Main, mysqli) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "mysqli.", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "mysqli_", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "mysqli.");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "mysqli_");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -92,7 +114,18 @@ PHP_METHOD(Part_Lib_Main, curl) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *plang = NULL, *_0 = NULL, *_1 = NULL, *_2 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -100,24 +133,20 @@ PHP_METHOD(Part_Lib_Main, curl) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZVAL_STRING(_0, "/curl.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Curl\\Curl::get($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/curl.get\\((.*)\\)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\Curl\\Curl::get($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/curl.post\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Curl\\Curl::post($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/curl.post\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\Curl\\Curl::post($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -132,7 +161,18 @@ PHP_METHOD(Part_Lib_Main, curl) {
 PHP_METHOD(Part_Lib_Main, import) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *plang = NULL, *_0, *_1, *_2 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -140,15 +180,13 @@ PHP_METHOD(Part_Lib_Main, import) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZVAL_STRING(_0, "/import (.*)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "use $1;", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/import (.*)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "use $1;");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -165,7 +203,18 @@ PHP_METHOD(Part_Lib_Main, load) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *plang = NULL, *_0 = NULL, *_1 = NULL, *_2 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -173,24 +222,20 @@ PHP_METHOD(Part_Lib_Main, load) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZVAL_STRING(_0, "/load (.*)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Load\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/load (.*)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\Load\\Load::load_view($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/require (.*)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\Load\\Load::load_view($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/require (.*)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\Load\\Load::load_view($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -208,7 +253,22 @@ PHP_METHOD(Part_Lib_Main, session) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_7 = NULL;
-	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4, *_5 = NULL, *_6 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2, _3, _4, _5, _6;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_5);
+	ZVAL_UNDEF(&_6);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -216,38 +276,34 @@ PHP_METHOD(Part_Lib_Main, session) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "session.start()", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "session_start();", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "session.start()");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "session_start();");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_3);
-	ZVAL_STRING(&_3, "session.clear()", 0);
-	ZEPHIR_SINIT_VAR(_4);
-	ZVAL_STRING(&_4, "session_destroy();", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_3);
+	ZVAL_STRING(&_3, "session.clear()");
+	ZEPHIR_INIT_VAR(&_4);
+	ZVAL_STRING(&_4, "session_destroy();");
 	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/session.save\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_5);
-	ZVAL_STRING(_5, "$_SESSION[$1] = $2;", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, _0, _5, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_5);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/session.save\\((.*),(.*)\\)/");
+	ZEPHIR_INIT_VAR(&_5);
+	ZVAL_STRING(&_5, "$_SESSION[$1] = $2;");
+	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, &_0, &_5, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _6);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/session.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_5);
-	ZVAL_STRING(_5, "$_SESSION[$1]", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, _0, _5, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_5);
+	ZEPHIR_CPY_WRT(plang, &_6);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/session.get\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_5);
+	ZVAL_STRING(&_5, "$_SESSION[$1]");
+	ZEPHIR_CALL_FUNCTION(&_6, "preg_replace", &_7, 1, &_0, &_5, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _6);
+	ZEPHIR_CPY_WRT(plang, &_6);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -268,7 +324,18 @@ PHP_METHOD(Part_Lib_Main, file) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *plang = NULL, *_0 = NULL, *_1 = NULL, *_2 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -276,87 +343,69 @@ PHP_METHOD(Part_Lib_Main, file) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZVAL_STRING(_0, "/file.read\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/file.read\\((.*)\\)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::read($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.load\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::read($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.load\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::read($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.size\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::size($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.size\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::size($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.ext\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::extension($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.ext\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::extension($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.create\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::create($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.create\\((.*),(.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::create($1,$2);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.copy\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::copy($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.copy\\((.*),(.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::copy($1,$2);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.time\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::time($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.time\\((.*),(.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::time($1,$2);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.rename\\((.*),(.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::rename($1,$2);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.rename\\((.*),(.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::rename($1,$2);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/file.delete\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "Part\\Lib\\File\\File::delete($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/file.delete\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\File\\File::delete($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -381,7 +430,32 @@ PHP_METHOD(Part_Lib_Main, http) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_17 = NULL;
-	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, *_15 = NULL, *_16 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_5);
+	ZVAL_UNDEF(&_6);
+	ZVAL_UNDEF(&_7);
+	ZVAL_UNDEF(&_8);
+	ZVAL_UNDEF(&_9);
+	ZVAL_UNDEF(&_10);
+	ZVAL_UNDEF(&_11);
+	ZVAL_UNDEF(&_12);
+	ZVAL_UNDEF(&_13);
+	ZVAL_UNDEF(&_14);
+	ZVAL_UNDEF(&_15);
+	ZVAL_UNDEF(&_16);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -389,82 +463,76 @@ PHP_METHOD(Part_Lib_Main, http) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "http.host()", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "$_SERVER['HTTP_HOST'];", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "http.host()");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "$_SERVER['HTTP_HOST'];");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_3);
-	ZVAL_STRING(&_3, "http.referer()", 0);
-	ZEPHIR_SINIT_VAR(_4);
-	ZVAL_STRING(&_4, "$_SERVER['HTTP_REFERER'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_3);
+	ZVAL_STRING(&_3, "http.referer()");
+	ZEPHIR_INIT_VAR(&_4);
+	ZVAL_STRING(&_4, "$_SERVER['HTTP_REFERER'];");
 	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_5);
-	ZVAL_STRING(&_5, "http.user_agent()", 0);
-	ZEPHIR_SINIT_VAR(_6);
-	ZVAL_STRING(&_6, "$_SERVER['HTTP_USER_AGENT'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_5);
+	ZVAL_STRING(&_5, "http.user_agent()");
+	ZEPHIR_INIT_VAR(&_6);
+	ZVAL_STRING(&_6, "$_SERVER['HTTP_USER_AGENT'];");
 	zephir_fast_str_replace(&_0, &_5, &_6, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_7);
-	ZVAL_STRING(&_7, "http.method()", 0);
-	ZEPHIR_SINIT_VAR(_8);
-	ZVAL_STRING(&_8, "$_SERVER['REQUEST_METHOD'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_7);
+	ZVAL_STRING(&_7, "http.method()");
+	ZEPHIR_INIT_VAR(&_8);
+	ZVAL_STRING(&_8, "$_SERVER['REQUEST_METHOD'];");
 	zephir_fast_str_replace(&_0, &_7, &_8, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_9);
-	ZVAL_STRING(&_9, "http.header()", 0);
-	ZEPHIR_SINIT_VAR(_10);
-	ZVAL_STRING(&_10, "$_SERVER['HTTP_ACCEPT'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_9);
+	ZVAL_STRING(&_9, "http.header()");
+	ZEPHIR_INIT_VAR(&_10);
+	ZVAL_STRING(&_10, "$_SERVER['HTTP_ACCEPT'];");
 	zephir_fast_str_replace(&_0, &_9, &_10, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_11);
-	ZVAL_STRING(&_11, "http.ip()", 0);
-	ZEPHIR_SINIT_VAR(_12);
-	ZVAL_STRING(&_12, "$_SERVER['REMOTE_ADDR'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_11);
+	ZVAL_STRING(&_11, "http.ip()");
+	ZEPHIR_INIT_VAR(&_12);
+	ZVAL_STRING(&_12, "$_SERVER['REMOTE_ADDR'];");
 	zephir_fast_str_replace(&_0, &_11, &_12, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_13);
-	ZVAL_STRING(&_13, "http.port()", 0);
-	ZEPHIR_SINIT_VAR(_14);
-	ZVAL_STRING(&_14, "$_SERVER['REMOTE_PORT'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_13);
+	ZVAL_STRING(&_13, "http.port()");
+	ZEPHIR_INIT_VAR(&_14);
+	ZVAL_STRING(&_14, "$_SERVER['REMOTE_PORT'];");
 	zephir_fast_str_replace(&_0, &_13, &_14, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/http.get\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_15);
-	ZVAL_STRING(_15, "$_GET[$1];", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, _0, _15, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_15);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/http.get\\((.*)\\)/");
+	ZEPHIR_INIT_VAR(&_15);
+	ZVAL_STRING(&_15, "$_GET[$1];");
+	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, &_0, &_15, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _16);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/http.request\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_15);
-	ZVAL_STRING(_15, "$_REQUEST[$1];", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, _0, _15, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_15);
+	ZEPHIR_CPY_WRT(plang, &_16);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/http.request\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_15);
+	ZVAL_STRING(&_15, "$_REQUEST[$1];");
+	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, &_0, &_15, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _16);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/http.post\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_15);
-	ZVAL_STRING(_15, "$_POST[$1];", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, _0, _15, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_15);
+	ZEPHIR_CPY_WRT(plang, &_16);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/http.post\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_15);
+	ZVAL_STRING(&_15, "$_POST[$1];");
+	ZEPHIR_CALL_FUNCTION(&_16, "preg_replace", &_17, 1, &_0, &_15, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _16);
+	ZEPHIR_CPY_WRT(plang, &_16);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -483,7 +551,30 @@ PHP_METHOD(Part_Lib_Main, http) {
  */
 PHP_METHOD(Part_Lib_Main, server) {
 
-	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14;
+	zval *plang = NULL, plang_sub, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_5);
+	ZVAL_UNDEF(&_6);
+	ZVAL_UNDEF(&_7);
+	ZVAL_UNDEF(&_8);
+	ZVAL_UNDEF(&_9);
+	ZVAL_UNDEF(&_10);
+	ZVAL_UNDEF(&_11);
+	ZVAL_UNDEF(&_12);
+	ZVAL_UNDEF(&_13);
+	ZVAL_UNDEF(&_14);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -491,55 +582,55 @@ PHP_METHOD(Part_Lib_Main, server) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "server.self()", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "$_SERVER['PHP_SELF'];", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "server.self()");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "$_SERVER['PHP_SELF'];");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_3);
-	ZVAL_STRING(&_3, "server.domain()", 0);
-	ZEPHIR_SINIT_VAR(_4);
-	ZVAL_STRING(&_4, "$_SERVER['SERVER_NAME'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_3);
+	ZVAL_STRING(&_3, "server.domain()");
+	ZEPHIR_INIT_VAR(&_4);
+	ZVAL_STRING(&_4, "$_SERVER['SERVER_NAME'];");
 	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_5);
-	ZVAL_STRING(&_5, "server.ip()", 0);
-	ZEPHIR_SINIT_VAR(_6);
-	ZVAL_STRING(&_6, "$_SERVER['SERVER_ADDR'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_5);
+	ZVAL_STRING(&_5, "server.ip()");
+	ZEPHIR_INIT_VAR(&_6);
+	ZVAL_STRING(&_6, "$_SERVER['SERVER_ADDR'];");
 	zephir_fast_str_replace(&_0, &_5, &_6, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_7);
-	ZVAL_STRING(&_7, "server.port()", 0);
-	ZEPHIR_SINIT_VAR(_8);
-	ZVAL_STRING(&_8, "$_SERVER['SERVER_PORT'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_7);
+	ZVAL_STRING(&_7, "server.port()");
+	ZEPHIR_INIT_VAR(&_8);
+	ZVAL_STRING(&_8, "$_SERVER['SERVER_PORT'];");
 	zephir_fast_str_replace(&_0, &_7, &_8, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_9);
-	ZVAL_STRING(&_9, "server.webserver()", 0);
-	ZEPHIR_SINIT_VAR(_10);
-	ZVAL_STRING(&_10, "$_SERVER['SERVER_SOFTWARE'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_9);
+	ZVAL_STRING(&_9, "server.webserver()");
+	ZEPHIR_INIT_VAR(&_10);
+	ZVAL_STRING(&_10, "$_SERVER['SERVER_SOFTWARE'];");
 	zephir_fast_str_replace(&_0, &_9, &_10, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_11);
-	ZVAL_STRING(&_11, "server.protocol()", 0);
-	ZEPHIR_SINIT_VAR(_12);
-	ZVAL_STRING(&_12, "$_SERVER['SERVER_PROTOCOL'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_11);
+	ZVAL_STRING(&_11, "server.protocol()");
+	ZEPHIR_INIT_VAR(&_12);
+	ZVAL_STRING(&_12, "$_SERVER['SERVER_PROTOCOL'];");
 	zephir_fast_str_replace(&_0, &_11, &_12, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_13);
-	ZVAL_STRING(&_13, "server.admin()", 0);
-	ZEPHIR_SINIT_VAR(_14);
-	ZVAL_STRING(&_14, "$_SERVER['SERVER_ADMIN'];", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_13);
+	ZVAL_STRING(&_13, "server.admin()");
+	ZEPHIR_INIT_VAR(&_14);
+	ZVAL_STRING(&_14, "$_SERVER['SERVER_ADMIN'];");
 	zephir_fast_str_replace(&_0, &_13, &_14, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -555,7 +646,22 @@ PHP_METHOD(Part_Lib_Main, server) {
  */
 PHP_METHOD(Part_Lib_Main, os) {
 
-	zval *plang = NULL, *_0 = NULL, _1, _2, _3, _4, _5, _6;
+	zval *plang = NULL, plang_sub, _0, _1, _2, _3, _4, _5, _6;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_5);
+	ZVAL_UNDEF(&_6);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -563,27 +669,27 @@ PHP_METHOD(Part_Lib_Main, os) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_STRING(&_1, "os.kernel()", 0);
-	ZEPHIR_SINIT_VAR(_2);
-	ZVAL_STRING(&_2, "exec('uname -r');", 0);
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "os.kernel()");
+	ZEPHIR_INIT_VAR(&_2);
+	ZVAL_STRING(&_2, "exec('uname -r');");
 	zephir_fast_str_replace(&_0, &_1, &_2, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_3);
-	ZVAL_STRING(&_3, "os.user()", 0);
-	ZEPHIR_SINIT_VAR(_4);
-	ZVAL_STRING(&_4, "exec('whoami');", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_3);
+	ZVAL_STRING(&_3, "os.user()");
+	ZEPHIR_INIT_VAR(&_4);
+	ZVAL_STRING(&_4, "exec('whoami');");
 	zephir_fast_str_replace(&_0, &_3, &_4, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_INIT_NVAR(_0);
-	ZEPHIR_SINIT_VAR(_5);
-	ZVAL_STRING(&_5, "os.type()", 0);
-	ZEPHIR_SINIT_VAR(_6);
-	ZVAL_STRING(&_6, "exec('uname -o');", 0);
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZEPHIR_INIT_VAR(&_5);
+	ZVAL_STRING(&_5, "os.type()");
+	ZEPHIR_INIT_VAR(&_6);
+	ZVAL_STRING(&_6, "exec('uname -o');");
 	zephir_fast_str_replace(&_0, &_5, &_6, plang TSRMLS_CC);
-	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
@@ -601,7 +707,18 @@ PHP_METHOD(Part_Lib_Main, commands) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *plang = NULL, *_0 = NULL, *_1 = NULL, *_2 = NULL;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &plang);
@@ -609,33 +726,27 @@ PHP_METHOD(Part_Lib_Main, commands) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(_0);
-	ZVAL_STRING(_0, "/cmd\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_VAR(_1);
-	ZVAL_STRING(_1, "exec($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/cmd\\((.*)\\)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "exec($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/system\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "exec($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/system\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "exec($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
-	ZEPHIR_INIT_NVAR(_0);
-	ZVAL_STRING(_0, "/exec\\((.*)\\)/", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_INIT_NVAR(_1);
-	ZVAL_STRING(_1, "exec($1);", ZEPHIR_TEMP_PARAM_COPY);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, _0, _1, plang);
-	zephir_check_temp_parameter(_0);
-	zephir_check_temp_parameter(_1);
+	ZEPHIR_CPY_WRT(plang, &_2);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "/exec\\((.*)\\)/");
+	ZEPHIR_INIT_NVAR(&_1);
+	ZVAL_STRING(&_1, "exec($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
 	zephir_check_call_status();
-	ZEPHIR_CPY_WRT(plang, _2);
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 
