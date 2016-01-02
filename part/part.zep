@@ -2,7 +2,7 @@ namespace Part;
 
 class Part {
  
-	public static function main_engine(types) {
+	public static function main_engine(types = "client") {
         var main, engine, extension, location;
         if(types == "server") {
             let location = trim($_SERVER["REQUEST_URI"], "/");

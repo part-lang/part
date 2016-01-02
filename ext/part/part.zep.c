@@ -33,13 +33,17 @@ ZEPHIR_INIT_CLASS(Part_Part) {
 PHP_METHOD(Part_Part, main_engine) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *types, *_SERVER, *_GET, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, _7, *_0$$3, _1$$3, *_2$$5 = NULL, *_3$$5, *_4$$5, *_5$$7, *_6$$7, *_8$$8, *_9$$10, *_10$$10, *_11$$13, *_12$$14, *_13$$15, *_14$$16;
+	zval *types = NULL, *_SERVER, *_GET, *main = NULL, *engine = NULL, *extension = NULL, *location = NULL, _7, *_0$$3, _1$$3, *_2$$5 = NULL, *_3$$5, *_4$$5, *_5$$7, *_6$$7, *_8$$8, *_9$$10, *_10$$10, *_11$$13, *_12$$14, *_13$$15, *_14$$16;
 
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_GET, SS("_GET") TSRMLS_CC);
 	zephir_get_global(&_SERVER, SS("_SERVER") TSRMLS_CC);
-	zephir_fetch_params(1, 1, 0, &types);
+	zephir_fetch_params(1, 0, 1, &types);
 
+	if (!types) {
+		ZEPHIR_INIT_VAR(types);
+		ZVAL_STRING(types, "client", 1);
+	}
 
 
 	if (ZEPHIR_IS_STRING(types, "server")) {

@@ -6,7 +6,7 @@ ZEPHIR_INIT_CLASS(Part_Part);
 PHP_METHOD(Part_Part, main_engine);
 PHP_METHOD(Part_Part, engine);
 
-ZEND_BEGIN_ARG_INFO_EX(arginfo_part_part_main_engine, 0, 0, 1)
+ZEND_BEGIN_ARG_INFO_EX(arginfo_part_part_main_engine, 0, 0, 0)
 	ZEND_ARG_INFO(0, types)
 ZEND_END_ARG_INFO()
 
