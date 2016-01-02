@@ -43,7 +43,7 @@ Press Ctrl-C to quit.
 
 Compile single file to static
 ```bash
-cd examples
+cd hello
 part -c index.p
 ```
 
