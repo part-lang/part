@@ -15,7 +15,15 @@ chmod +x install
 ### Getting started
 Run server
 ```bash
+cd examples
 part -s 8080
+```
+
+Output:
+```bash
+Listening on http://0.0.0.0:80
+Document root is /home/devilscream/part/examples
+Press Ctrl-C to quit.
 ```
 
 Compile single file to static

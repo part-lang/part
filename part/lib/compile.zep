@@ -10,7 +10,7 @@ class Compile {
                 compiler->engine(location);
                 let result = ob_get_contents();
                 if(!file_exists("static")){
-                        mkdir("static", 0700);
+                        mkdir("static", 0777);
                 }
                 files->create("static/".location.".static",result);
                 ob_end_flush();
