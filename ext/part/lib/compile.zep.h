@@ -17,6 +17,6 @@ ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(part_lib_compile_method_entry) {
 	PHP_ME(Part_Lib_Compile, compile_engine, arginfo_part_lib_compile_compile_engine, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
-	PHP_ME(Part_Lib_Compile, create, arginfo_part_lib_compile_create, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Compile, create, arginfo_part_lib_compile_create, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_FE_END
 };

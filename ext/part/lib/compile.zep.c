@@ -14,8 +14,8 @@
 #include "kernel/main.h"
 #include "kernel/memory.h"
 #include "kernel/fcall.h"
-#include "kernel/concat.h"
 #include "kernel/file.h"
+#include "kernel/concat.h"
 #include "ext/spl/spl_exceptions.h"
 #include "kernel/exception.h"
 #include "kernel/operators.h"
@@ -32,7 +32,7 @@ ZEPHIR_INIT_CLASS(Part_Lib_Compile) {
 PHP_METHOD(Part_Lib_Compile, compile_engine) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *location, *compiler = NULL, *result = NULL, *files = NULL, _0, _1, *_2, *_3;
+	zval *location, *compiler = NULL, *result = NULL, *files = NULL, _0, *_3, *_4, _1$$3, _2$$3;
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &location);
@@ -59,19 +59,23 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 	zephir_check_call_status();
 	ZEPHIR_SINIT_VAR(_0);
 	ZVAL_STRING(&_0, "static", 0);
-	ZEPHIR_SINIT_VAR(_1);
-	ZVAL_LONG(&_1, 0700);
-	ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 5, &_0, &_1);
-	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(_2);
-	ZEPHIR_CONCAT_SVS(_2, "static/", location, ".static");
-	ZEPHIR_CALL_METHOD(NULL, files, "create", NULL, 6, _2, result);
+	if (!((zephir_file_exists(&_0 TSRMLS_CC) == SUCCESS))) {
+		ZEPHIR_SINIT_VAR(_1$$3);
+		ZVAL_STRING(&_1$$3, "static", 0);
+		ZEPHIR_SINIT_VAR(_2$$3);
+		ZVAL_LONG(&_2$$3, 0700);
+		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 5, &_1$$3, &_2$$3);
+		zephir_check_call_status();
+	}
+	ZEPHIR_INIT_VAR(_3);
+	ZEPHIR_CONCAT_SVS(_3, "static/", location, ".static");
+	ZEPHIR_CALL_METHOD(NULL, files, "create", NULL, 6, _3, result);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 7);
 	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(_3);
-	ZEPHIR_CONCAT_SVS(_3, " Compile ", location, " to static files success");
-	zend_print_zval(_3, 0);
+	ZEPHIR_INIT_VAR(_4);
+	ZEPHIR_CONCAT_SVS(_4, " Compile ", location, " to static files success");
+	zend_print_zval(_4, 0);
 	ZEPHIR_MM_RESTORE();
 
 }
