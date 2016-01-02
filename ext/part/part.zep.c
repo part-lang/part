@@ -230,26 +230,29 @@ PHP_METHOD(Part_Part, engine) {
 	ZEPHIR_CALL_METHOD(&_0, functions, "def_function", NULL, 43, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, functions, "class_function", NULL, 44, plang);
+	ZEPHIR_CALL_METHOD(&_0, functions, "func_function", NULL, 44, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, functions, "call_function", NULL, 45, plang);
+	ZEPHIR_CALL_METHOD(&_0, functions, "class_function", NULL, 45, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, statement, "switch_statement", NULL, 46, plang);
+	ZEPHIR_CALL_METHOD(&_0, functions, "call_function", NULL, 46, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, statement, "while_statement", NULL, 47, plang);
+	ZEPHIR_CALL_METHOD(&_0, statement, "switch_statement", NULL, 47, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, statement, "if_statement", NULL, 48, plang);
+	ZEPHIR_CALL_METHOD(&_0, statement, "while_statement", NULL, 48, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
-	ZEPHIR_CALL_METHOD(&_0, statement, "for_statement", NULL, 49, plang);
+	ZEPHIR_CALL_METHOD(&_0, statement, "if_statement", NULL, 49, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, _0);
+	ZEPHIR_CALL_METHOD(&_0, statement, "for_statement", NULL, 50, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, _0);
 	ZEPHIR_INIT_VAR(_1);
-	zephir_eval_php(plang, _1, "/home/ubuntu/workspace/part/part/part.zep:85" TSRMLS_CC);
+	zephir_eval_php(plang, _1, "/home/ubuntu/workspace/part/part/part.zep:86" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }

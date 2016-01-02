@@ -2,6 +2,24 @@ namespace Part\Function;
 
 class Main {
         /**
+         * Func function usage:
+         *<code>
+         *      func name()
+         *
+         *      end
+         *</code>
+         */
+        private static function func_function(plang) {
+        let plang = preg_replace("/func (.*)/", "function $1 {", plang);
+        let plang = preg_replace("/func (.*)\((.*)\)/", "function $1($2) {", plang);
+        let plang = preg_replace("/public func (.*)\((.*)\)/", "public function $1($2) {", plang);
+        let plang = preg_replace("/private func (.*)\((.*)\)/", "private function $1($2) {", plang);
+        let plang = preg_replace("/public static func (.*)\((.*)\)/", "public static function $1($2) {", plang);
+        let plang = preg_replace("/private static func (.*)\((.*)\)/", "private static function $1($2) {", plang);
+        return plang;
+        }
+        
+        /**
          * Def function usage:
          *<code>
          *      def name()

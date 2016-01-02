@@ -76,6 +76,7 @@ class Part {
             let plang = text->symbol(plang);
             let plang = text->html(plang);
             let plang = functions->def_function(plang);
+            let plang = functions->func_function(plang);
             let plang = functions->class_function(plang);
             let plang = functions->call_function(plang);
             let plang = statement->switch_statement(plang);
