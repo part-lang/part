@@ -72,7 +72,7 @@ PHP_METHOD(Part_Part, main_engine) {
 		ZVAL_STRING(_3$$5, "config", ZEPHIR_TEMP_PARAM_COPY);
 		ZEPHIR_INIT_VAR(_4$$5);
 		ZVAL_STRING(_4$$5, "index", ZEPHIR_TEMP_PARAM_COPY);
-		ZEPHIR_CALL_METHOD(&_2$$5, main, "config", NULL, 24, _3$$5, _4$$5);
+		ZEPHIR_CALL_METHOD(&_2$$5, main, "config", NULL, 23, _3$$5, _4$$5);
 		zephir_check_temp_parameter(_3$$5);
 		zephir_check_temp_parameter(_4$$5);
 		zephir_check_call_status();
@@ -84,7 +84,7 @@ PHP_METHOD(Part_Part, main_engine) {
 			ZVAL_STRING(_5$$7, "config", ZEPHIR_TEMP_PARAM_COPY);
 			ZEPHIR_INIT_VAR(_6$$7);
 			ZVAL_STRING(_6$$7, "index", ZEPHIR_TEMP_PARAM_COPY);
-			ZEPHIR_CALL_METHOD(&location, main, "config", NULL, 24, _5$$7, _6$$7);
+			ZEPHIR_CALL_METHOD(&location, main, "config", NULL, 23, _5$$7, _6$$7);
 			zephir_check_temp_parameter(_5$$7);
 			zephir_check_temp_parameter(_6$$7);
 			zephir_check_call_status();
