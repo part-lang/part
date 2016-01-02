@@ -13,9 +13,24 @@ chmod +x install
 ```
 
 ### Getting started
+Create folder for server
+```bash
+mkdir hello
+cd hello
+```
+
+Create file
+```bash
+nano index.p
+```
+
+```php
+print "Hello World"
+```
+
 Run server
 ```bash
-cd examples
+cd hello
 part -s 8080
 ```
 
