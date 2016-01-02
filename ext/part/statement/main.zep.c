@@ -25,6 +25,53 @@ ZEPHIR_INIT_CLASS(Part_Statement_Main) {
 }
 
 /**
+ * Load all statement
+ */
+PHP_METHOD(Part_Statement_Main, loader) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *plang = NULL, plang_sub, statement, _0;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&statement);
+	ZVAL_UNDEF(&_0);
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(&statement);
+	object_init_ex(&statement, part_statement_main_ce);
+	if (zephir_has_constructor(&statement TSRMLS_CC)) {
+		ZEPHIR_CALL_METHOD(NULL, &statement, "__construct", NULL, 0);
+		zephir_check_call_status();
+	}
+	ZEPHIR_CALL_METHOD(&_0, &statement, "switch_statement", NULL, 47, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "while_statement", NULL, 48, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "if_statement", NULL, 49, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "for_statement", NULL, 50, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
  * Switch statement usage:
  *<code>
  *      switch (statement)
@@ -32,7 +79,7 @@ ZEPHIR_INIT_CLASS(Part_Statement_Main) {
  *      case "1"
  *      print "Hello"
  *      break
- * 
+ *
  *      end
  *</code>
  */
@@ -63,21 +110,21 @@ PHP_METHOD(Part_Statement_Main, switch_statement) {
 	ZVAL_STRING(&_0, "/switch(.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "switch $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/case(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "case $1:");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/break/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "break;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -119,7 +166,7 @@ PHP_METHOD(Part_Statement_Main, while_statement) {
 	ZVAL_STRING(&_0, "/while(.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "while $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -162,28 +209,28 @@ PHP_METHOD(Part_Statement_Main, if_statement) {
 	ZVAL_STRING(&_0, "/if(.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "if $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/elseif(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "} elseif $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/else/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "}else{");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/end/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "}");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -195,7 +242,7 @@ PHP_METHOD(Part_Statement_Main, if_statement) {
  * For & Foreach statement usage:
  *<code>
  *      for (statement)
- *		
+ *
  *      end
  *
  *		foreach (statement)
@@ -230,21 +277,21 @@ PHP_METHOD(Part_Statement_Main, for_statement) {
 	ZVAL_STRING(&_0, "/for\\((.*)\\)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "for($1){");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/for \\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "for($1){");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/foreach(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "foreach $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);

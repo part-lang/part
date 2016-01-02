@@ -25,6 +25,53 @@ ZEPHIR_INIT_CLASS(Part_Function_Main) {
 }
 
 /**
+ * Load all function
+ */
+PHP_METHOD(Part_Function_Main, loader) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *plang = NULL, plang_sub, functions, _0;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&functions);
+	ZVAL_UNDEF(&_0);
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(&functions);
+	object_init_ex(&functions, part_function_main_ce);
+	if (zephir_has_constructor(&functions TSRMLS_CC)) {
+		ZEPHIR_CALL_METHOD(NULL, &functions, "__construct", NULL, 0);
+		zephir_check_call_status();
+	}
+	ZEPHIR_CALL_METHOD(&_0, &functions, "def_function", NULL, 1, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &functions, "func_function", NULL, 2, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &functions, "class_function", NULL, 3, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &functions, "call_function", NULL, 4, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
  * Func function usage:
  *<code>
  *      func name()
@@ -59,42 +106,42 @@ PHP_METHOD(Part_Function_Main, func_function) {
 	ZVAL_STRING(&_0, "/func (.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "function $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/func (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/public func (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "public function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/private func (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "private function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/public static func (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "public static function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/private static func (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "private static function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -137,42 +184,42 @@ PHP_METHOD(Part_Function_Main, def_function) {
 	ZVAL_STRING(&_0, "/def (.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "function $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/def (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/public def (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "public function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/private def (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "private function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/public static def (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "public static function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/private static def (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "private static function $1($2) {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -219,42 +266,42 @@ PHP_METHOD(Part_Function_Main, class_function) {
 	ZVAL_STRING(&_0, "/class (.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "class $1 {");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/public (.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "public $$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/private (.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "private $$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/protected (.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "protected $$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@this->(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$this->$1;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/namespace (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "namespace $1;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -294,7 +341,7 @@ PHP_METHOD(Part_Function_Main, call_function) {
 	ZVAL_STRING(&_0, "/call (.*)\\((.*)\\)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "$1($2);");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);

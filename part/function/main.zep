@@ -2,6 +2,20 @@ namespace Part\Function;
 
 class Main {
         /**
+         * Load all function
+         */
+
+        private static function loader(plang) {
+        var functions;
+        let functions = new Main();
+        let plang = functions->def_function(plang);
+        let plang = functions->func_function(plang);
+        let plang = functions->class_function(plang);
+        let plang = functions->call_function(plang);
+        return plang;
+        }
+
+        /**
          * Func function usage:
          *<code>
          *      func name()
@@ -18,7 +32,7 @@ class Main {
         let plang = preg_replace("/private static func (.*)\((.*)\)/", "private static function $1($2) {", plang);
         return plang;
         }
-        
+
         /**
          * Def function usage:
          *<code>
@@ -36,7 +50,7 @@ class Main {
         let plang = preg_replace("/private static def (.*)\((.*)\)/", "private static function $1($2) {", plang);
         return plang;
         }
-        
+
         /**
          * Class usage:
          *<code>
@@ -58,7 +72,7 @@ class Main {
         let plang = preg_replace("/namespace (.*)/", "namespace $1;", plang); // @variable
         return plang;
         }
-        
+
         /**
          * Call usage:
          *<code>

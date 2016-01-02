@@ -1,10 +1,24 @@
 namespace Part\Text;
 
 class Main {
+        /**
+         * Load all text
+         */
+
+        private static function loader(plang) {
+        var text;
+        let text = new Main();
+        let plang = text->variable(plang);
+        let plang = text->write(plang);
+        let plang = text->symbol(plang);
+        let plang = text->html(plang);
+        return plang;
+        }
+
          /**
          * HTML Template
          */
-        
+
         private static function html(plang){
         let plang = preg_replace("/%(.*)%/", "<?php echo $1;?>", plang); // public name = hello
         return plang;
@@ -18,7 +32,7 @@ class Main {
         let plang = str_replace("html:", "?>", plang);
         return plang;
         }
-        
+
         /**
          * Print usage:
          *<code>
@@ -27,14 +41,14 @@ class Main {
          *      return "Hello World"
          *</code>
          */
-        
+
         private static function write(plang){
         let plang = preg_replace("/write (.*)/", ";echo $1;", plang);
         let plang = preg_replace("/print (.*)/", ";echo $1;", plang);
         let plang = preg_replace("/return (.*)/", ";return $1;", plang);
         return plang;
         }
-        
+
         /**
          * Variable usage:
          *<code>
@@ -65,5 +79,5 @@ class Main {
         let plang = preg_replace("/@(.*)/", "$$1", plang); // @variable
         let plang = preg_replace("/const (.*) = (.*)/", "const $1 = $2;", plang); // @variable
         return plang;
-        } 
+        }
 }

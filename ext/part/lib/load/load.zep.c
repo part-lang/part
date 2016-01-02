@@ -54,14 +54,14 @@ PHP_METHOD(Part_Lib_Load_Load, load_view) {
 		ZEPHIR_CALL_METHOD(NULL, &part, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_FUNCTION(&code, "file_get_contents", NULL, 14, location, &__$true);
+	ZEPHIR_CALL_FUNCTION(&code, "file_get_contents", NULL, 18, location, &__$true);
 	zephir_check_call_status();
 	ZVAL_LONG(&_0, 4);
-	ZEPHIR_CALL_FUNCTION(&extension, "pathinfo", NULL, 15, location, &_0);
+	ZEPHIR_CALL_FUNCTION(&extension, "pathinfo", NULL, 19, location, &_0);
 	zephir_check_call_status();
 	do {
 		if (ZEPHIR_IS_STRING(&extension, "p")) {
-			ZEPHIR_CALL_METHOD(NULL, &part, "engine", NULL, 3, location);
+			ZEPHIR_CALL_METHOD(NULL, &part, "engine", NULL, 7, location);
 			zephir_check_call_status();
 			break;
 		}

@@ -67,11 +67,11 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		ZEPHIR_CALL_METHOD(NULL, &files, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "ob_start", NULL, 2);
+	ZEPHIR_CALL_FUNCTION(NULL, "ob_start", NULL, 6);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &compiler, "engine", NULL, 3, location);
+	ZEPHIR_CALL_METHOD(NULL, &compiler, "engine", NULL, 7, location);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&result, "ob_get_contents", NULL, 4);
+	ZEPHIR_CALL_FUNCTION(&result, "ob_get_contents", NULL, 8);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "static");
@@ -79,14 +79,14 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		ZVAL_STRING(&_1$$3, "static");
 		ZVAL_LONG(&_2$$3, 0777);
-		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 5, &_1$$3, &_2$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 9, &_1$$3, &_2$$3);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_VAR(&_3);
 	ZEPHIR_CONCAT_SVS(&_3, "static/", location, ".static");
-	ZEPHIR_CALL_METHOD(NULL, &files, "create", NULL, 6, &_3, &result);
+	ZEPHIR_CALL_METHOD(NULL, &files, "create", NULL, 10, &_3, &result);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 7);
+	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 11);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_4);
 	ZEPHIR_CONCAT_SVS(&_4, " Compile ", location, " to static files success");
@@ -139,7 +139,7 @@ PHP_METHOD(Part_Lib_Compile, create) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "w");
-	ZEPHIR_CALL_FUNCTION(&file, "fopen", NULL, 8, &location, &_0);
+	ZEPHIR_CALL_FUNCTION(&file, "fopen", NULL, 12, &location, &_0);
 	zephir_check_call_status();
 	zephir_fwrite(NULL, &file, &content TSRMLS_CC);
 	zephir_fclose(&file TSRMLS_CC);

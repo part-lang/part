@@ -1,31 +1,51 @@
 namespace Part\Lib;
 
 class Main {
-		
+		/**
+		 * Load all library
+		 */
+
+		private static function loader(plang) {
+		var library;
+		let library = new Main();
+		let plang = library->os(plang);
+		let plang = library->import(plang);
+		let plang = library->http(plang);
+		let plang = library->server(plang);
+		let plang = library->commands(plang);
+		let plang = library->file(plang);
+		let plang = library->mysql(plang);
+		let plang = library->mysqli(plang);
+		let plang = library->curl(plang);
+		let plang = library->load(plang);
+		let plang = library->session(plang);
+		return plang;
+		}
+
 		/**
 		 * MySQL usage:
 		 *<code>
 		 *      mysql.connect()
 		 *</code>
 		 */
-		 
+
 		private static function mysql(plang) {
 		let plang = str_replace("mysql.", "mysql_", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * MySQLI usage:
 		 *<code>
 		 *      mysqli.connect()
 		 *</code>
 		 */
-		 
+
 		private static function mysqli(plang) {
 		let plang = str_replace("mysqli.", "mysqli_", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * Curl usage:
 		 *<code>
@@ -33,25 +53,25 @@ class Main {
 		 *		curl.post(url, parameter, user_agent)
 		 *</code>
 		 */
-		 
+
 		private static function curl(plang) {
 		let plang = preg_replace("/curl.get\((.*)\)/", "Part\Lib\Curl\Curl::get($1);", plang);
 		let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl\Curl::post($1);", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * Import usage:
 		 *<code>
 		 *      import Library\Func
 		 *</code>
 		 */
-		 
+
 		private static function import(plang) {
 		let plang = preg_replace("/import (.*)/", "use $1;", plang);
 		return plang;
 		}
-		
+
 		 /**
 		 * Load usage:
 		 *<code>
@@ -59,13 +79,13 @@ class Main {
 		 *		require "file.p"
 		 *</code>
 		 */
-		 
+
 		private static function load(plang) {
 		let plang = preg_replace("/load (.*)/", "Part\Lib\Load\Load::load_view($1);", plang);
 		let plang = preg_replace("/require (.*)/", "Part\Lib\Load\Load::load_view($1);", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * Session usage:
 		 *<code>
@@ -74,7 +94,7 @@ class Main {
 		 *		session.get(key)
 		 *</code>
 		 */
-		 
+
 		private static function session(plang) {
 		let plang = str_replace("session.start()", "session_start();", plang);
 		let plang = str_replace("session.clear()", "session_destroy();", plang);
@@ -82,8 +102,8 @@ class Main {
 		let plang = preg_replace("/session.get\((.*)\)/", "$_SESSION[$1]", plang);
 		return plang;
 		}
-		
-		
+
+
 		/**
 		 * File usage:
 		 *<code>
@@ -95,7 +115,7 @@ class Main {
 		 *		file.time(format, location)
 		 *</code>
 		 */
-		 
+
 		private static function file(plang) {
 		let plang = preg_replace("/file.read\((.*)\)/", "Part\Lib\File\File::read($1);", plang);
 		let plang = preg_replace("/file.load\((.*)\)/", "Part\Lib\File\File::read($1);", plang);
@@ -108,7 +128,7 @@ class Main {
 		let plang = preg_replace("/file.delete\((.*)\)/", "Part\Lib\File\File::delete($1);", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * HTTP usage:
 		 *<code>
@@ -124,7 +144,7 @@ class Main {
 		 *		http.port()
 		 *</code>
 		 */
-		 
+
 		private static function http(plang) {
 		let plang = str_replace("http.host()", "$_SERVER['HTTP_HOST'];", plang);
 		let plang = str_replace("http.referer()", "$_SERVER['HTTP_REFERER'];", plang);
@@ -138,7 +158,7 @@ class Main {
 		let plang = preg_replace("/http.post\((.*)\)/", "$_POST[$1];", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * Server usage:
 		 *<code>
@@ -150,7 +170,7 @@ class Main {
 		 *		server.admin()
 		 *</code>
 		 */
-		 
+
 		private static function server(plang) {
 		let plang = str_replace("server.self()", "$_SERVER['PHP_SELF'];", plang);
 		let plang = str_replace("server.domain()", "$_SERVER['SERVER_NAME'];", plang);
@@ -161,7 +181,7 @@ class Main {
 		let plang = str_replace("server.admin()", "$_SERVER['SERVER_ADMIN'];", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * OS usage:
 		 *<code>
@@ -170,14 +190,14 @@ class Main {
 		 *      os.type()
 		 *</code>
 		 */
-		 
+
 		private static function os(plang) {
 		let plang = str_replace("os.kernel()", "exec('uname -r');", plang);
 		let plang = str_replace("os.user()", "exec('whoami');", plang);
 		let plang = str_replace("os.type()", "exec('uname -o');", plang);
 		return plang;
 		}
-		
+
 		/**
 		 * Command usage:
 		 *<code>
@@ -186,7 +206,7 @@ class Main {
 		 *      exec("commands")
 		 *</code>
 		 */
-		 
+
 		private static function commands(plang) {
 		let plang = preg_replace("/cmd\((.*)\)/", "exec($1);", plang);
 		let plang = preg_replace("/system\((.*)\)/", "exec($1);", plang);

@@ -26,6 +26,53 @@ ZEPHIR_INIT_CLASS(Part_Text_Main) {
 }
 
 /**
+ * Load all text
+ */
+PHP_METHOD(Part_Text_Main, loader) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *plang = NULL, plang_sub, text, _0;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&text);
+	ZVAL_UNDEF(&_0);
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(&text);
+	object_init_ex(&text, part_text_main_ce);
+	if (zephir_has_constructor(&text TSRMLS_CC)) {
+		ZEPHIR_CALL_METHOD(NULL, &text, "__construct", NULL, 0);
+		zephir_check_call_status();
+	}
+	ZEPHIR_CALL_METHOD(&_0, &text, "variable", NULL, 51, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &text, "write", NULL, 52, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &text, "symbol", NULL, 53, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &text, "html", NULL, 54, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
  * HTML Template
  */
 PHP_METHOD(Part_Text_Main, html) {
@@ -54,7 +101,7 @@ PHP_METHOD(Part_Text_Main, html) {
 	ZVAL_STRING(&_0, "/%(.*)%/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "<?php echo $1;?>");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -151,21 +198,21 @@ PHP_METHOD(Part_Text_Main, write) {
 	ZVAL_STRING(&_0, "/write (.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, ";echo $1;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/print (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, ";echo $1;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/return (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, ";return $1;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
@@ -207,147 +254,147 @@ PHP_METHOD(Part_Text_Main, variable) {
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/@(.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "$$1");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "/const (.*) = (.*)/");
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "const $1 = $2;");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 1, &_0, &_1, plang);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 5, &_0, &_1, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
