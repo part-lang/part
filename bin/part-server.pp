@@ -1,3 +1,3 @@
 <?php
 use Part\Part;
-Part::main_engine("server");
+Part::main_engine();
