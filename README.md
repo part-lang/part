@@ -8,7 +8,6 @@ Untuk contoh-contoh kode, bisa dilihat di https://github.com/part-lang/part/tree
 ```bash
 git clone https://github.com/part-lang/part.git
 cd part
-chmod +x install
 ./install
 ```
 
