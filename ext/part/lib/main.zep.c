@@ -88,6 +88,50 @@ PHP_METHOD(Part_Lib_Main, loader) {
 	ZEPHIR_CALL_METHOD(&_0, &library, "session", NULL, 36, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
+	ZEPHIR_CALL_METHOD(&_0, &library, "str_random", NULL, 37, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_0);
+	RETVAL_ZVAL(plang, 1, 0);
+	RETURN_MM();
+
+}
+
+/**
+ * Random string usage:
+ *<code>
+ *      string.random()
+ *		string.random(100)
+ *</code>
+ */
+PHP_METHOD(Part_Lib_Main, str_random) {
+
+	int ZEPHIR_LAST_CALL_STATUS;
+	zval *plang = NULL, plang_sub, _0, _1, _2;
+		zval this_zv;
+	zval *this_ptr = getThis();
+	if (EXPECTED(this_ptr)) {
+		ZVAL_OBJ(&this_zv, Z_OBJ_P(this_ptr));
+		this_ptr = &this_zv;
+	} else this_ptr = NULL;
+	
+	ZVAL_UNDEF(&plang_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &plang);
+
+	ZEPHIR_SEPARATE_PARAM(plang);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "/string.random\\((.*)\\)/");
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "Part\\Lib\\Random\\Strings::random($1);");
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", NULL, 5, &_0, &_1, plang);
+	zephir_check_call_status();
+	ZEPHIR_CPY_WRT(plang, &_2);
 	RETVAL_ZVAL(plang, 1, 0);
 	RETURN_MM();
 

@@ -33,6 +33,7 @@ zend_class_entry *part_lib_curl_curl_ce;
 zend_class_entry *part_lib_file_file_ce;
 zend_class_entry *part_lib_load_load_ce;
 zend_class_entry *part_lib_main_ce;
+zend_class_entry *part_lib_random_strings_ce;
 zend_class_entry *part_page_main_ce;
 zend_class_entry *part_part_ce;
 zend_class_entry *part_statement_main_ce;
@@ -68,6 +69,7 @@ static PHP_MINIT_FUNCTION(part)
 	ZEPHIR_INIT(Part_Lib_File_File);
 	ZEPHIR_INIT(Part_Lib_Load_Load);
 	ZEPHIR_INIT(Part_Lib_Main);
+	ZEPHIR_INIT(Part_Lib_Random_Strings);
 	ZEPHIR_INIT(Part_Page_Main);
 	ZEPHIR_INIT(Part_Part);
 	ZEPHIR_INIT(Part_Statement_Main);

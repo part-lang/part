@@ -19,6 +19,20 @@ class Main {
 		let plang = library->curl(plang);
 		let plang = library->load(plang);
 		let plang = library->session(plang);
+		let plang = library->str_random(plang);
+		return plang;
+		}
+		
+		/**
+		 * Random string usage:
+		 *<code>
+		 *      string.random()
+		 *		string.random(100)
+		 *</code>
+		 */
+
+		private static function str_random(plang) {
+		let plang = preg_replace("/string.random\((.*)\)/", "Part\Lib\Random\Strings::random($1);", plang);
 		return plang;
 		}
 

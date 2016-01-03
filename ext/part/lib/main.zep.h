@@ -4,6 +4,7 @@ extern zend_class_entry *part_lib_main_ce;
 ZEPHIR_INIT_CLASS(Part_Lib_Main);
 
 PHP_METHOD(Part_Lib_Main, loader);
+PHP_METHOD(Part_Lib_Main, str_random);
 PHP_METHOD(Part_Lib_Main, mysql);
 PHP_METHOD(Part_Lib_Main, mysqli);
 PHP_METHOD(Part_Lib_Main, curl);
@@ -17,6 +18,10 @@ PHP_METHOD(Part_Lib_Main, os);
 PHP_METHOD(Part_Lib_Main, commands);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_part_lib_main_loader, 0, 0, 1)
+	ZEND_ARG_INFO(0, plang)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_part_lib_main_str_random, 0, 0, 1)
 	ZEND_ARG_INFO(0, plang)
 ZEND_END_ARG_INFO()
 
@@ -66,6 +71,7 @@ ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(part_lib_main_method_entry) {
 	PHP_ME(Part_Lib_Main, loader, arginfo_part_lib_main_loader, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
+	PHP_ME(Part_Lib_Main, str_random, arginfo_part_lib_main_str_random, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Part_Lib_Main, mysql, arginfo_part_lib_main_mysql, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Part_Lib_Main, mysqli, arginfo_part_lib_main_mysqli, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)
 	PHP_ME(Part_Lib_Main, curl, arginfo_part_lib_main_curl, ZEND_ACC_PRIVATE|ZEND_ACC_STATIC)

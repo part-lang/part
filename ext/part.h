@@ -10,6 +10,7 @@
 #include "part/lib/file/file.zep.h"
 #include "part/lib/load/load.zep.h"
 #include "part/lib/main.zep.h"
+#include "part/lib/random/strings.zep.h"
 #include "part/page/main.zep.h"
 #include "part/part.zep.h"
 #include "part/statement/main.zep.h"

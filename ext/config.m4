@@ -15,6 +15,7 @@ if test "$PHP_PART" = "yes"; then
 	part/lib/file/file.zep.c
 	part/lib/load/load.zep.c
 	part/lib/main.zep.c
+	part/lib/random/strings.zep.c
 	part/page/main.zep.c
 	part/part.zep.c
 	part/statement/main.zep.c

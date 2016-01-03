@@ -55,16 +55,16 @@ PHP_METHOD(Part_Text_Main, loader) {
 		ZEPHIR_CALL_METHOD(NULL, &text, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_METHOD(&_0, &text, "variable", NULL, 51, plang);
+	ZEPHIR_CALL_METHOD(&_0, &text, "variable", NULL, 53, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "write", NULL, 52, plang);
+	ZEPHIR_CALL_METHOD(&_0, &text, "write", NULL, 54, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "symbol", NULL, 53, plang);
+	ZEPHIR_CALL_METHOD(&_0, &text, "symbol", NULL, 55, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "html", NULL, 54, plang);
+	ZEPHIR_CALL_METHOD(&_0, &text, "html", NULL, 56, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);

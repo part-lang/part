@@ -16,6 +16,7 @@ if (PHP_PART != "no") {
 	ADD_SOURCES(configure_module_dirname + "/part/lib/curl", "curl.zep.c", "part");
 	ADD_SOURCES(configure_module_dirname + "/part/lib/file", "file.zep.c", "part");
 	ADD_SOURCES(configure_module_dirname + "/part/lib/load", "load.zep.c", "part");
+	ADD_SOURCES(configure_module_dirname + "/part/lib/random", "strings.zep.c", "part");
 	ADD_SOURCES(configure_module_dirname + "/part/page", "main.zep.c", "part");
 	ADD_SOURCES(configure_module_dirname + "/part", "part.zep.c", "part");
 	ADD_SOURCES(configure_module_dirname + "/part/statement", "main.zep.c", "part");

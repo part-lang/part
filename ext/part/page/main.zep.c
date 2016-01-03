@@ -73,7 +73,7 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		}
 		ZEPHIR_INIT_VAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "HTTP/1.1 404 Not Found");
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "D, d M Y h:i:s T");
@@ -81,20 +81,20 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_3$$3);
 		ZEPHIR_CONCAT_SV(&_3$$3, "Date: ", &_2$$3);
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_3$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_3$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "Content-Type: text/html; charset=iso-8859-1");
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "X-Powered-By: P language");
-		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "config");
 		ZVAL_LONG(&_5$$3, 404);
-		ZEPHIR_CALL_METHOD(&_4$$3, &main$$3, "config", NULL, 38, &_0$$3, &_5$$3);
+		ZEPHIR_CALL_METHOD(&_4$$3, &main$$3, "config", NULL, 40, &_0$$3, &_5$$3);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_STRING(&_4$$3, "none")) {
 			ZEPHIR_INIT_VAR(&_6$$4);
@@ -106,7 +106,7 @@ PHP_METHOD(Part_Page_Main, notfound) {
 			ZEPHIR_INIT_VAR(&_10$$5);
 			ZVAL_STRING(&_10$$5, "config");
 			ZVAL_LONG(&_11$$5, 404);
-			ZEPHIR_CALL_METHOD(&_9$$5, &main$$3, "config", NULL, 38, &_10$$5, &_11$$5);
+			ZEPHIR_CALL_METHOD(&_9$$5, &main$$3, "config", NULL, 40, &_10$$5, &_11$$5);
 			zephir_check_call_status();
 			ZEPHIR_CALL_FUNCTION(&_12$$5, "file_get_contents", &_8, 18, &_9$$5, &__$true);
 			zephir_check_call_status();
@@ -158,7 +158,7 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 	}
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "HTTP/1.1 403 Forbidden");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "D, d M Y h:i:s T");
@@ -166,20 +166,20 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_3);
 	ZEPHIR_CONCAT_SV(&_3, "Date: ", &_2);
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_3);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_3);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "Content-Type: text/html; charset=iso-8859-1");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "X-Powered-By: P language");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 37, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 39, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "config");
 	ZVAL_LONG(&_5, 403);
-	ZEPHIR_CALL_METHOD(&_4, &main, "config", NULL, 38, &_0, &_5);
+	ZEPHIR_CALL_METHOD(&_4, &main, "config", NULL, 40, &_0, &_5);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_STRING(&_4, "none")) {
 		ZEPHIR_INIT_VAR(&_6$$3);
@@ -191,7 +191,7 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 		ZEPHIR_INIT_VAR(&_10$$4);
 		ZVAL_STRING(&_10$$4, "config");
 		ZVAL_LONG(&_11$$4, 403);
-		ZEPHIR_CALL_METHOD(&_9$$4, &main, "config", NULL, 38, &_10$$4, &_11$$4);
+		ZEPHIR_CALL_METHOD(&_9$$4, &main, "config", NULL, 40, &_10$$4, &_11$$4);
 		zephir_check_call_status();
 		ZEPHIR_CALL_FUNCTION(&_12$$4, "file_get_contents", &_8, 18, &_9$$4, &__$true);
 		zephir_check_call_status();
@@ -230,7 +230,7 @@ PHP_METHOD(Part_Page_Main, content) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_CONCAT_SVS(&_0, "Content-Type: ", type_header, "; charset=iso-8859-1");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 37, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 39, &_0);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(&plang, "file_get_contents", NULL, 18, location, &__$true);
 	zephir_check_call_status();
@@ -274,7 +274,7 @@ PHP_METHOD(Part_Page_Main, config) {
 	ZEPHIR_INIT_VAR(&location);
 	ZEPHIR_CONCAT_VS(&location, &_0, "/part.ini");
 	if ((zephir_file_exists(&location TSRMLS_CC) == SUCCESS)) {
-		ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 39, &location, &__$true);
+		ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 41, &location, &__$true);
 		zephir_check_call_status();
 		zephir_array_fetch(&_1$$3, &setting, section, PH_READONLY, "part/page/main.zep", 59 TSRMLS_CC);
 		if (zephir_array_isset(&_1$$3, config)) {
