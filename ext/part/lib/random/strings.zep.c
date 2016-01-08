@@ -54,7 +54,7 @@ PHP_METHOD(Part_Lib_Random_Strings, random) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	ZEPHIR_CALL_FUNCTION(&_1, "str_shuffle", NULL, 38, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "str_shuffle", NULL, 39, &_0);
 	zephir_check_call_status();
 	ZVAL_LONG(&_2, 0);
 	zephir_substr(return_value, &_1, 0 , zephir_get_intval(length), 0);

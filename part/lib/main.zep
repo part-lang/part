@@ -65,12 +65,14 @@ class Main {
 		 *<code>
 		 *      curl.get(url, parameter, user_agent)
 		 *		curl.post(url, parameter, user_agent)
+		 *		curl.version()
 		 *</code>
 		 */
 
 		private static function curl(plang) {
 		let plang = preg_replace("/curl.get\((.*)\)/", "Part\Lib\Curl\Curl::get($1);", plang);
 		let plang = preg_replace("/curl.post\((.*)\)/", "Part\Lib\Curl\Curl::post($1);", plang);
+		let plang = str_replace("curl.version()", "Part\Lib\Curl\Curl::version();", plang);
 		return plang;
 		}
 

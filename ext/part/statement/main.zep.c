@@ -54,16 +54,16 @@ PHP_METHOD(Part_Statement_Main, loader) {
 		ZEPHIR_CALL_METHOD(NULL, &statement, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_METHOD(&_0, &statement, "switch_statement", NULL, 49, plang);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "switch_statement", NULL, 50, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "while_statement", NULL, 50, plang);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "while_statement", NULL, 51, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "if_statement", NULL, 51, plang);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "if_statement", NULL, 52, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "for_statement", NULL, 52, plang);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "for_statement", NULL, 53, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);

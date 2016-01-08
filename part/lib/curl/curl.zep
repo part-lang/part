@@ -1,7 +1,11 @@
 namespace Part\Lib\Curl;
 
 class Curl {
- 
+
+        public static function version() {
+        return curl_version();
+        }
+        
     	public static function post(string! url, content, user_agent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13") {
     	var ch,result;
     	let ch = curl_init(url);

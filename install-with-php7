@@ -2,7 +2,6 @@
 sudo apt-get install php7.0
 sudo apt-get install php7.0-dev
 sudo apt-get install git gcc make re2c php7.0-dev php7.0-curl php7.0-mysql php7.0-json libpcre3-dev
-
 git clone https://github.com/phalcon/zephir
 
 cd zephir
