@@ -2,49 +2,13 @@
 Sebuah bahasa pemrograman yang difokuskan dalam pengembangan website. Part menggunakan syntax yang simpel, mudah dibaca dan mudah dipelajari.
 
 ### Examples
-Untuk contoh-contoh kode, bisa dilihat di https://github.com/part-lang/part/tree/master/examples
+View at https://github.com/part-lang/part/tree/master/examples
 
 ### Installation
-```bash
-git clone https://github.com/part-lang/part.git
-cd part
-./install
-```
+View at https://github.com/part-lang/part/tree/master/docs/installation
 
 ### Getting started
-Create folder for server
-```bash
-mkdir hello
-cd hello
-```
-
-Create file
-```bash
-nano index.p
-```
-
-```php
-print "Hello World"
-```
-
-Run server
-```bash
-cd hello
-part -s 8080
-```
-
-Output:
-```bash
-Listening on http://0.0.0.0:8080
-Document root is /home/devilscream/part/examples
-Press Ctrl-C to quit.
-```
-
-Compile single file to static
-```bash
-cd hello
-part -c index.p
-```
+View at https://github.com/part-lang/part/tree/master/docs/guide
 
 ### License
 
