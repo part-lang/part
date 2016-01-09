@@ -1,13 +1,34 @@
 #!/bin/bash
 dir="/etc/part/bin"
+printf "============== Part programming language ==============\n"
 case "$1" in
-      "-s")
-      php -S 0.0.0.0:$2 $dir/runtime
-      ;;
-      "-c")
+  "run")
+    php -S 0.0.0.0:$2 $dir/runtime
+  ;;
+  "compile")
+    if [ -f "$2" ]; then
       php $dir/compile $2
-      ;;
-      *)
+      printf "\n"
+    else 
+      printf "Failed compile $1, file not found\n"
+    fi 
+  ;;
+  "create")
+    if [ -e "$2" ]; then
+      printf "Failed create app $2\n"
+    else 
+      mkdir $2
+      echo "print 'Hello World'" > $2/index.p
+      printf "$2 success created\n\nHelp Information\nType 'part $2/index.p' for running code\nType 'cd $2 && part run 8080' for running code on http server\n\n"
+    fi 
+  ;;
+  *)
+    if [ -f "$1" ]; then
       php $dir/cli $1
-      s;;
+      printf "\n"
+      exit
+    else 
+      printf "Failed running $1, file not found\n"
+    fi 
+  s;;
 esac
