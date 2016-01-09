@@ -10,6 +10,9 @@ View at https://github.com/part-lang/part/tree/master/docs/installation
 ### Getting started
 View at https://github.com/part-lang/part/tree/master/docs/guide
 
+### Documentations
+View at https://github.com/part-lang/part/tree/master/docs
+
 ### License
 
 The MIT License (MIT)
