@@ -15,6 +15,11 @@ nano index.p
 print "Hello World"
 ```
 
+#### Run file
+```bash
+part index.p
+```
+
 #### Run server
 ```bash
 cd hello
