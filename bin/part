@@ -3,7 +3,7 @@ while getopts ":s:c:" optname
   do
     case "$optname" in
       "s")
-        php -S 0.0.0.0:$OPTARG /etc/part/bin/part-server.pp
+        php -S 0.0.0.0:$OPTARG /etc/part/bin/runtime
         ;;
       "c")
         php /etc/part/bin/compile $OPTARG
