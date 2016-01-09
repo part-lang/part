@@ -64,7 +64,7 @@ PHP_METHOD(Part_Part, main_engine) {
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_SERVER, SL("_SERVER"));
 
-	zephir_array_fetch_string(&_0, &_SERVER, SL("REQUEST_URI"), PH_NOISY | PH_READONLY, "part/part.zep", 7 TSRMLS_CC);
+	zephir_array_fetch_string(&_0, &_SERVER, SL("SCRIPT_NAME"), PH_NOISY | PH_READONLY, "part/part.zep", 7 TSRMLS_CC);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "/");
 	ZEPHIR_INIT_VAR(&location);
@@ -228,7 +228,7 @@ PHP_METHOD(Part_Part, engine) {
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
 	ZEPHIR_INIT_VAR(&_1);
-	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:67" TSRMLS_CC);
+	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:68" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }

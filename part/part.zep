@@ -4,7 +4,7 @@ class Part {
 
 	public static function main_engine() {
         var main, engine, extension, location;
-        let location = trim($_SERVER["REQUEST_URI"], "/");
+        let location = trim($_SERVER["SCRIPT_NAME"], "/");
         let main = new \Part\Page\Main();
         let engine = new Part();
         if(location == ""){
@@ -55,6 +55,7 @@ class Part {
 	private static function engine(location)
 	{
             var plang, statement, text, functions, library;
+            
             let statement = new \Part\Statement\Main();
             let text = new \Part\Text\Main();
             let functions = new \Part\Function\Main();
