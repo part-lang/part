@@ -1,6 +1,6 @@
 ## Installation
 * [Requirement](https://github.com/part-lang/part/tree/master/docs/installation#requirement)
-* 
+
 First Installation
 * [Quick Installation](https://github.com/part-lang/part/tree/master/docs/installation#quick-installation)
 * [Manual Installation](https://github.com/part-lang/part/tree/master/docs/installation#manual-installation)
