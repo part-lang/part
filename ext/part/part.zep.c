@@ -110,7 +110,7 @@ PHP_METHOD(Part_Part, main_engine) {
 			ZEPHIR_INIT_VAR(&_8$$6);
 			ZEPHIR_CONCAT_SVS(&_8$$6, "static/", &location, ".static");
 			if (!((zephir_file_exists(&_8$$6 TSRMLS_CC) == SUCCESS))) {
-				ZEPHIR_CALL_METHOD(NULL, &engine, "engine", NULL, 7, &location);
+				ZEPHIR_CALL_METHOD(NULL, &engine, "engine", NULL, 6, &location);
 				zephir_check_call_status();
 			} else {
 				ZEPHIR_INIT_VAR(&_9$$8);

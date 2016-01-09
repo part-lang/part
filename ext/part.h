@@ -5,6 +5,7 @@
 #define ZEPHIR_CLASS_ENTRIES_H
 
 #include "part/function/main.zep.h"
+#include "part/lib/cli.zep.h"
 #include "part/lib/compile.zep.h"
 #include "part/lib/curl/curl.zep.h"
 #include "part/lib/file/file.zep.h"

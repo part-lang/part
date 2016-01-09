@@ -61,7 +61,7 @@ PHP_METHOD(Part_Lib_Load_Load, load_view) {
 	zephir_check_call_status();
 	do {
 		if (ZEPHIR_IS_STRING(&extension, "p")) {
-			ZEPHIR_CALL_METHOD(NULL, &part, "engine", NULL, 7, location);
+			ZEPHIR_CALL_METHOD(NULL, &part, "engine", NULL, 6, location);
 			zephir_check_call_status();
 			break;
 		}

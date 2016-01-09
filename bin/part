@@ -4,19 +4,25 @@ while getopts ":s:c:" optname
     case "$optname" in
       "s")
         php -S 0.0.0.0:$OPTARG /etc/part/bin/runtime
+        exit
         ;;
       "c")
         php /etc/part/bin/compile $OPTARG
+        exit
         ;;
       "?")
-        echo "Unknown option $OPTARG"
+        echo "Unknown parameter $OPTARG"
+        exit
         ;;
       ":")
-        echo "No argument value for option $OPTARG"
+        echo "No argument value for parameter $OPTARG"
+        exit
         ;;
       *)
-      # Should not occur
-        echo "Unknown error while processing options"
+        echo "Unknown error while processing parameter"
+        exit
         ;;
     esac
   done
+php /etc/part/bin/cli $1
+exit

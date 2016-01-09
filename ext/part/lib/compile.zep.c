@@ -67,9 +67,9 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		ZEPHIR_CALL_METHOD(NULL, &files, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "ob_start", NULL, 6);
+	ZEPHIR_CALL_FUNCTION(NULL, "ob_start", NULL, 7);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &compiler, "engine", NULL, 7, location);
+	ZEPHIR_CALL_METHOD(NULL, &compiler, "engine", NULL, 6, location);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(&result, "ob_get_contents", NULL, 8);
 	zephir_check_call_status();
