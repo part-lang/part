@@ -18,7 +18,7 @@ sudo sh -c "echo 'extension=part.so' >> /etc/php/7.0/cli/conf.d/part.ini"
 sudo mkdir /etc/part
 sudo mkdir /etc/part/bin
 
-sudo mv page /etc/part/page
+sudo cp page /etc/part/page
 sudo cp bin/part-server.pp /etc/part/bin/part-server.pp
 sudo cp bin/part /usr/bin/part
 
