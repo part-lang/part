@@ -1,36 +1,15 @@
-### Guide Installation
+## Installation
+* [Requirement](https://github.com/part-lang/part/tree/master/docs/installation#requirement)
+* 
+First Installation
+* [Quick Installation](https://github.com/part-lang/part/tree/master/docs/installation#quick-installation)
+* [Manual Installation](https://github.com/part-lang/part/tree/master/docs/installation#manual-installation)
 
-### Install Part with Nginx
+Integration Installation
+* [Intergrated with Nginx](https://github.com/part-lang/part/tree/master/docs/installation#intergrated-with-nginx)
 
-Install nginx web server on your machine
-
-Running Part server on port 8080
-
-```bash
-cd /var/www/
-part -s 8080
-```
-
-Edit /etc/nginx/sites-available/default
-```nginx
-server {
-    listen 80;
-
-    server_name example.com;
-
-    location / {
-        proxy_pass http://0.0.0.0:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
-```
-
-Reload and restart nginx
-```bash
-sudo service nginx reload
-sudo service nginx restart
-```
+## Guide
+* [Create folder for server](https://github.com/part-lang/part/tree/master/docs/guide#create-folder-for-server)
+* [Create file](https://github.com/part-lang/part/tree/master/docs/guide#create-file)
+* [Run server](https://github.com/part-lang/part/tree/master/docs/guide#run-server)
+* [Compile single file to static](https://github.com/part-lang/part/tree/master/docs/guide#compile-single-file-to-static)

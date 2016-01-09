@@ -1,11 +1,12 @@
 ### Getting started
-Create folder for server
+
+#### Create folder for server
 ```bash
 mkdir hello
 cd hello
 ```
 
-Create file
+#### Create file
 ```bash
 nano index.p
 ```
@@ -14,7 +15,7 @@ nano index.p
 print "Hello World"
 ```
 
-Run server
+#### Run server
 ```bash
 cd hello
 part -s 8080
@@ -27,7 +28,7 @@ Document root is /home/devilscream/part/examples
 Press Ctrl-C to quit.
 ```
 
-Compile single file to static
+#### Compile single file to static
 ```bash
 cd hello
 part -c index.p
