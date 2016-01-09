@@ -6,7 +6,7 @@ while getopts ":s:c:" optname
         php -S 0.0.0.0:$OPTARG /etc/part/bin/part-server.pp
         ;;
       "c")
-        php compile $OPTARG
+        php /etc/part/bin/compile $OPTARG
         ;;
       "?")
         echo "Unknown option $OPTARG"
