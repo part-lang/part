@@ -9,8 +9,7 @@ Integration Installation
 * [Intergrated with Nginx](https://github.com/part-lang/part/tree/master/docs/installation#intergrated-with-nginx)
 
 ## Guide
-* [Create folder for server](https://github.com/part-lang/part/tree/master/docs/guide#create-folder-for-server)
-* [Create file](https://github.com/part-lang/part/tree/master/docs/guide#create-file)
-* [Run file](https://github.com/part-lang/part/tree/master/docs/guide#run-file)
-* [Run server](https://github.com/part-lang/part/tree/master/docs/guide#run-server)
+* [Create application](https://github.com/part-lang/part/tree/master/docs/guide#create-application)
+* [Run application](https://github.com/part-lang/part/tree/master/docs/guide#run-application)
+* [Run application with http server](https://github.com/part-lang/part/tree/master/docs/guide#run-application-with-http-server)
 * [Compile single file to static](https://github.com/part-lang/part/tree/master/docs/guide#compile-single-file-to-static)

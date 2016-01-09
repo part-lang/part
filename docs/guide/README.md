@@ -1,26 +1,17 @@
 ### Getting started
 
-#### Create folder for server
+#### Create application
 ```bash
-mkdir hello
+part create hello
+```
+
+#### Run application
+```bash
 cd hello
-```
-
-#### Create file
-```bash
-nano index.p
-```
-
-```php
-print "Hello World"
-```
-
-#### Run file
-```bash
 part index.p
 ```
 
-#### Run server
+#### Run application with http server
 ```bash
 cd hello
 part -s 8080
@@ -33,8 +24,8 @@ Document root is /home/devilscream/part/examples
 Press Ctrl-C to quit.
 ```
 
-#### Compile single file to static
+#### Compile file to static
 ```bash
 cd hello
-part -c index.p
+part compile index.p
 ```
