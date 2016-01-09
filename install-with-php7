@@ -20,7 +20,7 @@ sudo mkdir /etc/part/bin
 
 sudo mv page /etc/part/page
 sudo cp bin/part-server.pp /etc/part/bin/part-server.pp
-sudo cp main /usr/bin/part
+sudo cp bin/part /usr/bin/part
 
 sudo chmod +x /usr/bin/part
 
