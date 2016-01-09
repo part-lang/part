@@ -17,9 +17,9 @@ sudo sh -c "echo 'extension=part.so' >> /etc/php5/cli/conf.d/part.ini"
 
 sudo mkdir /etc/part
 
-sudo cp page /etc/part/page
-sudo cp bin /etc/part/bin
-sudo cp bin/part /usr/bin/part
+sudo cp -r page /etc/part/page
+sudo cp -r bin /etc/part/bin
+sudo cp -r bin/part /usr/bin/part
 
 sudo chmod +x /usr/bin/part
 
