@@ -1,28 +1,13 @@
 #!/bin/bash
-while getopts ":s:c:" optname
-  do
-    case "$optname" in
-      "s")
-        php -S 0.0.0.0:$OPTARG /etc/part/bin/runtime
-        exit
-        ;;
-      "c")
-        php /etc/part/bin/compile $OPTARG
-        exit
-        ;;
-      "?")
-        echo "Unknown parameter $OPTARG"
-        exit
-        ;;
-      ":")
-        echo "No argument value for parameter $OPTARG"
-        exit
-        ;;
+dir="/etc/part/bin"
+case "$1" in
+      "-s")
+      php -S 0.0.0.0:$2 $dir/runtime
+      ;;
+      "-c")
+      php $dir/compile $2
+      ;;
       *)
-        echo "Unknown error while processing parameter"
-        exit
-        ;;
-    esac
-  done
-php /etc/part/bin/cli $1
-exit
+      php $dir/cli $1
+      s;;
+esac
