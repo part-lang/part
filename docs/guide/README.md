@@ -14,7 +14,7 @@ part index.p
 #### Run application with http server
 ```bash
 cd hello
-part -s 8080
+part run 8080
 ```
 
 Output:
