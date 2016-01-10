@@ -6,12 +6,10 @@ class Main {
          */
 
         private static function loader(plang) {
-        var text;
-        let text = new Main();
-        let plang = text->variable(plang);
-        let plang = text->write(plang);
-        let plang = text->symbol(plang);
-        let plang = text->html(plang);
+        let plang = self::variable(plang);
+        let plang = self::write(plang);
+        let plang = self::symbol(plang);
+        let plang = self::html(plang);
         return plang;
         }
 

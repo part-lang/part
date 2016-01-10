@@ -31,7 +31,8 @@ ZEPHIR_INIT_CLASS(Part_Text_Main) {
 PHP_METHOD(Part_Text_Main, loader) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *plang = NULL, plang_sub, text, _0;
+	zephir_fcall_cache_entry *_1 = NULL, *_2 = NULL, *_3 = NULL, *_4 = NULL;
+	zval *plang = NULL, plang_sub, _0;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -40,7 +41,6 @@ PHP_METHOD(Part_Text_Main, loader) {
 	} else this_ptr = NULL;
 	
 	ZVAL_UNDEF(&plang_sub);
-	ZVAL_UNDEF(&text);
 	ZVAL_UNDEF(&_0);
 
 	ZEPHIR_MM_GROW();
@@ -49,22 +49,16 @@ PHP_METHOD(Part_Text_Main, loader) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(&text);
-	object_init_ex(&text, part_text_main_ce);
-	if (zephir_has_constructor(&text TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &text, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-	ZEPHIR_CALL_METHOD(&_0, &text, "variable", NULL, 54, plang);
+	ZEPHIR_CALL_SELF(&_0, "variable", &_1, 54, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "write", NULL, 55, plang);
+	ZEPHIR_CALL_SELF(&_0, "write", &_2, 55, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "symbol", NULL, 56, plang);
+	ZEPHIR_CALL_SELF(&_0, "symbol", &_3, 56, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "html", NULL, 57, plang);
+	ZEPHIR_CALL_SELF(&_0, "html", &_4, 57, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);

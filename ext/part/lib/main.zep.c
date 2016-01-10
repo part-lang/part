@@ -31,7 +31,8 @@ ZEPHIR_INIT_CLASS(Part_Lib_Main) {
 PHP_METHOD(Part_Lib_Main, loader) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *plang = NULL, plang_sub, library, _0;
+	zephir_fcall_cache_entry *_1 = NULL, *_2 = NULL, *_3 = NULL, *_4 = NULL, *_5 = NULL, *_6 = NULL, *_7 = NULL, *_8 = NULL, *_9 = NULL, *_10 = NULL, *_11 = NULL, *_12 = NULL;
+	zval *plang = NULL, plang_sub, _0;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -40,7 +41,6 @@ PHP_METHOD(Part_Lib_Main, loader) {
 	} else this_ptr = NULL;
 	
 	ZVAL_UNDEF(&plang_sub);
-	ZVAL_UNDEF(&library);
 	ZVAL_UNDEF(&_0);
 
 	ZEPHIR_MM_GROW();
@@ -49,46 +49,40 @@ PHP_METHOD(Part_Lib_Main, loader) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(&library);
-	object_init_ex(&library, part_lib_main_ce);
-	if (zephir_has_constructor(&library TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &library, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-	ZEPHIR_CALL_METHOD(&_0, &library, "os", NULL, 27, plang);
+	ZEPHIR_CALL_SELF(&_0, "os", &_1, 27, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "import", NULL, 28, plang);
+	ZEPHIR_CALL_SELF(&_0, "import", &_2, 28, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "http", NULL, 29, plang);
+	ZEPHIR_CALL_SELF(&_0, "http", &_3, 29, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "server", NULL, 30, plang);
+	ZEPHIR_CALL_SELF(&_0, "server", &_4, 30, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "commands", NULL, 31, plang);
+	ZEPHIR_CALL_SELF(&_0, "commands", &_5, 31, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "file", NULL, 32, plang);
+	ZEPHIR_CALL_SELF(&_0, "file", &_6, 32, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "mysql", NULL, 33, plang);
+	ZEPHIR_CALL_SELF(&_0, "mysql", &_7, 33, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "mysqli", NULL, 34, plang);
+	ZEPHIR_CALL_SELF(&_0, "mysqli", &_8, 34, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "curl", NULL, 35, plang);
+	ZEPHIR_CALL_SELF(&_0, "curl", &_9, 35, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "load", NULL, 36, plang);
+	ZEPHIR_CALL_SELF(&_0, "load", &_10, 36, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "session", NULL, 37, plang);
+	ZEPHIR_CALL_SELF(&_0, "session", &_11, 37, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &library, "str_random", NULL, 38, plang);
+	ZEPHIR_CALL_SELF(&_0, "str_random", &_12, 38, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);

@@ -30,7 +30,8 @@ ZEPHIR_INIT_CLASS(Part_Statement_Main) {
 PHP_METHOD(Part_Statement_Main, loader) {
 
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *plang = NULL, plang_sub, statement, _0;
+	zephir_fcall_cache_entry *_1 = NULL, *_2 = NULL, *_3 = NULL, *_4 = NULL;
+	zval *plang = NULL, plang_sub, _0;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -39,7 +40,6 @@ PHP_METHOD(Part_Statement_Main, loader) {
 	} else this_ptr = NULL;
 	
 	ZVAL_UNDEF(&plang_sub);
-	ZVAL_UNDEF(&statement);
 	ZVAL_UNDEF(&_0);
 
 	ZEPHIR_MM_GROW();
@@ -48,22 +48,16 @@ PHP_METHOD(Part_Statement_Main, loader) {
 	ZEPHIR_SEPARATE_PARAM(plang);
 
 
-	ZEPHIR_INIT_VAR(&statement);
-	object_init_ex(&statement, part_statement_main_ce);
-	if (zephir_has_constructor(&statement TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &statement, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-	ZEPHIR_CALL_METHOD(&_0, &statement, "switch_statement", NULL, 50, plang);
+	ZEPHIR_CALL_SELF(&_0, "switch_statement", &_1, 50, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "while_statement", NULL, 51, plang);
+	ZEPHIR_CALL_SELF(&_0, "while_statement", &_2, 51, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "if_statement", NULL, 52, plang);
+	ZEPHIR_CALL_SELF(&_0, "if_statement", &_3, 52, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "for_statement", NULL, 53, plang);
+	ZEPHIR_CALL_SELF(&_0, "for_statement", &_4, 53, plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(plang, &_0);
 	RETVAL_ZVAL(plang, 1, 0);

@@ -6,12 +6,10 @@ class Main {
          */
 
         private static function loader(plang) {
-        var functions;
-        let functions = new Main();
-        let plang = functions->def_function(plang);
-        let plang = functions->func_function(plang);
-        let plang = functions->class_function(plang);
-        let plang = functions->call_function(plang);
+        let plang = self::def_function(plang);
+        let plang = self::func_function(plang);
+        let plang = self::class_function(plang);
+        let plang = self::call_function(plang);
         return plang;
         }
 

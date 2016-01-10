@@ -31,8 +31,9 @@ ZEPHIR_INIT_CLASS(Part_Lib_Compile) {
 
 PHP_METHOD(Part_Lib_Compile, compile_engine) {
 
+	zephir_fcall_cache_entry *_3 = NULL;
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *location, location_sub, compiler, result, files, _0, _3, _4, _1$$3, _2$$3;
+	zval *location, location_sub, compiler, result, _0, _4, _5, _1$$3, _2$$3;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -43,10 +44,9 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 	ZVAL_UNDEF(&location_sub);
 	ZVAL_UNDEF(&compiler);
 	ZVAL_UNDEF(&result);
-	ZVAL_UNDEF(&files);
 	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_5);
 	ZVAL_UNDEF(&_1$$3);
 	ZVAL_UNDEF(&_2$$3);
 
@@ -59,12 +59,6 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 	object_init_ex(&compiler, part_part_ce);
 	if (zephir_has_constructor(&compiler TSRMLS_CC)) {
 		ZEPHIR_CALL_METHOD(NULL, &compiler, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-	ZEPHIR_INIT_VAR(&files);
-	object_init_ex(&files, part_lib_compile_ce);
-	if (zephir_has_constructor(&files TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &files, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_FUNCTION(NULL, "ob_start", NULL, 7);
@@ -82,15 +76,15 @@ PHP_METHOD(Part_Lib_Compile, compile_engine) {
 		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 9, &_1$$3, &_2$$3);
 		zephir_check_call_status();
 	}
-	ZEPHIR_INIT_VAR(&_3);
-	ZEPHIR_CONCAT_SVS(&_3, "static/", location, ".static");
-	ZEPHIR_CALL_METHOD(NULL, &files, "create", NULL, 10, &_3, &result);
+	ZEPHIR_INIT_VAR(&_4);
+	ZEPHIR_CONCAT_SVS(&_4, "static/", location, ".static");
+	ZEPHIR_CALL_SELF(NULL, "create", &_3, 10, &_4, &result);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(NULL, "ob_end_flush", NULL, 11);
 	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(&_4);
-	ZEPHIR_CONCAT_SVS(&_4, " Compile ", location, " to static files success");
-	zend_print_zval(&_4, 0);
+	ZEPHIR_INIT_VAR(&_5);
+	ZEPHIR_CONCAT_SVS(&_5, " Compile ", location, " to static files success");
+	zend_print_zval(&_5, 0);
 	ZEPHIR_MM_RESTORE();
 
 }

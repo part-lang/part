@@ -6,12 +6,10 @@ class Main {
 				 */
 
 				private static function loader(plang) {
-				var statement;
-				let statement = new Main();
-				let plang = statement->switch_statement(plang);
-				let plang = statement->while_statement(plang);
-				let plang = statement->if_statement(plang);
-				let plang = statement->for_statement(plang);
+				let plang = self::switch_statement(plang);
+				let plang = self::while_statement(plang);
+				let plang = self::if_statement(plang);
+				let plang = self::for_statement(plang);
 				return plang;
 				}
 

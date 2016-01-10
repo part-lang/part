@@ -31,8 +31,9 @@ ZEPHIR_INIT_CLASS(Part_Part) {
 
 PHP_METHOD(Part_Part, main_engine) {
 
+	zephir_fcall_cache_entry *_9 = NULL;
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval _SERVER, main, engine, extension, location, _0, _1, _7, _2$$3, _3$$3, _4$$3, _5$$5, _6$$5, _8$$6, _9$$8, _10$$8, _11$$11, _12$$12, _13$$13, _14$$14;
+	zval _SERVER, main, extension, location, _0, _1, _7, _2$$3, _3$$3, _4$$3, _5$$5, _6$$5, _8$$6, _10$$8, _11$$8, _12$$11, _13$$12, _14$$13, _15$$14;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -42,7 +43,6 @@ PHP_METHOD(Part_Part, main_engine) {
 	
 	ZVAL_UNDEF(&_SERVER);
 	ZVAL_UNDEF(&main);
-	ZVAL_UNDEF(&engine);
 	ZVAL_UNDEF(&extension);
 	ZVAL_UNDEF(&location);
 	ZVAL_UNDEF(&_0);
@@ -54,12 +54,12 @@ PHP_METHOD(Part_Part, main_engine) {
 	ZVAL_UNDEF(&_5$$5);
 	ZVAL_UNDEF(&_6$$5);
 	ZVAL_UNDEF(&_8$$6);
-	ZVAL_UNDEF(&_9$$8);
 	ZVAL_UNDEF(&_10$$8);
-	ZVAL_UNDEF(&_11$$11);
-	ZVAL_UNDEF(&_12$$12);
-	ZVAL_UNDEF(&_13$$13);
-	ZVAL_UNDEF(&_14$$14);
+	ZVAL_UNDEF(&_11$$8);
+	ZVAL_UNDEF(&_12$$11);
+	ZVAL_UNDEF(&_13$$12);
+	ZVAL_UNDEF(&_14$$13);
+	ZVAL_UNDEF(&_15$$14);
 
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_SERVER, SL("_SERVER"));
@@ -73,12 +73,6 @@ PHP_METHOD(Part_Part, main_engine) {
 	object_init_ex(&main, part_page_main_ce);
 	if (zephir_has_constructor(&main TSRMLS_CC)) {
 		ZEPHIR_CALL_METHOD(NULL, &main, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-	ZEPHIR_INIT_VAR(&engine);
-	object_init_ex(&engine, part_part_ce);
-	if (zephir_has_constructor(&engine TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &engine, "__construct", NULL, 0);
 		zephir_check_call_status();
 	}
 	if (ZEPHIR_IS_STRING(&location, "")) {
@@ -110,14 +104,14 @@ PHP_METHOD(Part_Part, main_engine) {
 			ZEPHIR_INIT_VAR(&_8$$6);
 			ZEPHIR_CONCAT_SVS(&_8$$6, "static/", &location, ".static");
 			if (!((zephir_file_exists(&_8$$6 TSRMLS_CC) == SUCCESS))) {
-				ZEPHIR_CALL_METHOD(NULL, &engine, "engine", NULL, 6, &location);
+				ZEPHIR_CALL_SELF(NULL, "engine", &_9, 6, &location);
 				zephir_check_call_status();
 			} else {
-				ZEPHIR_INIT_VAR(&_9$$8);
-				ZEPHIR_CONCAT_SVS(&_9$$8, "static/", &location, ".static");
 				ZEPHIR_INIT_VAR(&_10$$8);
-				ZVAL_STRING(&_10$$8, "text/html");
-				ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &_9$$8, &_10$$8);
+				ZEPHIR_CONCAT_SVS(&_10$$8, "static/", &location, ".static");
+				ZEPHIR_INIT_VAR(&_11$$8);
+				ZVAL_STRING(&_11$$8, "text/html");
+				ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &_10$$8, &_11$$8);
 				zephir_check_call_status();
 			}
 			break;
@@ -133,29 +127,29 @@ PHP_METHOD(Part_Part, main_engine) {
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "html")) {
-			ZEPHIR_INIT_VAR(&_11$$11);
-			ZVAL_STRING(&_11$$11, "text/html");
-			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_11$$11);
+			ZEPHIR_INIT_VAR(&_12$$11);
+			ZVAL_STRING(&_12$$11, "text/html");
+			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_12$$11);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "css")) {
-			ZEPHIR_INIT_VAR(&_12$$12);
-			ZVAL_STRING(&_12$$12, "text/css");
-			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_12$$12);
+			ZEPHIR_INIT_VAR(&_13$$12);
+			ZVAL_STRING(&_13$$12, "text/css");
+			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_13$$12);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "js")) {
-			ZEPHIR_INIT_VAR(&_13$$13);
-			ZVAL_STRING(&_13$$13, "application/javascript");
-			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_13$$13);
+			ZEPHIR_INIT_VAR(&_14$$13);
+			ZVAL_STRING(&_14$$13, "application/javascript");
+			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_14$$13);
 			zephir_check_call_status();
 			break;
 		}
-		ZEPHIR_INIT_VAR(&_14$$14);
-		ZVAL_STRING(&_14$$14, "text/plain");
-		ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_14$$14);
+		ZEPHIR_INIT_VAR(&_15$$14);
+		ZVAL_STRING(&_15$$14, "text/plain");
+		ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_15$$14);
 		zephir_check_call_status();
 	} while(0);
 
@@ -228,7 +222,7 @@ PHP_METHOD(Part_Part, engine) {
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
 	ZEPHIR_INIT_VAR(&_1);
-	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:68" TSRMLS_CC);
+	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:67" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }

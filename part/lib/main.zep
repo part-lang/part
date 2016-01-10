@@ -6,20 +6,18 @@ class Main {
 		 */
 
 		private static function loader(plang) {
-		var library;
-		let library = new Main();
-		let plang = library->os(plang);
-		let plang = library->import(plang);
-		let plang = library->http(plang);
-		let plang = library->server(plang);
-		let plang = library->commands(plang);
-		let plang = library->file(plang);
-		let plang = library->mysql(plang);
-		let plang = library->mysqli(plang);
-		let plang = library->curl(plang);
-		let plang = library->load(plang);
-		let plang = library->session(plang);
-		let plang = library->str_random(plang);
+		let plang = self::os(plang);
+		let plang = self::import(plang);
+		let plang = self::http(plang);
+		let plang = self::server(plang);
+		let plang = self::commands(plang);
+		let plang = self::file(plang);
+		let plang = self::mysql(plang);
+		let plang = self::mysqli(plang);
+		let plang = self::curl(plang);
+		let plang = self::load(plang);
+		let plang = self::session(plang);
+		let plang = self::str_random(plang);
 		return plang;
 		}
 		

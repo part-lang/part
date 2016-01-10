@@ -3,10 +3,9 @@ namespace Part;
 class Part {
 
 	public static function main_engine() {
-        var main, engine, extension, location;
+        var main, extension, location;
         let location = trim($_SERVER["SCRIPT_NAME"], "/");
         let main = new \Part\Page\Main();
-        let engine = new Part();
         if(location == ""){
             if(main->config("config","index") == "none"){
                 let location = "index.p";
@@ -21,7 +20,7 @@ class Part {
         switch (extension) {
             case "p":
             if(!file_exists("static/".location.".static")){
-                engine->engine(location);
+                self::engine(location);
                 }else{
                 main->content("static/".location.".static", "text/html");
             }

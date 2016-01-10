@@ -34,9 +34,9 @@ ZEPHIR_INIT_CLASS(Part_Page_Main) {
  */
 PHP_METHOD(Part_Page_Main, notfound) {
 
-	zephir_fcall_cache_entry *_1 = NULL, *_8 = NULL;
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval *location, location_sub, __$true, main$$3, _0$$3, _2$$3, _3$$3, _4$$3, _5$$3, _6$$4, _7$$4, _9$$5, _10$$5, _11$$5, _12$$5;
+	zephir_fcall_cache_entry *_1 = NULL, *_5 = NULL, *_9 = NULL;
+	zval *location, location_sub, __$true, _0$$3, _2$$3, _3$$3, _4$$3, _6$$3, _7$$4, _8$$4, _10$$5, _11$$5, _12$$5, _13$$5;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -46,18 +46,17 @@ PHP_METHOD(Part_Page_Main, notfound) {
 	
 	ZVAL_UNDEF(&location_sub);
 	ZVAL_BOOL(&__$true, 1);
-	ZVAL_UNDEF(&main$$3);
 	ZVAL_UNDEF(&_0$$3);
 	ZVAL_UNDEF(&_2$$3);
 	ZVAL_UNDEF(&_3$$3);
 	ZVAL_UNDEF(&_4$$3);
-	ZVAL_UNDEF(&_5$$3);
-	ZVAL_UNDEF(&_6$$4);
+	ZVAL_UNDEF(&_6$$3);
 	ZVAL_UNDEF(&_7$$4);
-	ZVAL_UNDEF(&_9$$5);
+	ZVAL_UNDEF(&_8$$4);
 	ZVAL_UNDEF(&_10$$5);
 	ZVAL_UNDEF(&_11$$5);
 	ZVAL_UNDEF(&_12$$5);
+	ZVAL_UNDEF(&_13$$5);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &location);
@@ -65,12 +64,6 @@ PHP_METHOD(Part_Page_Main, notfound) {
 
 
 	if (!((zephir_file_exists(location TSRMLS_CC) == SUCCESS))) {
-		ZEPHIR_INIT_VAR(&main$$3);
-		object_init_ex(&main$$3, part_page_main_ce);
-		if (zephir_has_constructor(&main$$3 TSRMLS_CC)) {
-			ZEPHIR_CALL_METHOD(NULL, &main$$3, "__construct", NULL, 0);
-			zephir_check_call_status();
-		}
 		ZEPHIR_INIT_VAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "HTTP/1.1 404 Not Found");
 		ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 40, &_0$$3);
@@ -93,24 +86,24 @@ PHP_METHOD(Part_Page_Main, notfound) {
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "config");
-		ZVAL_LONG(&_5$$3, 404);
-		ZEPHIR_CALL_METHOD(&_4$$3, &main$$3, "config", NULL, 41, &_0$$3, &_5$$3);
+		ZVAL_LONG(&_6$$3, 404);
+		ZEPHIR_CALL_SELF(&_4$$3, "config", &_5, 41, &_0$$3, &_6$$3);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_STRING(&_4$$3, "none")) {
-			ZEPHIR_INIT_VAR(&_6$$4);
-			ZVAL_STRING(&_6$$4, "/etc/part/page/404.html");
-			ZEPHIR_CALL_FUNCTION(&_7$$4, "file_get_contents", &_8, 19, &_6$$4, &__$true);
+			ZEPHIR_INIT_VAR(&_7$$4);
+			ZVAL_STRING(&_7$$4, "/etc/part/page/404.html");
+			ZEPHIR_CALL_FUNCTION(&_8$$4, "file_get_contents", &_9, 19, &_7$$4, &__$true);
 			zephir_check_call_status();
-			zend_print_zval(&_7$$4, 0);
+			zend_print_zval(&_8$$4, 0);
 		} else {
-			ZEPHIR_INIT_VAR(&_10$$5);
-			ZVAL_STRING(&_10$$5, "config");
-			ZVAL_LONG(&_11$$5, 404);
-			ZEPHIR_CALL_METHOD(&_9$$5, &main$$3, "config", NULL, 41, &_10$$5, &_11$$5);
+			ZEPHIR_INIT_VAR(&_11$$5);
+			ZVAL_STRING(&_11$$5, "config");
+			ZVAL_LONG(&_12$$5, 404);
+			ZEPHIR_CALL_SELF(&_10$$5, "config", &_5, 41, &_11$$5, &_12$$5);
 			zephir_check_call_status();
-			ZEPHIR_CALL_FUNCTION(&_12$$5, "file_get_contents", &_8, 19, &_9$$5, &__$true);
+			ZEPHIR_CALL_FUNCTION(&_13$$5, "file_get_contents", &_9, 19, &_10$$5, &__$true);
 			zephir_check_call_status();
-			zend_print_zval(&_12$$5, 0);
+			zend_print_zval(&_13$$5, 0);
 		}
 		ZEPHIR_MM_RESTORE();
 		zephir_exit_empty();
@@ -124,9 +117,9 @@ PHP_METHOD(Part_Page_Main, notfound) {
  */
 PHP_METHOD(Part_Page_Main, forbidden) {
 
-	zval __$true, main, _0, _2, _3, _4, _5, _6$$3, _7$$3, _9$$4, _10$$4, _11$$4, _12$$4;
-	zephir_fcall_cache_entry *_1 = NULL, *_8 = NULL;
+	zval __$true, _0, _2, _3, _4, _6, _7$$3, _8$$3, _10$$4, _11$$4, _12$$4, _13$$4;
 	int ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_1 = NULL, *_5 = NULL, *_9 = NULL;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -135,27 +128,20 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 	} else this_ptr = NULL;
 	
 	ZVAL_BOOL(&__$true, 1);
-	ZVAL_UNDEF(&main);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
-	ZVAL_UNDEF(&_5);
-	ZVAL_UNDEF(&_6$$3);
+	ZVAL_UNDEF(&_6);
 	ZVAL_UNDEF(&_7$$3);
-	ZVAL_UNDEF(&_9$$4);
+	ZVAL_UNDEF(&_8$$3);
 	ZVAL_UNDEF(&_10$$4);
 	ZVAL_UNDEF(&_11$$4);
 	ZVAL_UNDEF(&_12$$4);
+	ZVAL_UNDEF(&_13$$4);
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_INIT_VAR(&main);
-	object_init_ex(&main, part_page_main_ce);
-	if (zephir_has_constructor(&main TSRMLS_CC)) {
-		ZEPHIR_CALL_METHOD(NULL, &main, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "HTTP/1.1 403 Forbidden");
 	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 40, &_0);
@@ -178,24 +164,24 @@ PHP_METHOD(Part_Page_Main, forbidden) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "config");
-	ZVAL_LONG(&_5, 403);
-	ZEPHIR_CALL_METHOD(&_4, &main, "config", NULL, 41, &_0, &_5);
+	ZVAL_LONG(&_6, 403);
+	ZEPHIR_CALL_SELF(&_4, "config", &_5, 41, &_0, &_6);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_STRING(&_4, "none")) {
-		ZEPHIR_INIT_VAR(&_6$$3);
-		ZVAL_STRING(&_6$$3, "/etc/part/page/403.html");
-		ZEPHIR_CALL_FUNCTION(&_7$$3, "file_get_contents", &_8, 19, &_6$$3, &__$true);
+		ZEPHIR_INIT_VAR(&_7$$3);
+		ZVAL_STRING(&_7$$3, "/etc/part/page/403.html");
+		ZEPHIR_CALL_FUNCTION(&_8$$3, "file_get_contents", &_9, 19, &_7$$3, &__$true);
 		zephir_check_call_status();
-		zend_print_zval(&_7$$3, 0);
+		zend_print_zval(&_8$$3, 0);
 	} else {
-		ZEPHIR_INIT_VAR(&_10$$4);
-		ZVAL_STRING(&_10$$4, "config");
-		ZVAL_LONG(&_11$$4, 403);
-		ZEPHIR_CALL_METHOD(&_9$$4, &main, "config", NULL, 41, &_10$$4, &_11$$4);
+		ZEPHIR_INIT_VAR(&_11$$4);
+		ZVAL_STRING(&_11$$4, "config");
+		ZVAL_LONG(&_12$$4, 403);
+		ZEPHIR_CALL_SELF(&_10$$4, "config", &_5, 41, &_11$$4, &_12$$4);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_12$$4, "file_get_contents", &_8, 19, &_9$$4, &__$true);
+		ZEPHIR_CALL_FUNCTION(&_13$$4, "file_get_contents", &_9, 19, &_10$$4, &__$true);
 		zephir_check_call_status();
-		zend_print_zval(&_12$$4, 0);
+		zend_print_zval(&_13$$4, 0);
 	}
 	ZEPHIR_MM_RESTORE();
 	zephir_exit_empty();
@@ -270,16 +256,16 @@ PHP_METHOD(Part_Page_Main, config) {
 
 
 
-	zephir_array_fetch_string(&_0, &_SERVER, SL("DOCUMENT_ROOT"), PH_NOISY | PH_READONLY, "part/page/main.zep", 56 TSRMLS_CC);
+	zephir_array_fetch_string(&_0, &_SERVER, SL("DOCUMENT_ROOT"), PH_NOISY | PH_READONLY, "part/page/main.zep", 52 TSRMLS_CC);
 	ZEPHIR_INIT_VAR(&location);
 	ZEPHIR_CONCAT_VS(&location, &_0, "/part.ini");
 	if ((zephir_file_exists(&location TSRMLS_CC) == SUCCESS)) {
 		ZEPHIR_CALL_FUNCTION(&setting, "parse_ini_file", NULL, 42, &location, &__$true);
 		zephir_check_call_status();
-		zephir_array_fetch(&_1$$3, &setting, section, PH_READONLY, "part/page/main.zep", 59 TSRMLS_CC);
+		zephir_array_fetch(&_1$$3, &setting, section, PH_READONLY, "part/page/main.zep", 55 TSRMLS_CC);
 		if (zephir_array_isset(&_1$$3, config)) {
-			zephir_array_fetch(&_2$$4, &setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 60 TSRMLS_CC);
-			zephir_array_fetch(&_3$$4, &_2$$4, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 60 TSRMLS_CC);
+			zephir_array_fetch(&_2$$4, &setting, section, PH_NOISY | PH_READONLY, "part/page/main.zep", 56 TSRMLS_CC);
+			zephir_array_fetch(&_3$$4, &_2$$4, config, PH_NOISY | PH_READONLY, "part/page/main.zep", 56 TSRMLS_CC);
 			RETURN_CTOR(_3$$4);
 		} else {
 			RETURN_MM_STRING("none");
