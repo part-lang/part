@@ -34,7 +34,7 @@ Running Part server on port 8080
 
 ```bash
 cd /var/www/
-part -s 8080
+part run 8080
 ```
 
 Edit /etc/nginx/sites-available/default
