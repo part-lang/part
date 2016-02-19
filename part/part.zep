@@ -27,7 +27,6 @@ class Part {
             break;
             
             case "php":
-                main->content("static/".location.".static", "text/html");
                 let phplang = file_get_contents(location, true);
                 eval("?> ".phplang);
             break;
