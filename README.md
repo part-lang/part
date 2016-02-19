@@ -1,5 +1,5 @@
-### Part language
-Sebuah bahasa pemrograman yang difokuskan dalam pengembangan website. Part menggunakan syntax yang simpel, mudah dibaca dan mudah dipelajari.
+### Part
+Sebuah mesin virtual, web server, dan bahasa pemograman. PartVM untuk menjalankan bahasa Part, PHP, Bash untuk web.
 
 ### Examples
 View at https://github.com/part-lang/part/tree/master/examples

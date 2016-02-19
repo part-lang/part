@@ -3,7 +3,7 @@ namespace Part;
 class Part {
 
 	public static function main_engine() {
-        var main, extension, location;
+        var main, extension, location, phplang;
         let location = trim($_SERVER["SCRIPT_NAME"], "/");
         let main = new \Part\Page\Main();
         if(location == ""){
@@ -25,7 +25,13 @@ class Part {
                 main->content("static/".location.".static", "text/html");
             }
             break;
-
+            
+            case "php":
+                main->content("static/".location.".static", "text/html");
+                let phplang = file_get_contents(location, true);
+                eval("?> ".phplang);
+            break;
+            
             case "pp":
             main->forbidden();
             break;
