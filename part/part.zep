@@ -3,7 +3,7 @@ namespace Part;
 class Part {
 
 	public static function main_engine() {
-        var main, extension, location, phplang;
+        var main, extension, location, phplang, bashlang;
         let location = trim($_SERVER["SCRIPT_NAME"], "/");
         let main = new \Part\Page\Main();
         if(location == ""){
@@ -29,6 +29,11 @@ class Part {
             case "php":
                 let phplang = file_get_contents(location, true);
                 eval("?> ".phplang);
+            break;
+            
+            case "sh":
+                let bashlang = file_get_contents(location, true);
+                system(bashlang);
             break;
             
             case "pp":

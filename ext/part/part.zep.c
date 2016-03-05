@@ -31,9 +31,9 @@ ZEPHIR_INIT_CLASS(Part_Part) {
 
 PHP_METHOD(Part_Part, main_engine) {
 
-	zephir_fcall_cache_entry *_9 = NULL;
+	zephir_fcall_cache_entry *_9 = NULL, *_12 = NULL;
 	int ZEPHIR_LAST_CALL_STATUS;
-	zval _SERVER, __$true, main, extension, location, phplang, _0, _1, _7, _2$$3, _3$$3, _4$$3, _5$$5, _6$$5, _8$$6, _10$$8, _11$$8, _12$$9, _13$$9, _14$$12, _15$$13, _16$$14, _17$$15;
+	zval _SERVER, __$true, main, extension, location, phplang, bashlang, _0, _1, _7, _2$$3, _3$$3, _4$$3, _5$$5, _6$$5, _8$$6, _10$$8, _11$$8, _13$$9, _14$$9, _15$$13, _16$$14, _17$$15, _18$$16;
 		zval this_zv;
 	zval *this_ptr = getThis();
 	if (EXPECTED(this_ptr)) {
@@ -47,6 +47,7 @@ PHP_METHOD(Part_Part, main_engine) {
 	ZVAL_UNDEF(&extension);
 	ZVAL_UNDEF(&location);
 	ZVAL_UNDEF(&phplang);
+	ZVAL_UNDEF(&bashlang);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_7);
@@ -58,12 +59,12 @@ PHP_METHOD(Part_Part, main_engine) {
 	ZVAL_UNDEF(&_8$$6);
 	ZVAL_UNDEF(&_10$$8);
 	ZVAL_UNDEF(&_11$$8);
-	ZVAL_UNDEF(&_12$$9);
 	ZVAL_UNDEF(&_13$$9);
-	ZVAL_UNDEF(&_14$$12);
+	ZVAL_UNDEF(&_14$$9);
 	ZVAL_UNDEF(&_15$$13);
 	ZVAL_UNDEF(&_16$$14);
 	ZVAL_UNDEF(&_17$$15);
+	ZVAL_UNDEF(&_18$$16);
 
 	ZEPHIR_MM_GROW();
 	zephir_get_global(&_SERVER, SL("_SERVER"));
@@ -121,48 +122,55 @@ PHP_METHOD(Part_Part, main_engine) {
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "php")) {
-			ZEPHIR_CALL_FUNCTION(&phplang, "file_get_contents", NULL, 19, &location, &__$true);
+			ZEPHIR_CALL_FUNCTION(&phplang, "file_get_contents", &_12, 19, &location, &__$true);
 			zephir_check_call_status();
-			ZEPHIR_INIT_VAR(&_12$$9);
 			ZEPHIR_INIT_VAR(&_13$$9);
-			ZEPHIR_CONCAT_SV(&_13$$9, "?> ", &phplang);
-			zephir_eval_php(&_13$$9, &_12$$9, "/home/ubuntu/workspace/part/part/part.zep:31" TSRMLS_CC);
+			ZEPHIR_INIT_VAR(&_14$$9);
+			ZEPHIR_CONCAT_SV(&_14$$9, "?> ", &phplang);
+			zephir_eval_php(&_14$$9, &_13$$9, "/home/ubuntu/workspace/part/part/part.zep:31" TSRMLS_CC);
+			break;
+		}
+		if (ZEPHIR_IS_STRING(&extension, "sh")) {
+			ZEPHIR_CALL_FUNCTION(&bashlang, "file_get_contents", &_12, 19, &location, &__$true);
+			zephir_check_call_status();
+			ZEPHIR_CALL_FUNCTION(NULL, "system", NULL, 45, &bashlang);
+			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "pp")) {
-			ZEPHIR_CALL_METHOD(NULL, &main, "forbidden", NULL, 45);
+			ZEPHIR_CALL_METHOD(NULL, &main, "forbidden", NULL, 46);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "ini")) {
-			ZEPHIR_CALL_METHOD(NULL, &main, "forbidden", NULL, 45);
+			ZEPHIR_CALL_METHOD(NULL, &main, "forbidden", NULL, 46);
 			zephir_check_call_status();
 			break;
 		}
 		if (ZEPHIR_IS_STRING(&extension, "html")) {
-			ZEPHIR_INIT_VAR(&_14$$12);
-			ZVAL_STRING(&_14$$12, "text/html");
-			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_14$$12);
-			zephir_check_call_status();
-			break;
-		}
-		if (ZEPHIR_IS_STRING(&extension, "css")) {
 			ZEPHIR_INIT_VAR(&_15$$13);
-			ZVAL_STRING(&_15$$13, "text/css");
+			ZVAL_STRING(&_15$$13, "text/html");
 			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_15$$13);
 			zephir_check_call_status();
 			break;
 		}
-		if (ZEPHIR_IS_STRING(&extension, "js")) {
+		if (ZEPHIR_IS_STRING(&extension, "css")) {
 			ZEPHIR_INIT_VAR(&_16$$14);
-			ZVAL_STRING(&_16$$14, "application/javascript");
+			ZVAL_STRING(&_16$$14, "text/css");
 			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_16$$14);
 			zephir_check_call_status();
 			break;
 		}
-		ZEPHIR_INIT_VAR(&_17$$15);
-		ZVAL_STRING(&_17$$15, "text/plain");
-		ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_17$$15);
+		if (ZEPHIR_IS_STRING(&extension, "js")) {
+			ZEPHIR_INIT_VAR(&_17$$15);
+			ZVAL_STRING(&_17$$15, "application/javascript");
+			ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_17$$15);
+			zephir_check_call_status();
+			break;
+		}
+		ZEPHIR_INIT_VAR(&_18$$16);
+		ZVAL_STRING(&_18$$16, "text/plain");
+		ZEPHIR_CALL_METHOD(NULL, &main, "content", NULL, 44, &location, &_18$$16);
 		zephir_check_call_status();
 	} while(0);
 
@@ -222,20 +230,20 @@ PHP_METHOD(Part_Part, engine) {
 	}
 	ZEPHIR_CALL_FUNCTION(&plang, "file_get_contents", NULL, 19, location, &__$true);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_0, &library, "loader", NULL, 46, &plang);
+	ZEPHIR_CALL_METHOD(&_0, &library, "loader", NULL, 47, &plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &text, "loader", NULL, 47, &plang);
+	ZEPHIR_CALL_METHOD(&_0, &text, "loader", NULL, 48, &plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &functions, "loader", NULL, 48, &plang);
+	ZEPHIR_CALL_METHOD(&_0, &functions, "loader", NULL, 49, &plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
-	ZEPHIR_CALL_METHOD(&_0, &statement, "loader", NULL, 49, &plang);
+	ZEPHIR_CALL_METHOD(&_0, &statement, "loader", NULL, 50, &plang);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&plang, &_0);
 	ZEPHIR_INIT_VAR(&_1);
-	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:72" TSRMLS_CC);
+	zephir_eval_php(&plang, &_1, "/home/ubuntu/workspace/part/part/part.zep:77" TSRMLS_CC);
 	ZEPHIR_MM_RESTORE();
 
 }
